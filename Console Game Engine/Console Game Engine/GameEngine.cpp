@@ -60,6 +60,9 @@ bool Engine::Aoi2DEngine::Render()
 					Return = false;
 				}
 			}
+			if (!graphic->Render()) {
+
+			}
 		}
 		Frames++;
 	}
@@ -67,7 +70,6 @@ bool Engine::Aoi2DEngine::Render()
 }
 
 void Engine::Aoi2DEngine::Shutdown()
-
 {
 	free(keyboard);
 	keyboard = 0;
@@ -103,6 +105,10 @@ void Engine::Aoi2DEngine::Initialize(bool _cursor)
 
 	keyboard = new LibInput::Keyboard();
 	mouse = new LibInput::Mouse();
-	graphic = new _2D::_2DGraphics();
+	graphic = new _2D::Graphics2D();
+	
+	keyboard->Initialize();
+	mouse->Initialize();
+	graphic->Initialize(Size.X, Size.Y);
 
 }

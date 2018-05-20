@@ -18,7 +18,7 @@ namespace Engine {
 		
 		LibInput::Keyboard* keyboard;
 		LibInput::Mouse* mouse;
-		_2D::_2DGraphics* graphic;
+		_2D::Graphics2D* graphic;
 
 		DWORD mode;
 

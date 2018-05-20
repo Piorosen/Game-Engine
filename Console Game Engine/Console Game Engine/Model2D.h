@@ -1,6 +1,7 @@
 #pragma once
 class Model2D
 {
+private:
 
 
 public:

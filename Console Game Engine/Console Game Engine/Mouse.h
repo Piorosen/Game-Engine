@@ -37,7 +37,7 @@ namespace Engine {
 
 
 		public:
-			Mouse() {
+			void Initialize() {
 				pt = Draw::Point(-10, -10);
 			}
 

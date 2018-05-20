@@ -48,15 +48,13 @@ namespace Engine{
 
 		class Graphic_Pixel {
 		private:
-			Draw::Point pt;
 			Draw::Color color;
 			TCHAR text;
 
 		public:
 			virtual ~Graphic_Pixel() {}
 
-			void SetPixel(Point p, Color c) {
-				pt = p;
+			void SetPixel(Color c, TCHAR ch) {
 				color = c;
 			}
 			bool operator==(Graphic_Pixel) const {}

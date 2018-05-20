@@ -8,14 +8,15 @@
 
 namespace Engine {
 	namespace _2D{
-		class _2DGraphics
+		class Graphics2D
 		{
 			 
 
 
 		private:
 			Draw::Size size;
-			Draw::Graphic_Pixel** pixel;
+			// [Y][X]
+			static Draw::Graphic_Pixel** pixel;
 
 
 
@@ -24,7 +25,13 @@ namespace Engine {
 			
 
 		public:
-			_2DGraphics();
+			inline void SetPixel(Draw::Point pt, Draw::Color c, TCHAR ch) {
+				pixel[pt.Y][pt.X].SetPixel(c, ch);
+			}
+
+
+
+			Graphics2D();
 
 			void Initialize(int, int);
 			void Shutdown();
@@ -36,7 +43,7 @@ namespace Engine {
 
 
 
-			void Render();
+			bool Render();
 
 		};
 	}

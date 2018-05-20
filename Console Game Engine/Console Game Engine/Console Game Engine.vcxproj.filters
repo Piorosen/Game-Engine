@@ -22,14 +22,17 @@
     <Filter Include="Game Engine\2DGraphics">
       <UniqueIdentifier>{8687880b-4356-4f87-9a43-54fc5dae1253}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game Engine\2DGraphics\Model">
-      <UniqueIdentifier>{387707d3-39d4-42af-94b2-9c26e491f05a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game Engine\InputLibrary">
       <UniqueIdentifier>{00304045-12f0-44ca-acca-e7d33bfcdcf4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game Engine\Library">
       <UniqueIdentifier>{ed64f4f6-bac0-4f4b-a4de-3c23b2835c31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Engine\2DGraphics\Abstract%28Model%29">
+      <UniqueIdentifier>{387707d3-39d4-42af-94b2-9c26e491f05a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Engine\2DGraphics\Abstract%28Model%29\Obejct%28Model%29">
+      <UniqueIdentifier>{b9389242-49c4-4f49-904b-00937732f75f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -43,7 +46,7 @@
       <Filter>Game Engine\2DGraphics</Filter>
     </ClCompile>
     <ClCompile Include="Model2D.cpp">
-      <Filter>Game Engine\2DGraphics\Model</Filter>
+      <Filter>Game Engine\2DGraphics\Abstract%28Model%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,7 +57,7 @@
       <Filter>Game Engine\2DGraphics</Filter>
     </ClInclude>
     <ClInclude Include="Model2D.h">
-      <Filter>Game Engine\2DGraphics\Model</Filter>
+      <Filter>Game Engine\2DGraphics\Abstract%28Model%29</Filter>
     </ClInclude>
     <ClInclude Include="Keyboard.h">
       <Filter>Game Engine\InputLibrary</Filter>

@@ -7,7 +7,7 @@ namespace Engine {
 			bool Key[256] = { 0, };
 
 		public:
-			Keyboard() {
+			void Initialize() {
 				for (int i = 0; i < sizeof(Key) / sizeof(bool); i++) {
 					Key[i] = false;
 				}

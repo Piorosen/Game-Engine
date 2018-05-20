@@ -1,4 +1,6 @@
 #include "Graphics2D.h"
+#include <iostream>
+
 
 Engine::_2D::Graphics2D::Graphics2D()
 {
@@ -8,11 +10,20 @@ void Engine::_2D::Graphics2D::Initialize(int Width, int Height)
 {
 	size.X = Width;
 	size.Y = Height;
-	*pixel = new Draw::Graphic_Pixel[size.Y];
+	pixel = new Draw::Graphic_Pixel*[size.Y];
+	Drawed_pixel = new Draw::Graphic_Pixel*[size.Y];
+
 	for (int i = 0; i < size.Y; i++) {
 		pixel[i] = new Draw::Graphic_Pixel[size.X];
+		Drawed_pixel[i] = new Draw::Graphic_Pixel[size.X];
 	}
 
+	for (int y = 0; y < Height; y++) {
+		for (int x = 0; x < Width; x++) {
+			pixel[y][x].SetPixel(Draw::Color(-1, -1), " ");
+			Drawed_pixel[y][x].SetPixel(Draw::Color(-1, -1), " ");
+		}
+	}
 }
 
 void Engine::_2D::Graphics2D::Shutdown()
@@ -21,6 +32,11 @@ void Engine::_2D::Graphics2D::Shutdown()
 		delete[] pixel[i];
 	}
 	delete[] pixel;
+
+	for (int i = 0; i < size.Y; i++) {
+		delete[] Drawed_pixel[i];
+	}
+	delete[] Drawed_pixel;
 }
 
 void Engine::_2D::Graphics2D::gotoxy(int x, int y)
@@ -47,4 +63,16 @@ void Engine::_2D::Graphics2D::SetColor(Draw::Color color)
 
 bool Engine::_2D::Graphics2D::Render()
 {
+	for (int y = 0; y < size.Y; y++) {
+		for (int x = 0; x < size.X; x++) {
+			if (pixel[y][x].Draw && !(pixel[y][x] == Drawed_pixel[y][x])) {
+				gotoxy(x, y);
+				SetColor(pixel[y][x].GetColor());
+				std::cout << pixel[y][x].GetText();
+				pixel[y][x].Draw = false;
+				Drawed_pixel[y][x] = pixel[y][x];
+			}
+		}
+	}
+	return true;
 }

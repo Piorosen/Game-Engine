@@ -11,11 +11,11 @@ bool Engine::Aoi2DEngine::Frame()
 		case KEY_EVENT:
 			if (input.Event.KeyEvent.bKeyDown) {
 				keyboard->KeyDown(input.Event.KeyEvent.wVirtualKeyCode);
-				printf("키보드 입력 : %d : Down\n", input.Event.KeyEvent.wVirtualKeyCode);
+			//	printf("키보드 입력 : %d : Down\n", input.Event.KeyEvent.wVirtualKeyCode);
 			}
 			else {
 				keyboard->KeyUp(input.Event.KeyEvent.wVirtualKeyCode);
-				printf("키보드 입력 : %d : Up\n", input.Event.KeyEvent.wVirtualKeyCode);
+		//		printf("키보드 입력 : %d : Up\n", input.Event.KeyEvent.wVirtualKeyCode);
 			}
 			break;
 		case MOUSE_EVENT:
@@ -31,12 +31,12 @@ bool Engine::Aoi2DEngine::Frame()
 			if (GetKeyState(VK_LBUTTON) < 0 && Click == 0) {
 				mouse->SetMousePosition(pos);
 				Click = 1;
-				printf("마우스 입력 : Down\n");
+		//		printf("마우스 입력 : Down\n");
 			} // UP
 			else if (GetKeyState(VK_LBUTTON) >= 0 && Click == 1) {
 				mouse->SetMousePosition(-10, -10);
 				Click = 0;
-				printf("마우스 입력 : Up\n");
+			//	printf("마우스 입력 : Up\n");
 			}
 			break;
 		}
@@ -61,7 +61,7 @@ bool Engine::Aoi2DEngine::Render()
 				}
 			}
 			if (!graphic->Render()) {
-
+				Return = false;
 			}
 		}
 		Frames++;

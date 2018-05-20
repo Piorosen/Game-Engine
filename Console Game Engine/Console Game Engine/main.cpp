@@ -8,7 +8,17 @@
 
 #include "GameEngine.h"
 #include "Color.h"
-bool rendering(Engine::Aoi2DEngine* engine, void** data) {
+
+using namespace Engine;
+
+
+bool rendering(Aoi2DEngine* engine, void** data) {
+	
+	if (engine->IsClickedtMouse()) {
+		engine->GetGraphic2D()->SetPixel(engine->GetClickMousePosition(),
+			Draw::Color(Draw::ColorList().White, Draw::ColorList().Black),
+			" ");
+	}
 	if (engine->IsClickedKeyboard(VK_ESCAPE)) {
 		return false;
 	}
@@ -17,7 +27,7 @@ bool rendering(Engine::Aoi2DEngine* engine, void** data) {
 
 int main()
 {
-	Engine::Aoi2DEngine* engine = new Engine::Aoi2DEngine(50, 25, L"완2성3이당!");
+	Engine::Aoi2DEngine* engine = new Engine::Aoi2DEngine(50, 25, "완2성3이당!");
 
 	engine->Initialize();
 	engine->render = rendering;

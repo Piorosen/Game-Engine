@@ -21,5 +21,27 @@ namespace Engine {
 			const char WhiteYellow = 0xE;
 			const char WhiteWhite = 0xF;
 		};
+
+		class Color {
+		public:
+			char BackColor = 0;
+			char TextColor = 0;
+			Color() {
+				BackColor = 0;
+				TextColor = 0;
+			}
+			Color(int _X, int _Y) {
+				BackColor = _X;
+				TextColor = _Y;
+			}
+
+			bool operator==(const Color& c) const {
+				if (BackColor == c.BackColor && TextColor == c.TextColor) {
+					return true;
+				}return false;
+			}
+		};
+
 	}
 }
+

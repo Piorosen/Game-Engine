@@ -4,7 +4,7 @@
 #include <string>
 #include <ctime>
 
-#include "Draw.h"
+#include "DrawLibrary.h"
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics2D.h"
@@ -14,7 +14,7 @@ namespace Engine {
 	class Aoi2DEngine {
 	private:
 		Draw::Point Size;
-		std::wstring Title;
+		std::string Title;
 		
 		LibInput::Keyboard* keyboard;
 		LibInput::Mouse* mouse;
@@ -40,6 +40,7 @@ namespace Engine {
 			ReadConsoleInput(CIN, &input_record, 1, &input_count);
 			return input_record;
 		}
+		
 		bool Frame();
 
 
@@ -48,22 +49,31 @@ namespace Engine {
 		bool(*render)(Aoi2DEngine* engine, void** data) = nullptr;
 		void** render_data = nullptr;
 
-		Aoi2DEngine(int _x, int _y, std::wstring title) 
+		Aoi2DEngine(int _x, int _y, std::string title) 
 		{
 			Size.X = _x; Size.Y = _y; Title = title;
 			keyboard = new LibInput::Keyboard();
 		}
 
+
 		bool IsClickedKeyboard(unsigned short ch) const
 		{
 			return keyboard->IsKeyDown(ch);
 		}
+		
 		bool IsClickedtMouse() const
 		{
 			return mouse->IsClicked();
 		}
-
 		
+		Draw::Point GetClickMousePosition() {
+			return mouse->GetMousePosition();
+		}
+
+
+		inline _2D::Graphics2D* GetGraphic2D() {
+			return graphic;
+		}
 
 		bool Render();
 		void Shutdown();

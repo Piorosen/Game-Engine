@@ -48,6 +48,15 @@
     <ClCompile Include="Model2D.cpp">
       <Filter>Game Engine\2DGraphics\Abstract%28Model%29</Filter>
     </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>Game Engine\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>Game Engine\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphic_Pixel.cpp">
+      <Filter>Game Engine\Library</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngine.h">
@@ -65,10 +74,16 @@
     <ClInclude Include="Mouse.h">
       <Filter>Game Engine\InputLibrary</Filter>
     </ClInclude>
-    <ClInclude Include="Draw.h">
+    <ClInclude Include="Color.h">
       <Filter>Game Engine\Library</Filter>
     </ClInclude>
-    <ClInclude Include="Color.h">
+    <ClInclude Include="Point.h">
+      <Filter>Game Engine\Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphic_Pixel.h">
+      <Filter>Game Engine\Library</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawLibrary.h">
       <Filter>Game Engine\Library</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,7 +1,7 @@
 #pragma once
 #include <Windows.h>
 
-#include "Draw.h"
+#include "DrawLibrary.h"
 #include "Color.h"
 
 
@@ -10,25 +10,21 @@ namespace Engine {
 	namespace _2D{
 		class Graphics2D
 		{
-			 
-
-
 		private:
 			Draw::Size size;
 			// [Y][X]
-			static Draw::Graphic_Pixel** pixel;
+			Draw::Graphic_Pixel** pixel;
+			Draw::Graphic_Pixel** Drawed_pixel;
 
 
-
-			void Frame();
-
-			
 
 		public:
-			inline void SetPixel(Draw::Point pt, Draw::Color c, TCHAR ch) {
+			inline void SetPixel(Draw::Point pt, Draw::Color c, std::string ch) {
 				pixel[pt.Y][pt.X].SetPixel(c, ch);
 			}
-
+			inline void SetPixel(int X, int Y, Draw::Color c, std::string ch) {
+				pixel[Y][X].SetPixel(c, ch);
+			}
 
 
 			Graphics2D();

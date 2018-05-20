@@ -1,0 +1,16 @@
+
+
+namespace: Engine
+	class: AoiEngine
+		Point Size
+		HWND handle
+		HDC hdc
+
+		Initialize();
+		Shutdown();
+		
+
+	namespace: Draw
+		Point
+			int X
+			int Y	

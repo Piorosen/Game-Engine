@@ -13,8 +13,23 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Library">
+    <Filter Include="Document">
+      <UniqueIdentifier>{4fd1109e-569e-44bb-857a-9ede7adefc3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Engine">
       <UniqueIdentifier>{f1b54804-b76c-443f-812f-10ac12c40cc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Engine\2DGraphics">
+      <UniqueIdentifier>{8687880b-4356-4f87-9a43-54fc5dae1253}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Engine\2DGraphics\Model">
+      <UniqueIdentifier>{387707d3-39d4-42af-94b2-9c26e491f05a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Engine\InputLibrary">
+      <UniqueIdentifier>{00304045-12f0-44ca-acca-e7d33bfcdcf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Engine\Library">
+      <UniqueIdentifier>{ed64f4f6-bac0-4f4b-a4de-3c23b2835c31}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -22,39 +37,41 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="GameEngine.cpp">
-      <Filter>Library</Filter>
+      <Filter>Game Engine</Filter>
     </ClCompile>
     <ClCompile Include="Graphics2D.cpp">
-      <Filter>Library</Filter>
+      <Filter>Game Engine\2DGraphics</Filter>
     </ClCompile>
     <ClCompile Include="Model2D.cpp">
-      <Filter>Library</Filter>
+      <Filter>Game Engine\2DGraphics\Model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Color.h">
-      <Filter>Library</Filter>
-    </ClInclude>
-    <ClInclude Include="Draw.h">
-      <Filter>Library</Filter>
-    </ClInclude>
     <ClInclude Include="GameEngine.h">
-      <Filter>Library</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphic_Pixel.h">
-      <Filter>Library</Filter>
+      <Filter>Game Engine</Filter>
     </ClInclude>
     <ClInclude Include="Graphics2D.h">
-      <Filter>Library</Filter>
-    </ClInclude>
-    <ClInclude Include="Keyboard.h">
-      <Filter>Library</Filter>
+      <Filter>Game Engine\2DGraphics</Filter>
     </ClInclude>
     <ClInclude Include="Model2D.h">
-      <Filter>Library</Filter>
+      <Filter>Game Engine\2DGraphics\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>Game Engine\InputLibrary</Filter>
     </ClInclude>
     <ClInclude Include="Mouse.h">
-      <Filter>Library</Filter>
+      <Filter>Game Engine\InputLibrary</Filter>
     </ClInclude>
+    <ClInclude Include="Draw.h">
+      <Filter>Game Engine\Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Game Engine\Library</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="개발자 문서.txt">
+      <Filter>Document</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -34,7 +34,7 @@ bool Engine::Aoi2DEngine::Frame()
 				printf("마우스 입력 : Down\n");
 			} // UP
 			else if (GetKeyState(VK_LBUTTON) >= 0 && Click == 1) {
-				mouse->SetMousePosition({ -10,-10 });
+				mouse->SetMousePosition(-10, -10);
 				Click = 0;
 				printf("마우스 입력 : Up\n");
 			}

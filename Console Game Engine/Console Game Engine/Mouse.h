@@ -54,6 +54,10 @@ namespace Engine {
 			void SetMousePosition(Draw::Point _pt) {
 				pt = _pt;
 			}
+			void SetMousePosition(int x, int y) {
+				pt.X = x;
+				pt.Y = y;
+			}
 		};
 	}
 }

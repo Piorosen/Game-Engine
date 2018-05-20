@@ -37,7 +37,7 @@ namespace Engine{
 				X = pt.X;
 				Y = pt.Y;
 			}
-			bool operator=(Point& pt) {
+			bool operator==(Point& pt) {
 				if (X == pt.X && Y == pt.Y) {
 					return true;
 				}return false;

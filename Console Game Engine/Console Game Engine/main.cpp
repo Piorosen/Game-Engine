@@ -13,25 +13,30 @@ using namespace Engine;
 
 
 bool rendering(Aoi2DEngine* engine, void** data) {
-	
-	if (engine->IsClickedtMouse()) {
-		engine->GetGraphic2D()->SetPixel(engine->GetClickMousePosition(),
+	static int i = 0; i++;
+	auto graphic = engine->GetGraphic2D();
+	if (engine->IsClickedMouse()) {
+		graphic->SetPixel(engine->GetMousePosition(),
 			Draw::Color(Draw::ColorList().White, Draw::ColorList().Black),
 			" ");
 	}
-	if (engine->IsClickedKeyboard(VK_ESCAPE)) {
+	if (i >300) {
+		graphic->ScreenClear();
+		i = 0;
+
+	}
+	if (engine->IsClickedKeyboard(VK_DOWN)) {
 		return false;
 	}
 	return true;
 }
-
 int main()
 {
 	Engine::Aoi2DEngine* engine = new Engine::Aoi2DEngine(50, 25, "완2성3이당!");
 
-	engine->Initialize();
+	engine->Initialize(false);
 	engine->render = rendering;
-	engine->FPS = 144.0;
+	engine->FPS = 60.0;
 	engine->render_data = (void**)engine;
 
 	engine->Render();

@@ -25,8 +25,8 @@ namespace Engine {
 				}
 			}
 
-			inline Color GetColor() { return color; }
-			inline std::string GetText() { return text; }
+			inline Color GetColor() const { return color; }
+			inline std::string GetText() const { return text; }
 
 			bool operator==(const Graphic_Pixel& g) const;
 

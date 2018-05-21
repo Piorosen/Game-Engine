@@ -34,7 +34,7 @@ namespace Engine {
 			*/
 
 			Draw::Point pt;
-
+			Draw::Point MousePoint;
 
 		public:
 			void Initialize() {
@@ -47,14 +47,22 @@ namespace Engine {
 				return true;
 			}
 
-			Draw::Point GetMousePosition(){
+			Draw::Point GetClickMousePosition(){
 				return pt;
 			}
 
-			void SetMousePosition(Draw::Point _pt) {
+			Draw::Point GetMousePosition(){
+				return MousePoint;
+			}
+
+			void SetMousePostion(Draw::Point _pt) {
+				MousePoint = _pt;
+			}
+
+			void SetClickMousePosition(Draw::Point _pt) {
 				pt = _pt;
 			}
-			void SetMousePosition(int x, int y) {
+			void SetClickMousePosition(int x, int y) {
 				pt.X = x;
 				pt.Y = y;
 			}

@@ -68,7 +68,7 @@ bool Engine::_2D::Graphics2D::Render()
 			if (pixel[y][x].Draw && !(pixel[y][x] == Drawed_pixel[y][x])) {
 				gotoxy(x, y);
 				SetColor(pixel[y][x].GetColor());
-				std::cout << pixel[y][x].GetText();
+				printf(pixel[y][x].GetText().c_str());
 				pixel[y][x].Draw = false;
 				Drawed_pixel[y][x] = pixel[y][x];
 			}

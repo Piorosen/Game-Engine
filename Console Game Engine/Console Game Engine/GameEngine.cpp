@@ -29,15 +29,16 @@ bool Engine::Aoi2DEngine::Frame()
 
 			// Down
 			if (GetKeyState(VK_LBUTTON) < 0 && Click == 0) {
-				mouse->SetMousePosition(pos);
+				mouse->SetClickMousePosition(pos);
 				Click = 1;
 		//		printf("마우스 입력 : Down\n");
 			} // UP
 			else if (GetKeyState(VK_LBUTTON) >= 0 && Click == 1) {
-				mouse->SetMousePosition(-10, -10);
+				mouse->SetClickMousePosition(-10, -10);
 				Click = 0;
 			//	printf("마우스 입력 : Up\n");
 			}
+			mouse->SetMousePostion(pos);
 			break;
 		}
 	}
@@ -55,15 +56,16 @@ bool Engine::Aoi2DEngine::Render()
 			if (!Frame()) {
 				Return = false;
 			}
-			if (render != nullptr) {
-				if (!render(this, render_data)) {
-					Return = false;
-				}
-			}
-			if (!graphic->Render()) {
+		}
+		if (render != nullptr) {
+			if (!render(this, render_data)) {
 				Return = false;
 			}
 		}
+		if (!graphic->Render()) {
+			Return = false;
+		}
+
 		Frames++;
 	}
 	return true;
@@ -81,6 +83,10 @@ void Engine::Aoi2DEngine::Shutdown()
 
 void Engine::Aoi2DEngine::Initialize(bool _cursor)
 {
+	// 핸들을 가져옵니다.
+	CIN = GetStdHandle(STD_INPUT_HANDLE);
+	COUT = GetStdHandle(STD_OUTPUT_HANDLE);
+
 	render = nullptr;
 
 	// 창 크기를 바꿉니다.
@@ -88,16 +94,17 @@ void Engine::Aoi2DEngine::Initialize(bool _cursor)
 	system(str);
 
 	// 커서의 존재 유무
-	CONSOLE_CURSOR_INFO cursorinfo;
+
+	CONSOLE_CURSOR_INFO cursorinfo = { 0. };
+	cursorinfo.dwSize = 1;
 	cursorinfo.bVisible = _cursor;
-	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorinfo);
+	SetConsoleCursorInfo(COUT, &cursorinfo);
 
 	// 콘솔창의 제목을 바꿉니다.
 	SetConsoleTitle(Title.c_str());
 
-	// 핸들을 가져옵니다.
-	CIN = GetStdHandle(STD_INPUT_HANDLE);
-	COUT = GetStdHandle(STD_OUTPUT_HANDLE);
+	
+	
 
 	// 마우스 활성화
 	GetConsoleMode(CIN, &mode);

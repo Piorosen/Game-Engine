@@ -61,17 +61,20 @@ namespace Engine {
 			return keyboard->IsKeyDown(ch);
 		}
 		
-		bool IsClickedtMouse() const
+		bool IsClickedMouse() const
 		{
 			return mouse->IsClicked();
 		}
 		
-		Draw::Point GetClickMousePosition() {
+		Draw::Point GetMousePosition() const {
 			return mouse->GetMousePosition();
 		}
 
+		Draw::Point GetClickMousePosition() const {
+			return mouse->GetClickMousePosition();
+		}
 
-		inline _2D::Graphics2D* GetGraphic2D() {
+		inline _2D::Graphics2D* GetGraphic2D() const {
 			return graphic;
 		}
 

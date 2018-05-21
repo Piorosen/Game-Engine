@@ -4,13 +4,19 @@
 
 namespace Engine {
 	namespace _2D {
-		class Rect : public Model2D
-		{
-		public:
-			Rect();
-			virtual ~Rect();
+		namespace Model2D {
+			class Rect : public Model2D
+			{
+			public:
+				Rect(Draw::Point _Location, Draw::Size _Size)
+				{
+					Location = _Location;
+					Size = _Size;
+				}
 
+				
 
-		};
+			};
+		}
 	}
 }

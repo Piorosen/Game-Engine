@@ -7,6 +7,7 @@
 #include <string>
 
 #include "GameEngine.h"
+#include "Rect.h"
 
 using namespace Engine;
 
@@ -14,6 +15,7 @@ using namespace Engine;
 bool rendering(Aoi2DEngine* engine, void** data) {
 	static int i = 0;
 	i++;
+
 	static Draw::Point pt = Draw::Point(20, 10);
 	auto graphic = engine->GetGraphic2D();
 	

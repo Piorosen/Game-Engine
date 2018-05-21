@@ -9,12 +9,13 @@ namespace Engine {
 			
 
 		public:
+			Draw::Point Location;
+			Draw::Size Size;
+
 			Model2D();
 			virtual ~Model2D();
 
 		protected:
-			Draw::Point Location;
-			Draw::Size Size;
 
 		
 		};

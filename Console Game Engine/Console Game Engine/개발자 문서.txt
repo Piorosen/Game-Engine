@@ -8,6 +8,17 @@ namespace: Engine
 		Point GetMousePosition() const
 		Point GetClickmousePosition() const
 		Graphics2D GetGraphic2D() const
+	
+	namespace: _2D
+		class: Graphics2D
+			SetPixel(Point, Color, std::string)
+			SetPixel(int, int, Color, std::string)
+			gotoxy(int, int)
+			gotoxy(Point)
+			SetColor(char, char)
+			SetColor(Color)
+			ScreenClear()
+
 
 	namespace: Draw
 		Point
@@ -37,6 +48,6 @@ namespace: Engine
 			char WhiteWhite 
 
 		Graphic_Pixel
-			SetPixel(Color, std::string)
+			SetPixel(Color, char)
 			Color GetColor() const
-			string GetText() const
+			char GetText() const

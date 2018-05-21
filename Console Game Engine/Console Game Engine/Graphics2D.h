@@ -19,10 +19,14 @@ namespace Engine {
 			
 		public:
 			inline void SetPixel(Draw::Point pt, Draw::Color c, std::string ch) {
-				pixel[pt.Y][pt.X].SetPixel(c, ch);
+				for (size_t i = 0; i < ch.length(); i++) {
+					pixel[pt.Y][pt.X + i].SetPixel(c, ch[i]);
+				}
 			}
 			inline void SetPixel(int X, int Y, Draw::Color c, std::string ch) {
-				pixel[Y][X].SetPixel(c, ch);
+				for (size_t i = 0; i < ch.length(); i++) {
+					pixel[Y][X + i].SetPixel(c, ch[i]);
+				}
 			}
 			Graphics2D();
 
@@ -36,10 +40,12 @@ namespace Engine {
 			void SetColor(Draw::Color color);
 
 			void ScreenClear() {
+				auto chk = Draw::Color(Draw::ColorList::Black, Draw::ColorList::Black);
 				SetColor(0, 0);
 				for (int y = 0; y < size.Y; y++) {
 					for (int x = 0; x < size.X; x++) {
-						pixel[y][x].SetPixel(Draw::Color(Draw::ColorList::Black, Draw::ColorList::Black), " ");
+						if (pixel[y][x].GetColor() != chk)
+							pixel[y][x].SetPixel(Draw::Color(Draw::ColorList::Black, Draw::ColorList::Black), ' ');
 					}
 				}
 			}

@@ -8,11 +8,11 @@ namespace Engine {
 		private:
 
 			Draw::Color color;
-			std::string text;
+			char text;
 
 		public:
 			bool Draw = false;
-			inline void SetPixel(Color c, std::string ch) {
+			inline void SetPixel(Color c, char ch) {
 				if (c.BackColor == -1 && c.TextColor == -1) {
 					text = ch;
 					color = c;
@@ -26,7 +26,7 @@ namespace Engine {
 			}
 
 			inline Color GetColor() const { return color; }
-			inline std::string GetText() const { return text; }
+			inline char GetText() const { return text; }
 
 			bool operator==(const Graphic_Pixel& g) const;
 			bool operator!=(const Graphic_Pixel& g) const;

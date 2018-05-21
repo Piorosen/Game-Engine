@@ -40,6 +40,12 @@ namespace Engine {
 					return true;
 				}return false;
 			}
+			bool operator!=(const Color& c) const {
+				if (BackColor == c.BackColor && TextColor == c.TextColor) {
+					return false;
+				}return true;
+			}
+
 		};
 
 	}

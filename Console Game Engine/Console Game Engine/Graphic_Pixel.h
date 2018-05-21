@@ -29,7 +29,7 @@ namespace Engine {
 			inline std::string GetText() const { return text; }
 
 			bool operator==(const Graphic_Pixel& g) const;
-
+			bool operator!=(const Graphic_Pixel& g) const;
 
 		protected:
 

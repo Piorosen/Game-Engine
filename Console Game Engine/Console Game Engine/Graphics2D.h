@@ -37,7 +37,11 @@ namespace Engine {
 
 			void ScreenClear() {
 				SetColor(0, 0);
-				system("cls");
+				for (int y = 0; y < size.Y; y++) {
+					for (int x = 0; x < size.X; x++) {
+						pixel[y][x].SetPixel(Draw::Color(Draw::ColorList::Black, Draw::ColorList::Black), " ");
+					}
+				}
 			}
 
 			bool Render();

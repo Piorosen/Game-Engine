@@ -65,13 +65,12 @@ bool Engine::_2D::Graphics2D::Render()
 {
 	for (int y = 0; y < size.Y; y++) {
 		for (int x = 0; x < size.X; x++) {
-			if (pixel[y][x].Draw && !(pixel[y][x] == Drawed_pixel[y][x])) {
+			if (pixel[y][x].Draw && pixel[y][x] != Drawed_pixel[y][x]) {
 				gotoxy(x, y);
 				SetColor(pixel[y][x].GetColor());
 				printf(pixel[y][x].GetText().c_str());
-				pixel[y][x].Draw = false;
 				Drawed_pixel[y][x] = pixel[y][x];
-			}
+			}pixel[y][x].Draw = false;
 		}
 	}
 	return true;

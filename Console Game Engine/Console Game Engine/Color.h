@@ -2,7 +2,7 @@
 
 namespace Engine {
 	namespace Draw {
-		static class ColorList {
+		class ColorList {
 		public:
 			static const char Black = 0x0;
 			static const char Blue = 0x1;

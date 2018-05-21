@@ -31,7 +31,7 @@ int main()
 
 	engine->Initialize(false);
 	engine->render = rendering;
-	engine->FPS = 60.0;
+	engine->FPS = 0.0;
 	engine->render_data = (void**)engine;
 
 	engine->Render();

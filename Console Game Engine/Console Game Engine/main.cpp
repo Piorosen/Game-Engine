@@ -17,13 +17,8 @@ bool rendering(Aoi2DEngine* engine, void** data) {
 	auto graphic = engine->GetGraphic2D();
 	if (engine->IsClickedMouse()) {
 		graphic->SetPixel(engine->GetMousePosition(),
-			Draw::Color(Draw::ColorList().White, Draw::ColorList().Black),
+			Draw::Color(Draw::ColorList::White, Draw::ColorList::Black),
 			" ");
-	}
-	if (i >300) {
-		graphic->ScreenClear();
-		i = 0;
-
 	}
 	if (engine->IsClickedKeyboard(VK_DOWN)) {
 		return false;

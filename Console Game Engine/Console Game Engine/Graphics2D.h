@@ -44,7 +44,7 @@ namespace Engine {
 				SetColor(0, 0);
 				for (int y = 0; y < size.Y; y++) {
 					for (int x = 0; x < size.X; x++) {
-						if (pixel[y][x].GetColor() != chk)
+						if (pixel[y][x].GetColor() == chk)
 							pixel[y][x].SetPixel(Draw::Color(Draw::ColorList::Black, Draw::ColorList::Black), ' ');
 					}
 				}

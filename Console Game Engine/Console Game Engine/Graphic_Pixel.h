@@ -18,7 +18,7 @@ namespace Engine {
 					color = c;
 					Draw = false;
 				}
-				else {
+				else{
 					text = ch;
 					color = c;
 					Draw = true;
@@ -26,7 +26,9 @@ namespace Engine {
 			}
 
 			inline Color GetColor() const { return color; }
-			inline char GetText() const { return text; }
+			inline char GetText() const {
+				return text;
+			}
 
 			bool operator==(const Graphic_Pixel& g) const;
 			bool operator!=(const Graphic_Pixel& g) const;

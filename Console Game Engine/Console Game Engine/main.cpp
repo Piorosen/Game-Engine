@@ -32,8 +32,7 @@ bool rendering(Aoi2DEngine* engine, void** data) {
 	graphic->ScreenClear();
 	graphic->SetPixel(pt,
 		Draw::Color(Draw::ColorList::WhiteWhite , Draw::ColorList::Black),
-		"  ");
-	graphic->SetPixel(1, 1, Draw::Color(0xf, 0), std::to_string(i));
+		"ssss");
 	if (engine->IsClickedKeyboard(VK_ESCAPE)) {
 		return false;
 	}

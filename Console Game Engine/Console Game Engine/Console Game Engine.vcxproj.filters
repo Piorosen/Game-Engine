@@ -57,6 +57,9 @@
     <ClCompile Include="Graphic_Pixel.cpp">
       <Filter>Game Engine\Library</Filter>
     </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>Game Engine\2DGraphics\Abstract%28Model%29\Obejct%28Model%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngine.h">
@@ -85,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="DrawLibrary.h">
       <Filter>Game Engine\Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>Game Engine\2DGraphics\Abstract%28Model%29\Obejct%28Model%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

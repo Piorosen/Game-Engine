@@ -122,6 +122,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Model2D.cpp" />
     <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Rect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.h" />
@@ -133,6 +134,7 @@
     <ClInclude Include="Model2D.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="Rect.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="개발자 문서.txt" />

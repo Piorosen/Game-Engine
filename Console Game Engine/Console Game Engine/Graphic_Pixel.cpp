@@ -8,3 +8,10 @@ bool Engine::Draw::Graphic_Pixel::operator==(const Graphic_Pixel & g) const
 		return true;
 	}return false;
 }
+
+bool Engine::Draw::Graphic_Pixel::operator!=(const Graphic_Pixel & g) const
+{
+	if (color == g.color && text == g.text) {
+		return false;
+	}return true;
+}

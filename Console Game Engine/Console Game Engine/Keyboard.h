@@ -23,8 +23,6 @@ namespace Engine {
 			bool IsKeyDown(unsigned short ch) {
 				return Key[ch];
 			}
-
-
 		};
 	}
 }

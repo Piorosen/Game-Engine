@@ -77,6 +77,7 @@ void Engine::Aoi2DEngine::Shutdown()
 	keyboard = 0;
 	free(mouse);
 	mouse = 0;
+	graphic->Shutdown();
 	free(graphic);
 	graphic = 0;
 }
@@ -95,7 +96,7 @@ void Engine::Aoi2DEngine::Initialize(bool _cursor)
 
 	// 커서의 존재 유무
 
-	CONSOLE_CURSOR_INFO cursorinfo = { 0. };
+	CONSOLE_CURSOR_INFO cursorinfo = { 0, };
 	cursorinfo.dwSize = 1;
 	cursorinfo.bVisible = _cursor;
 	SetConsoleCursorInfo(COUT, &cursorinfo);

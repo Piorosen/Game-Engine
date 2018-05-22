@@ -1,10 +1,6 @@
 #pragma once
 
 #include <stdio.h> 
-#include <Windows.h>
-#include <iostream>
-#include <stdio.h>
-#include <string>
 
 #include "GameEngine.h"
 #include "Rect.h"
@@ -13,9 +9,8 @@ using namespace Engine;
 using namespace Engine::_2D::Model2Ds;
 using namespace Engine::Draw;
 
-
 bool rendering(Aoi2DEngine* engine, void** data) {
-	static Draw::Point pt = Draw::Point(20, 10);
+	static Point pt = Point(20, 10);
 	auto graphic = engine->GetGraphic2D();
 
 	if (engine->IsClickedKeyboard(VK_UP)) {
@@ -41,10 +36,12 @@ bool rendering(Aoi2DEngine* engine, void** data) {
 	else if (pt.Y > 37) {
 		pt.Y = 37;
 	}
+	if (engine->IsClickedKeyboard(VK_DELETE)) {
+		graphic->ScreenClear();
+	}
 
-	Rect rect = Rect(Point(0, 0), Size(150, 40), Color(0xf, 0x4), Color(0x2, 0x9));
+	Rect rect = Rect(Point(0, 0), Size(100, 40), Color(0xf, 0x4), Color(0x2, 0x9));
 	graphic->DrawModel(rect, 2);
-
 
 	Rect rect2 = Rect(pt, Size(6, 3), Color(0x0, 0x0), Color(0x3, 0x3));
 	graphic->DrawModel(rect2, 2);
@@ -52,21 +49,18 @@ bool rendering(Aoi2DEngine* engine, void** data) {
 	if (engine->IsClickedKeyboard(VK_ESCAPE)) {
 		return false;
 	}
-	if (engine->IsClickedKeyboard(VK_DELETE)) {
-		graphic->ScreenClear();
-	}
+	
 
 	return true;
 }
 
 int main()
 {
-	Engine::Aoi2DEngine* engine = new Engine::Aoi2DEngine(150, 40, "완2성3이당!");
+	Aoi2DEngine* engine = new Aoi2DEngine(100, 40, "완성이당!");
 
 	engine->Initialize(false);
 	engine->render = rendering;
-	engine->FPS = 2000.0;
-	engine->render_data = (void**)engine;
+	engine->FPS = 15.0;
 
 	engine->Render();
 	

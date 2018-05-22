@@ -17,22 +17,14 @@ namespace Engine {
 			Draw::Graphic_Pixel** Drawed_pixel;
 			
 		public:
-			inline void SetPixel(Draw::Point pt, Draw::Color c, std::string ch) {
-				for (size_t i = 0; i < ch.length(); i++) {
-					pixel[pt.Y][pt.X + i].SetPixel(c, ch[i]);
-				}
-			}
-			inline void SetPixel(int X, int Y, Draw::Color c, std::string ch) {
-				for (size_t i = 0; i < ch.length(); i++) {
-					pixel[Y][X + i].SetPixel(c, ch[i]);
-				}
-			}
+			
 			inline void SetPixel(int X, int Y, Draw::Color c, char ch) {
 				pixel[Y][X].SetPixel(c, ch);
 			}
 			inline void SetPixel(Draw::Point pt, Draw::Color c, char ch) {
 				pixel[pt.Y][pt.X].SetPixel(c, ch);
 			}
+
 			Graphics2D();
 
 			void Initialize(int, int);
@@ -49,16 +41,16 @@ namespace Engine {
 					for (int x = model.Location.X; x < model.Size.X + model.Location.X; x++) {
 						if (y == model.Location.Y || y == model.Location.Y + model.Size.Y - 1) {
 							if (pixel[y][x].Color != model.Outer)
-								SetPixel(x, y, model.Inner, model.Text);
+								pixel[y][x].SetPixel(model.Inner, model.Text);
 						}
 						else if (x / xLange == model.Location.X / xLange ||
 							x / xLange == (model.Size.X + model.Location.X - 1) / xLange) {
 							if (pixel[y][x].Color != model.Outer)
-								SetPixel(x, y, model.Inner, model.Text);
+								pixel[y][x].SetPixel(model.Inner, model.Text);
 						}
 						else {
 							if (pixel[y][x].Color != model.Inner)
-								SetPixel(x, y, model.Outer, model.Text);
+								pixel[y][x].SetPixel(model.Outer, model.Text);
 						}
 					}
 				}

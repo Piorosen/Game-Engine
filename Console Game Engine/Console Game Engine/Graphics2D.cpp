@@ -71,8 +71,8 @@ bool Engine::_2D::Graphics2D::Render()
 					gotoxy(x, y);
 				}
 				
-				SetColor(pixel[y][x].GetColor());
-				putchar(pixel[y][x].GetText());
+				SetColor(pixel[y][x].Color);
+				putchar(pixel[y][x].Text);
 				Drawed_pixel[y][x] = pixel[y][x];
 				prev = Draw::Point(x, y);
 			}pixel[y][x].Draw = false;

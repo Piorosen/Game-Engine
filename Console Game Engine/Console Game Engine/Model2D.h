@@ -11,9 +11,10 @@ namespace Engine {
 		public:
 			Draw::Point Location;
 			Draw::Size Size;
+			char Text;
 
-			Model2D();
-			virtual ~Model2D();
+			Draw::Color Outer;
+			Draw::Color Inner;
 
 		protected:
 

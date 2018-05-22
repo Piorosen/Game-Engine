@@ -50,23 +50,34 @@ bool Engine::Aoi2DEngine::Render()
 	static int Frames = 0;
 	bool Return = true;
 	while (Return) {
-		time_t start;
+		time_t start, end;
 		start = clock();
-		while ((double)(clock() - start) < (1000.0 / FPS)) {
+		end = clock();
+		while ((double)(end - start) < (1000.0 / FPS)) {
 			if (!Frame()) {
 				Return = false;
 			}
+			end = clock();
 		}
+
 		if (render != nullptr) {
 			if (!render(this, render_data)) {
 				Return = false;
 			}
 		}
+
 		if (!graphic->Render()) {
 			Return = false;
 		}
 
+		
+		graphic->gotoxy(0, 0);
+		graphic->SetColor(0x0, 0xF);
+		end = clock();
+		printf("«¡∑π¿” : %d : %dms", Frames, end - start);
+
 		Frames++;
+		
 	}
 	return true;
 }

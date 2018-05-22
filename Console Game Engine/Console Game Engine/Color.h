@@ -30,9 +30,9 @@ namespace Engine {
 				BackColor = 0;
 				TextColor = 0;
 			}
-			Color(int _X, int _Y) {
-				BackColor = _X & 0xf;
-				TextColor = _Y & 0xf;
+			Color(int _BackColor, int _TextColor) {
+				BackColor = _BackColor & 0xf;
+				TextColor = _TextColor & 0xf;
 			}
 
 			bool operator==(const Color& c) const {

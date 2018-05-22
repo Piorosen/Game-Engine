@@ -16,7 +16,7 @@ namespace Engine {
 			Point(COORD &pt);
 
 			bool operator==(const Point& pt) const;
-
+			bool operator!=(const Point& pt) const;
 
 		};
 

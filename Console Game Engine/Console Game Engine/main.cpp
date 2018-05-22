@@ -32,18 +32,26 @@ bool rendering(Aoi2DEngine* engine, void** data) {
 		pt.X += 2;
 	}
 	graphic->ScreenClear();
-	graphic->SetPixel(pt,
-		Draw::Color(Draw::ColorList::WhiteWhite , Draw::ColorList::Black),
-		"ssss");
+	graphic->SetPixel(pt, Draw::Color(0xf, 0), "뭐야 이 시발것은");
+
 	if (engine->IsClickedKeyboard(VK_ESCAPE)) {
 		return false;
 	}
 	return true;
 }
-
+void gotoxy(int x, int y)
+{
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { x & 0xffff, y & 0xffff });
+}
 
 int main()
 {
+	char a[256] = "뭐야 이새키는";
+	for (int i = 0; i < strlen(a); i++) {
+		putchar(a[i]);
+	}
+
+
 	Engine::Aoi2DEngine* engine = new Engine::Aoi2DEngine(150, 40, "완2성3이당!");
 
 	engine->Initialize(false);

@@ -4,7 +4,7 @@
 
 namespace Engine {
 	namespace _2D {
-		namespace Model2D {
+		namespace Model2Ds {
 			class Rect : public Model2D
 			{
 			public:

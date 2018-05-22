@@ -63,13 +63,18 @@ void Engine::_2D::Graphics2D::SetColor(Draw::Color color)
 
 bool Engine::_2D::Graphics2D::Render()
 {
+	Draw::Point prev = Draw::Point(-10,-10);
 	for (int y = 0; y < size.Y; y++) {
 		for (int x = 0; x < size.X; x++) {
 			if (pixel[y][x].Draw && pixel[y][x] != Drawed_pixel[y][x]) {
-				gotoxy(x, y);
+				if (Draw::Point(x - 1, y) != prev) {
+					gotoxy(x, y);
+				}
+				
 				SetColor(pixel[y][x].GetColor());
-				printf("%c", pixel[y][x].GetText());
+				putchar(pixel[y][x].GetText());
 				Drawed_pixel[y][x] = pixel[y][x];
+				prev = Draw::Point(x, y);
 			}pixel[y][x].Draw = false;
 		}
 	}

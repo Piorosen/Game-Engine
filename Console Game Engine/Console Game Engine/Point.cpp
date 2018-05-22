@@ -25,3 +25,10 @@ bool Engine::Draw::Point::operator==(const Point & pt) const
 	}return false;
 }
 
+bool Engine::Draw::Point::operator!=(const Point & pt) const
+{
+	if (X == pt.X && Y == pt.Y) {
+		return false;
+	}return true;
+}
+

@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.28407.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Console Game Engine", "Console Game Engine\Console Game Engine.vcxproj", "{636EB7FB-CF02-477E-85EA-F760603EC610}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenGL", "..\Project\OpenGL\OpenGL.vcxproj", "{3D9146F8-F213-471A-8C5B-0B5D569EE92F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -23,14 +21,6 @@ Global
 		{636EB7FB-CF02-477E-85EA-F760603EC610}.Release|x64.Build.0 = Release|x64
 		{636EB7FB-CF02-477E-85EA-F760603EC610}.Release|x86.ActiveCfg = Release|Win32
 		{636EB7FB-CF02-477E-85EA-F760603EC610}.Release|x86.Build.0 = Release|Win32
-		{3D9146F8-F213-471A-8C5B-0B5D569EE92F}.Debug|x64.ActiveCfg = Debug|x64
-		{3D9146F8-F213-471A-8C5B-0B5D569EE92F}.Debug|x64.Build.0 = Debug|x64
-		{3D9146F8-F213-471A-8C5B-0B5D569EE92F}.Debug|x86.ActiveCfg = Debug|Win32
-		{3D9146F8-F213-471A-8C5B-0B5D569EE92F}.Debug|x86.Build.0 = Debug|Win32
-		{3D9146F8-F213-471A-8C5B-0B5D569EE92F}.Release|x64.ActiveCfg = Release|x64
-		{3D9146F8-F213-471A-8C5B-0B5D569EE92F}.Release|x64.Build.0 = Release|x64
-		{3D9146F8-F213-471A-8C5B-0B5D569EE92F}.Release|x86.ActiveCfg = Release|Win32
-		{3D9146F8-F213-471A-8C5B-0B5D569EE92F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

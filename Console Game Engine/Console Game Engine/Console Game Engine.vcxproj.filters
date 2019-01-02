@@ -34,6 +34,9 @@
     <Filter Include="Game Engine\2DGraphics\Abstract%28Model%29\Obejct%28Model%29">
       <UniqueIdentifier>{b9389242-49c4-4f49-904b-00937732f75f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RayCasting">
+      <UniqueIdentifier>{1f4e06b1-e546-4f7c-87c3-b7181a34e2b4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -61,7 +64,7 @@
       <Filter>Game Engine\2DGraphics\Abstract%28Model%29\Obejct%28Model%29</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>헤더 파일</Filter>
+      <Filter>RayCasting</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,14 +98,14 @@
     <ClInclude Include="Rect.h">
       <Filter>Game Engine\2DGraphics\Abstract%28Model%29\Obejct%28Model%29</Filter>
     </ClInclude>
+    <ClInclude Include="Vector2D.hpp">
+      <Filter>RayCasting</Filter>
+    </ClInclude>
     <ClInclude Include="Map.hpp">
-      <Filter>헤더 파일</Filter>
+      <Filter>RayCasting</Filter>
     </ClInclude>
     <ClInclude Include="Player.hpp">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2D.hpp">
-      <Filter>헤더 파일</Filter>
+      <Filter>RayCasting</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

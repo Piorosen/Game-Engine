@@ -43,7 +43,7 @@ int main()
 	engine->FPS = 15.0;
 
 	Player* tmp = new Player(5, 4);
-	tmp->MapLoad("D:\\map.txt");
+	tmp->MapLoad("map.txt");
 
 	engine->render_data = (void**)(tmp);
 	engine->Render();

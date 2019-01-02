@@ -18,10 +18,18 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Map.hpp" />
+    <ClInclude Include="Player.hpp" />
+    <ClInclude Include="Vector2D.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Player.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{636EB7FB-CF02-477E-85EA-F760603EC610}</ProjectGuid>
-    <RootNamespace>ConsoleGameEngine</RootNamespace>
+    <ProjectGuid>{3D9146F8-F213-471A-8C5B-0B5D569EE92F}</ProjectGuid>
+    <RootNamespace>OpenGL</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -69,7 +77,18 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>$(ProjectDir)\glut;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(ProjectDir)\glut;$(SourcePath)</SourcePath>
+    <ReferencePath>$(ProjectDir)\glut;$(ReferencePath)</ReferencePath>
+    <IncludePath>$(ProjectDir)\glut;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(ProjectDir)\glut;$(IncludePath)</IncludePath>
+    <ReferencePath>$(ProjectDir)\glut;$(VC_ReferencesPath_x86);</ReferencePath>
+    <LibraryPath>$(ProjectDir)\glut;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+    <SourcePath>$(ProjectDir)\glut;$(VC_SourcePath);</SourcePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -85,6 +104,9 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(ProjectDir)\glut\glut.lib;$(ProjectDir)\glut\glut32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -114,35 +136,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Color.cpp" />
-    <ClCompile Include="GameEngine.cpp" />
-    <ClCompile Include="Graphics2D.cpp" />
-    <ClCompile Include="Graphic_Pixel.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Model2D.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Point.cpp" />
-    <ClCompile Include="Rect.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Color.h" />
-    <ClInclude Include="DrawLibrary.h" />
-    <ClInclude Include="GameEngine.h" />
-    <ClInclude Include="Graphics2D.h" />
-    <ClInclude Include="Graphic_Pixel.h" />
-    <ClInclude Include="Keyboard.h" />
-    <ClInclude Include="Map.hpp" />
-    <ClInclude Include="Model2D.h" />
-    <ClInclude Include="Mouse.h" />
-    <ClInclude Include="Player.hpp" />
-    <ClInclude Include="Point.h" />
-    <ClInclude Include="Rect.h" />
-    <ClInclude Include="Vector2D.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="개발자 문서.txt" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

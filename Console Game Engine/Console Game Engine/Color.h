@@ -2,24 +2,23 @@
 
 namespace Engine {
 	namespace Draw {
-		class ColorList {
-		public:
-			static const char Black = 0x0;
-			static const char Blue = 0x1;
-			static const char Green = 0x2;
-			static const char BluGreen = 0x3;
-			static const char Red = 0x4;
-			static const char YellRed = 0x5;
-			static const char Yellow = 0x6;
-			static const char White = 0x7;
-			static const char Gray = 0x8;
-			static const char WhiteBlue = 0x9;
-			static const char WhiteGreen = 0xA;
-			static const char WhiteBluGreen = 0xB;
-			static const char WhiteRed = 0xC;
-			static const char WhiteYellRed = 0xD;
-			static const char WhiteYellow = 0xE;
-			static const char WhiteWhite = 0xF;
+		enum ColorList {
+			Black = 0x0,
+			Blue = 0x1,
+			Green = 0x2,
+			BluGreen = 0x3,
+			Red = 0x4,
+			YellRed = 0x5,
+			Yellow = 0x6,
+			White = 0x7,
+			Gray = 0x8,
+			WhiteBlue = 0x9,
+			WhiteGreen = 0xA,
+			WhiteBluGreen = 0xB,
+			WhiteRed = 0xC,
+			WhiteYellRed = 0xD,
+			WhiteYellow = 0xE,
+			WhiteWhite = 0xF
 		};
 
 		class Color {

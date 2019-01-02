@@ -60,6 +60,9 @@
     <ClCompile Include="Rect.cpp">
       <Filter>Game Engine\2DGraphics\Abstract%28Model%29\Obejct%28Model%29</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngine.h">
@@ -91,6 +94,15 @@
     </ClInclude>
     <ClInclude Include="Rect.h">
       <Filter>Game Engine\2DGraphics\Abstract%28Model%29\Obejct%28Model%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.hpp">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

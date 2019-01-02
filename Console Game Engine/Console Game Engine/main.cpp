@@ -1,56 +1,36 @@
 #pragma once
 
-#include <stdio.h> 
+#include <iostream>
 
 #include "GameEngine.h"
 #include "Rect.h"
+
+#include "Player.hpp"
+
 
 using namespace Engine;
 using namespace Engine::_2D::Model2Ds;
 using namespace Engine::Draw;
 
-bool rendering(Aoi2DEngine* engine, void** data) {
-	static Point pt = Point(20, 10);
-	auto graphic = engine->GetGraphic2D();
 
+bool rendering(Aoi2DEngine* engine, void** data) {
+	Player* player = (Player*)data;
+
+	engine->GetGraphic2D()->ScreenClear();
 	if (engine->IsClickedKeyboard(VK_UP)) {
-		pt.Y -= 1;
+		player->Move(true);
 	}
 	if (engine->IsClickedKeyboard(VK_DOWN)) {
-		pt.Y += 1;
+		player->Move(false);
 	}
 	if (engine->IsClickedKeyboard(VK_LEFT)) {
-		pt.X -= 2;
+		player->Rotate(-10);
 	}
 	if (engine->IsClickedKeyboard(VK_RIGHT)) {
-		pt.X += 2;
+		player->Rotate(10);
 	}
 
-	if (pt.X < 0)
-		pt.X = 0;
-	else if (pt.X > 144) {
-		pt.X = 144;
-	}if (pt.Y < 0) {
-		pt.Y = 0;
-	}
-	else if (pt.Y > 37) {
-		pt.Y = 37;
-	}
-	if (engine->IsClickedKeyboard(VK_DELETE)) {
-		graphic->ScreenClear();
-	}
-
-	Rect rect = Rect(Point(0, 0), Size(100, 40), Color(0xf, 0x4), Color(0x2, 0x9));
-	graphic->DrawModel(rect, 2);
-
-	Rect rect2 = Rect(pt, Size(6, 3), Color(0x0, 0x0), Color(0x3, 0x3));
-	graphic->DrawModel(rect2, 2);
-
-	if (engine->IsClickedKeyboard(VK_ESCAPE)) {
-		return false;
-	}
-	
-
+	player->Draw(100, 40, engine);
 	return true;
 }
 
@@ -62,6 +42,10 @@ int main()
 	engine->render = rendering;
 	engine->FPS = 15.0;
 
+	Player* tmp = new Player(5, 4);
+	tmp->MapLoad("D:\\map.txt");
+
+	engine->render_data = (void**)(tmp);
 	engine->Render();
 	
 	engine->Shutdown();

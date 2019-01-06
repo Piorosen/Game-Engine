@@ -31,6 +31,8 @@ bool rendering(Aoi2DEngine* engine, void** data) {
 	}
 
 	player->Draw(100, 40, engine);
+	
+	
 	return true;
 }
 
@@ -40,10 +42,10 @@ int main()
 
 	engine->Initialize(false);
 	engine->render = rendering;
-	engine->FPS = 15.0;
+	engine->FPS = 1000.0f;
 
-	Player* tmp = new Player(5, 4);
-	tmp->MapLoad("map.txt");
+	Player* tmp = new Player(5, 6);
+	tmp->MapLoad("D:\\map.txt", 20, 10);
 
 	engine->render_data = (void**)(tmp);
 	engine->Render();

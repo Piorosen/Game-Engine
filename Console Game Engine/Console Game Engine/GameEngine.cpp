@@ -1,5 +1,5 @@
 #include "GameEngine.h"
-
+#include "Player.hpp"
 
 
 bool Engine::Aoi2DEngine::Frame()
@@ -69,12 +69,12 @@ bool Engine::Aoi2DEngine::Render()
 		if (!graphic->Render()) {
 			Return = false;
 		}
-
+		
 		
 		graphic->gotoxy(0, 0);
 		graphic->SetColor(0x0, 0xF);
 		end = clock();
-		printf("프레임 : %d : %dms", Frames, end - start);
+		printf("프레임 : %lf : %lf", ((Player*)render_data)->Location.x, ((Player*)render_data)->Location.y);
 
 		Frames++;
 		

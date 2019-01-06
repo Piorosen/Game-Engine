@@ -17,7 +17,6 @@ using namespace std;
 class Player {
 private:
 	Vector2D Forward;
-	Vector2D Location;
 	double playerRot;
 	double move;
 	double FOV;
@@ -37,6 +36,7 @@ private:
 	void DrawLine(int x, double Height, int tile);
 
 public:
+	Vector2D Location;
 	Player(int x, int y) {
 		this->engine = engine;
 		Forward = std::move(Vector2D(1, 0));
@@ -46,7 +46,7 @@ public:
 		move = 1;
 	}
 
-	bool MapLoad(string path);
+	bool MapLoad(string path, int x, int y);
 	void Move(bool isForward);
 	void Rotate(double angle);
 	void Draw(const int& width, const int& height, Aoi2DEngine* engine);

@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <fstream>
-
+#include <iostream>
 #include "Vector2D.hpp"
 
 using namespace std;
@@ -32,17 +32,23 @@ public:
 		ifstream read(path);
 		for (int my = 0; my < y; my++) {
 			for (int mx = 0; mx < x; mx++) {
-				read >> tile[y * my + mx];
+				read >> tile[x * my + mx];
 			}
 		}
 		return true;
 	}
 
 	int GetTile(int x, int y) {
-		return tile[this->y * y + x];
+		if (0 <= x && x < this->x && 0 <= y && y < this->y) {
+			return tile[this->x * y + x];
+		}
+		return 0;
 	}
 	int GetTile(Vector2D location) {
-		return tile[this->y * (int)location.y + (int)location.x];
+		if (0 <= location.x && location.x < this->x && 0 <= location.y && location.y < this->y) {
+			return tile[int(x * location.y + location.x)];
+		}
+		return 0;
 	}
 
 };

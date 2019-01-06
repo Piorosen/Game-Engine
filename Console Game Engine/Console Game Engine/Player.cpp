@@ -5,8 +5,8 @@ using namespace Engine;
 using namespace Engine::Draw;
 
 
-bool Player::MapLoad(string path) {
-	return map.LoadMap(path, 10, 10);
+bool Player::MapLoad(string path, int x, int y) {
+	return map.LoadMap(path, x, y);
 }
 
 void Player::Move(bool isForward)

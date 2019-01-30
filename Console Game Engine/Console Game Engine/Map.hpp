@@ -46,7 +46,7 @@ public:
 	}
 	int GetTile(Vector2D location) {
 		if (0 <= location.x && location.x < this->x && 0 <= location.y && location.y < this->y) {
-			return tile[int(x * location.y + location.x)];
+			return tile[x * int(location.y) + int(location.x)];
 		}
 		return 0;
 	}

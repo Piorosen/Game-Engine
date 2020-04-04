@@ -5,12 +5,14 @@ namespace Graphics{
 		enum class OperatingSystem {
 			Windows,
 			Linux,
-			MacOS
+			MacOS,
+			Others
 		};
 		enum class KindCompiler {
 			MSVC,
 			MingW,
 			GNUC,
+			Others
 		};
 
 		//enum class Architecture {

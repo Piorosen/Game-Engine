@@ -23,5 +23,6 @@ namespace Graphics{
 		constexpr OperatingSystem OS = Enviroment_OS;
 		constexpr KindCompiler Compiler = Enviroment_Compiler;
 
+
 	}
 }

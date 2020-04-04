@@ -51,6 +51,9 @@
     <ClInclude Include="EventHandler.h">
       <Filter>Header\Library</Filter>
     </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>Header\Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics.cpp">

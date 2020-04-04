@@ -1,10 +1,17 @@
 #pragma once
+#include "EventHandler.h"
 #include "Point.h"
 
 using namespace Graphics::Library;
 
 namespace Graphics {
 	namespace Input {
+		enum class MouseButton {
+			Left,
+			Right,
+			Middle,
+		};
+
 		class Mouse {
 		private:
 			/*
@@ -36,6 +43,12 @@ namespace Graphics {
 			Point MousePoint;
 
 		public:
+			EventHandler<MouseButton, Point> EventKeyDown;
+			EventHandler<MouseButton, Point> EventKeyUp;
+
+			EventHandler<MouseButton, Point, bool> EventKeyChanged;
+
+
 			void Initialize() {
 				pt = Point(-10, -10);
 			}

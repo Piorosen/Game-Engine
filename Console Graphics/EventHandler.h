@@ -4,16 +4,27 @@ namespace Graphics {
 	template<typename... ARGS>
 	class EventHandler {
 	private:
-		int index = 0;
 		void(*list[10])(ARGS...) = { 0, };
 
 	public:
 		bool operator+=(void(*function)(ARGS...)) {
-			list[index] = function;
-			index++;
-			return true;
+			for (auto& i : list) {
+				if (i == nullptr) {
+					i = function;
+					return true;
+				}
+			}
+			return false;
 		}
-		bool operator-=(void(*function)(ARGS...));
+		bool operator-=(void(*function)(ARGS...)) {
+			for (auto& i : list) {
+				if (i == function) {
+					i = nullptr;
+					return true;
+				}
+			}
+			return false;
+		}
 
 		bool Clear() {
 			for (auto i : list) {
@@ -37,7 +48,7 @@ namespace Graphics {
 
 
 		void Invoke(ARGS... arguments) {
-			for (auto i : list) {
+			for (auto& i : list) {
 				if (i != nullptr) {
 					i(arguments...);
 				}

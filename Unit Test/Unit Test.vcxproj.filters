@@ -19,6 +19,9 @@
     <Filter Include="Header\Test Module">
       <UniqueIdentifier>{930859a2-78e8-4e05-80ac-6d094278409d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header\Test Module\Graphics">
+      <UniqueIdentifier>{44a32365-24e5-474a-ab5e-529d0ff80561}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -28,6 +31,12 @@
   <ItemGroup>
     <ClInclude Include="TestModule.hpp">
       <Filter>Header\Test Module</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsTest.h">
+      <Filter>Header\Test Module\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="EventHandlerTest.h">
+      <Filter>Header\Test Module\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

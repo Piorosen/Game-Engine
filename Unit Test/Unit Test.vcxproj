@@ -163,6 +163,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EventHandlerTest.h" />
+    <ClInclude Include="GraphicsTest.h" />
     <ClInclude Include="TestModule.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

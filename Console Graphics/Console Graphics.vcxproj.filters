@@ -15,12 +15,6 @@
     <Filter Include="Header\Input">
       <UniqueIdentifier>{a0fb5baa-1bf1-4139-83f0-8daaae8c9fdc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header\Output">
-      <UniqueIdentifier>{2757cca9-8e46-4416-b6ab-e8b5d6f6e194}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Ouput">
-      <UniqueIdentifier>{ebe369e3-b68c-41ea-8229-fd59c377c6ce}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource File">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -31,6 +25,12 @@
     <Filter Include="Header\Enviroment">
       <UniqueIdentifier>{7b92ed23-ca41-4944-a2bd-06e75f21591e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header\Library">
+      <UniqueIdentifier>{2757cca9-8e46-4416-b6ab-e8b5d6f6e194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Library">
+      <UniqueIdentifier>{ebe369e3-b68c-41ea-8229-fd59c377c6ce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graphics.h">
@@ -38,6 +38,18 @@
     </ClInclude>
     <ClInclude Include="Enviroment.h">
       <Filter>Header\Enviroment</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Header\Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>Header\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Header\Library</Filter>
+    </ClInclude>
+    <ClInclude Include="EventHandler.h">
+      <Filter>Header\Library</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -47,5 +59,11 @@
     <ClCompile Include="EnviromentDefine.h">
       <Filter>Header\Enviroment</Filter>
     </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>Source\Library</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
 </Project>

@@ -10,7 +10,7 @@ namespace Graphics {
 			Point(int _X, int _Y);
 			Point(const Point& pt);
 
-			bool operator=(const Point& pt);
+			Point operator=(const Point& pt);
 			bool operator==(const Point& pt) const;
 			bool operator!=(const Point& pt) const;
 

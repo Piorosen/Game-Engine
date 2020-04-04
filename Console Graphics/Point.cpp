@@ -16,10 +16,12 @@ Graphics::Library::Point::Point(const Point& pt) {
 	this->Y = pt.Y;
 }
 
-bool Graphics::Library::Point::operator=(const Point& pt) {
+Graphics::Library::Point Graphics::Library::Point::operator=(const Point& pt) {
 	this->X = pt.X;
 	this->Y = pt.Y;
+	return *this;
 }
+
 bool Graphics::Library::Point::operator==(const Point& pt) const {
 	if (this->X == pt.X && this->Y == pt.Y) {
 		return true;

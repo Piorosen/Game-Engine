@@ -33,12 +33,12 @@ namespace Graphics {
 				}
 			}
 
-			void BeginInvoke(void(*function)()) const {
+			void BeginInvoke(void(*function)(), const ARGS... arguments) const {
 				function();
-				Invoke();
+				Invoke(arguments...);
 			}
-			void EndInvoke(void(*function)()) const {
-				Invoke();
+			void EndInvoke(void(*function)(), const ARGS... arguments) const {
+				Invoke(arguments...);
 				function();
 			}
 			void XInvoke(void(*begin)(), void(*end)()) const {

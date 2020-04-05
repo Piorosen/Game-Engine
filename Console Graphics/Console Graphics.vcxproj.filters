@@ -60,12 +60,24 @@
     <ClInclude Include="Cursor.h">
       <Filter>Header\Output</Filter>
     </ClInclude>
+    <ClInclude Include="Display.h">
+      <Filter>Header\Output</Filter>
+    </ClInclude>
+    <ClInclude Include="Pixel.h">
+      <Filter>Header\Output</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EnviromentDefine.h">
       <Filter>Header\Enviroment</Filter>
     </ClCompile>
     <ClCompile Include="Point.cpp">
+      <Filter>Source\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>Source\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Pixel.cpp">
       <Filter>Source\Library</Filter>
     </ClCompile>
   </ItemGroup>

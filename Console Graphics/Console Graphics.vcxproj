@@ -153,16 +153,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Color.h" />
+    <ClInclude Include="Display.h" />
     <ClInclude Include="Enviroment.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="Pixel.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Cursor.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Color.cpp" />
     <ClCompile Include="EnviromentDefine.h" />
+    <ClCompile Include="Pixel.cpp" />
     <ClCompile Include="Point.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -69,9 +69,15 @@
 		#define ARCHITECTURE_X86 true
 	#endif
 #elif OS_LINUX
-
+	#define Enviroment_Architecture KindArchitecture::X86
+	#define ARCHITECTURE_X64 false
+	#define ARCHITECTURE_X86 true
 #elif OS_MAC
-
+	#define Enviroment_Architecture KindArchitecture::X86
+	#define ARCHITECTURE_X64 false
+	#define ARCHITECTURE_X86 true
 #else
-
+	#define Enviroment_Architecture KindArchitecture::X86
+	#define ARCHITECTURE_X64 false
+	#define ARCHITECTURE_X86 true
 #endif

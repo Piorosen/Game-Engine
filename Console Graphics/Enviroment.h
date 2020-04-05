@@ -20,14 +20,13 @@ namespace Graphics{
 			Others
 		};
 
-		//enum class Architecture {
-		//	Bit32,
-		//	Bit64
-		//};
+		enum class KindArchitecture {
+			X86,
+			X64
+		};
 
 		constexpr OperatingSystem OS = Enviroment_OS;
 		constexpr KindCompiler Compiler = Enviroment_Compiler;
-
-
+		constexpr KindArchitecture Architecture = Enviroment_Architecture;
 	}
 }

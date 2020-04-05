@@ -68,9 +68,6 @@
     <ClCompile Include="Point.cpp">
       <Filter>Source\Library</Filter>
     </ClCompile>
-    <ClCompile Include="EventHandler.cpp">
-      <Filter>Source\Library</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />

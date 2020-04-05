@@ -10,17 +10,15 @@ namespace Graphics {
 	namespace Output {
 		class Cursor {
 		private:
-#if OS_MAC || OS_LINUX || OS_WINDOWS
-			Graphics::Library::Point current_position;
-#endif
+
 
 		public:
-			void FontColor(const Graphics::Library::Color forground, const Graphics::Library::Color background) {
+			void FontColor(const Graphics::Library::Color color) {
 #if OS_MAC || OS_LINUX
-				std::cout << "\033[" << forground << "m";
-				std::cout << "\033[" << background << "m";
+				std::cout << "\033[" << color.GetForground() << "m";
+				std::cout << "\033[" << color.GetBackground() << "m";
 #elif OS_WINDOWS
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), ((int)background & 0xf << 4) | (int)forground & 0xf);
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), ((int)color.GetBackground() & 0xf << 4) | (int)color.GetForground() & 0xf);
 #endif
 			}
 

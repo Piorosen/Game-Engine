@@ -62,9 +62,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Graphics.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="EnviromentDefine.h">
       <Filter>Header\Enviroment</Filter>
     </ClCompile>

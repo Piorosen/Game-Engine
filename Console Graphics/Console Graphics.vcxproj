@@ -159,9 +159,11 @@
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="Cursor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EnviromentDefine.h" />
+    <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Point.cpp" />
   </ItemGroup>

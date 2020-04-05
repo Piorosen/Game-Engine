@@ -31,6 +31,9 @@
     <Filter Include="Source\Library">
       <UniqueIdentifier>{ebe369e3-b68c-41ea-8229-fd59c377c6ce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header\Output">
+      <UniqueIdentifier>{a5c7b0d7-edcf-4c42-af90-5906249fb02e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graphics.h">
@@ -45,14 +48,17 @@
     <ClInclude Include="Mouse.h">
       <Filter>Header\Input</Filter>
     </ClInclude>
-    <ClInclude Include="Point.h">
-      <Filter>Header\Library</Filter>
-    </ClInclude>
     <ClInclude Include="EventHandler.h">
       <Filter>Header\Library</Filter>
     </ClInclude>
     <ClInclude Include="Keyboard.h">
       <Filter>Header\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Header\Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Cursor.h">
+      <Filter>Header\Output</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +69,9 @@
       <Filter>Header\Enviroment</Filter>
     </ClCompile>
     <ClCompile Include="Point.cpp">
+      <Filter>Source\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="EventHandler.cpp">
       <Filter>Source\Library</Filter>
     </ClCompile>
   </ItemGroup>

@@ -4,29 +4,29 @@
 // OS
 #if defined(__APPLE__) && !defined(Enviroment_OS)
 #define Enviroment_OS OperatingSystem::MacOS;
-#define OS_MACOS true
+#define OS_MAC true
 #define OS_WINDOWS false
 #define OS_LINUX false
-#define OS_MACOS false
+#define OS_MAC false
 #define OS_OTHERS false
 
 #elif (defined(_WIN64) || defined(_WIN32)) && !defined(Enviroment_OS)
 #define Enviroment_OS OperatingSystem::Windows;
-#define OS_MACOS false
+#define OS_MAC false
 #define OS_WINDOWS true
 #define OS_LINUX false
 #define OS_OTHERS false
 
 #elif defined(__linux__) && !defined(Enviroment_OS)
 #define Enviroment_OS OperatingSystem::Linux;
-#define OS_MACOS false
+#define OS_MAC false
 #define OS_WINDOWS false
 #define OS_LINUX true
 #define OS_OTHERS false
 
 #else
 #define Enviroment_OS OperatingSystem::Others;
-#define OS_MACOS false
+#define OS_MAC false
 #define OS_WINDOWS false
 #define OS_LINUX false
 #define OS_OTHERS true

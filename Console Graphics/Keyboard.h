@@ -1,6 +1,8 @@
 #pragma once
 #include "EventHandler.h"
 
+using namespace Graphics::Library;
+
 namespace Graphics {
 	namespace Input {
 		class Keyboard {

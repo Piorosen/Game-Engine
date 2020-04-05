@@ -1,5 +1,10 @@
 #pragma once
 #include "EnviromentDefine.h"
+
+#if OS_WINDOWS
+#include <Windows.h>
+#endif
+
 namespace Graphics{
 	namespace Enviroment {
 		enum class OperatingSystem {

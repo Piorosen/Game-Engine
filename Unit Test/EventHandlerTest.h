@@ -16,7 +16,7 @@ void test4(int a, float b) {
 }
 
 void EventHanlderTest() {
-	Graphics::EventHandler<int, float> d;
+	Graphics::Library::EventHandler<int, float> d;
 
 	d += test1;
 	d += test2;

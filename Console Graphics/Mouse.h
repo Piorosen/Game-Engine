@@ -14,7 +14,15 @@ namespace Graphics {
 
 		class Mouse {
 		private:
+			void SetClickMousePosition(Point pt) {
+				this->pt = pt;
+			}
+			
+			void SetMousePostion(Point pt) {
+				MousePoint = pt;
+			}
 			/*
+
 			void MouseClick(int *x, int *y)
 			{
 				HANDLE       hIn, hOut;
@@ -67,17 +75,9 @@ namespace Graphics {
 				return MousePoint;
 			}
 
-			void SetMousePostion(Point _pt) {
-				MousePoint = _pt;
-			}
+			
 
-			void SetClickMousePosition(Point _pt) {
-				pt = _pt;
-			}
-			void SetClickMousePosition(int x, int y) {
-				pt.X = x;
-				pt.Y = y;
-			}
+			
 		};
 	}
 }

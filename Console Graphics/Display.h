@@ -8,10 +8,10 @@ namespace Graphics {
 		class Dispaly {
 		private:
 			Graphics::Library::Size Size;
-
+			Graphics::Output::Pixel* Pixel;
 
 		public:
-
+			
 
 
 		protected:

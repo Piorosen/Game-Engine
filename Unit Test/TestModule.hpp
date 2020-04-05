@@ -18,6 +18,7 @@ struct Enviroment {
 };
 
 
+
 #ifdef OUTPUT_CONSOLE
 
 void Config() {

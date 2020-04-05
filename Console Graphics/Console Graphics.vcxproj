@@ -152,10 +152,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h" />
+    <ClInclude Include="Color.h" />
+    <ClInclude Include="Enviroment.h" />
+    <ClInclude Include="EventHandler.h" />
+    <ClInclude Include="Graphics.h" />
+    <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="Mouse.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="Cursor.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Console Graphics.cpp" />
+    <ClCompile Include="EnviromentDefine.h" />
+    <ClCompile Include="EventHandler.cpp" />
+    <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="Point.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

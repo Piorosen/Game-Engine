@@ -7,7 +7,6 @@
 	#define OS_MAC true
 	#define OS_WINDOWS false
 	#define OS_LINUX false
-	#define OS_MAC false
 	#define OS_OTHERS false
 #elif (defined(_WIN64) || defined(_WIN32)) && !defined(Enviroment_OS)
 	#define Enviroment_OS OperatingSystem::Windows;

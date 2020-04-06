@@ -157,6 +157,7 @@
     <ClInclude Include="Enviroment.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="IDevice.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Pixel.h" />

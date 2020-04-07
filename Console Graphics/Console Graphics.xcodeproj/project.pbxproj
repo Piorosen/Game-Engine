@@ -27,7 +27,7 @@
 /* Begin PBXFileReference section */
 		6292A731243B23520021D5AC /* libConsole Graphics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libConsole Graphics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6292A738243B23B00021D5AC /* Color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Color.cpp; sourceTree = "<group>"; };
-		6292A73A243B23C20021D5AC /* Cursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cursor.h; sourceTree = "<group>"; };
+		6292A73A243B23C20021D5AC /* Cursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cursor.h; sourceTree = "<group>"; usesTabs = 0; };
 		6292A73B243B23C20021D5AC /* Cursor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cursor.cpp; sourceTree = "<group>"; };
 		6292A73C243B23C20021D5AC /* Mouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mouse.h; sourceTree = "<group>"; };
 		6292A73D243B23C20021D5AC /* Graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graphics.h; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		6292A742243B23C20021D5AC /* Point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Point.h; sourceTree = "<group>"; };
 		6292A743243B23C20021D5AC /* Enviroment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enviroment.h; sourceTree = "<group>"; };
 		6292A744243B23C20021D5AC /* Point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Point.cpp; sourceTree = "<group>"; };
-		6292A745243B23C20021D5AC /* EnviromentDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnviromentDefine.h; sourceTree = "<group>"; };
+		6292A745243B23C20021D5AC /* EnviromentDefine.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = EnviromentDefine.h; sourceTree = "<group>"; };
 		6292A746243B23C20021D5AC /* Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keyboard.h; sourceTree = "<group>"; };
 		6292A747243B23C20021D5AC /* Pixel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pixel.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,26 +54,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		627DF740243C388D002B3BAD /* Enviroment */ = {
+			isa = PBXGroup;
+			children = (
+				6292A743243B23C20021D5AC /* Enviroment.h */,
+				6292A745243B23C20021D5AC /* EnviromentDefine.h */,
+			);
+			name = Enviroment;
+			sourceTree = "<group>";
+		};
+		627DF741243C3897002B3BAD /* Enviroment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Enviroment;
+			sourceTree = "<group>";
+		};
 		6292A728243B23520021D5AC = {
 			isa = PBXGroup;
 			children = (
 				6292A75A243B23E20021D5AC /* Source */,
 				6292A759243B23DD0021D5AC /* Header */,
-				6292A73B243B23C20021D5AC /* Cursor.cpp */,
-				6292A73A243B23C20021D5AC /* Cursor.h */,
-				6292A73F243B23C20021D5AC /* Color.h */,
-				6292A738243B23B00021D5AC /* Color.cpp */,
-				6292A741243B23C20021D5AC /* Display.h */,
-				6292A743243B23C20021D5AC /* Enviroment.h */,
-				6292A745243B23C20021D5AC /* EnviromentDefine.h */,
-				6292A73E243B23C20021D5AC /* EventHandler.h */,
-				6292A73D243B23C20021D5AC /* Graphics.h */,
-				6292A746243B23C20021D5AC /* Keyboard.h */,
-				6292A73C243B23C20021D5AC /* Mouse.h */,
-				6292A740243B23C20021D5AC /* Pixel.cpp */,
-				6292A747243B23C20021D5AC /* Pixel.h */,
-				6292A744243B23C20021D5AC /* Point.cpp */,
-				6292A742243B23C20021D5AC /* Point.h */,
 				6292A732243B23520021D5AC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,6 +90,8 @@
 		6292A756243B23C80021D5AC /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				6292A744243B23C20021D5AC /* Point.cpp */,
+				6292A738243B23B00021D5AC /* Color.cpp */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -96,6 +99,8 @@
 		6292A757243B23CE0021D5AC /* Output */ = {
 			isa = PBXGroup;
 			children = (
+				6292A740243B23C20021D5AC /* Pixel.cpp */,
+				6292A73B243B23C20021D5AC /* Cursor.cpp */,
 			);
 			name = Output;
 			sourceTree = "<group>";
@@ -110,6 +115,8 @@
 		6292A759243B23DD0021D5AC /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				6292A73D243B23C20021D5AC /* Graphics.h */,
+				627DF740243C388D002B3BAD /* Enviroment */,
 				6292A75B243B24030021D5AC /* Input */,
 				6292A75E243B24170021D5AC /* Library */,
 				6292A75C243B240C0021D5AC /* Output */,
@@ -120,9 +127,10 @@
 		6292A75A243B23E20021D5AC /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				627DF741243C3897002B3BAD /* Enviroment */,
 				6292A758243B23D20021D5AC /* Input */,
-				6292A757243B23CE0021D5AC /* Output */,
 				6292A756243B23C80021D5AC /* Library */,
+				6292A757243B23CE0021D5AC /* Output */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -130,6 +138,8 @@
 		6292A75B243B24030021D5AC /* Input */ = {
 			isa = PBXGroup;
 			children = (
+				6292A746243B23C20021D5AC /* Keyboard.h */,
+				6292A73C243B23C20021D5AC /* Mouse.h */,
 			);
 			name = Input;
 			sourceTree = "<group>";
@@ -137,6 +147,9 @@
 		6292A75C243B240C0021D5AC /* Output */ = {
 			isa = PBXGroup;
 			children = (
+				6292A747243B23C20021D5AC /* Pixel.h */,
+				6292A741243B23C20021D5AC /* Display.h */,
+				6292A73A243B23C20021D5AC /* Cursor.h */,
 			);
 			name = Output;
 			sourceTree = "<group>";
@@ -144,6 +157,9 @@
 		6292A75E243B24170021D5AC /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				6292A742243B23C20021D5AC /* Point.h */,
+				6292A73E243B23C20021D5AC /* EventHandler.h */,
+				6292A73F243B23C20021D5AC /* Color.h */,
 			);
 			name = Library;
 			sourceTree = "<group>";

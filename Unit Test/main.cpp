@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 
 #define OUTPUT_CONSOLE
 // #define OUTPUT_FILE

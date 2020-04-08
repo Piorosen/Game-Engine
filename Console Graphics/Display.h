@@ -15,11 +15,13 @@ namespace Graphics {
 			Graphics::Output::Pixel* Pixel;
 			Graphics::Output::Cursor Cursor;
 
-			short Hz = 3;
+			short Hz = 60;
 
 		public:
 			Graphics::Library::EventHandler<Graphics::Output::Pixel*, Graphics::Library::Size> EventDraw;
 
+            
+            
 			void MainLoop() {
 				bool Return = true;
 
@@ -27,7 +29,7 @@ namespace Graphics {
 					time_t start, end;
 					start = clock();
 					end = clock();
-					while ((double)(end - start) < (1000.0 / Hz)) {
+					while ((double)(end - start) / (CLOCKS_PER_SEC / 1000) < (1000.0 / Hz)) {
 						end = clock();
 					}
 					EventDraw.Invoke(Pixel, Size);

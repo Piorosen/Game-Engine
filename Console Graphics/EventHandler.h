@@ -1,31 +1,54 @@
 #pragma once
 
+#include "Func.h"
+
 namespace Graphics {
 	namespace Library {
 		template<typename... ARGS>
 		class EventHandler {
 		private:
-			void(*list[10])(ARGS...) = { 0, };
+            Func::Func<void, ARGS...> list[10];
 
 		public:
 			bool operator+=(void(*function)(ARGS...)) {
-				for (auto& i : list) {
-					if (i == nullptr) {
-						i = function;
-						return true;
-					}
-				}
-				return false;
-			}
+                for (auto& i : list) {
+                    if (i == nullptr) {
+                        i = function;
+                        return true;
+                    }
+                }
+                return false;
+            }
+            bool operator+=(Func::Func<void, ARGS...> function) {
+                for (auto& i : list) {
+                    if (i == nullptr) {
+                        i = function;
+                        return true;
+                    }
+                }
+                return false;
+            }
+            
+            
 			bool operator-=(void(*function)(ARGS...)) {
 				for (auto& i : list) {
-					if (i == function) {
+					if (i == (void*)function) {
 						i = nullptr;
 						return true;
 					}
 				}
 				return false;
 			}
+            bool operator-=(Func::Func<void, ARGS...> function) {
+                for (auto& i : list) {
+                    if (i == (void*)function) {
+                        i = nullptr;
+                        return true;
+                    }
+                }
+                return false;
+            }
+            
 
 			bool Clear() {
 				for (auto i : list) {
@@ -49,7 +72,7 @@ namespace Graphics {
 
 			void Invoke(const ARGS... arguments) const {
 				for (auto& i : list) {
-					if (i != nullptr) {
+                    if (i != nullptr) {
 						i(arguments...);
 					}
 				}

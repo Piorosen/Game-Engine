@@ -3,7 +3,6 @@
 #define OUTPUT_CONSOLE
 // #define OUTPUT_FILE
 #include "Graphics.h"
-
 #include "TestModule.hpp"
 #include "GraphicsTest.h"
 
@@ -27,15 +26,5 @@ void func2(Graphics::Output::Pixel*, Graphics::Library::Size) {
 
 int main()
 {
-	Graphics::Output::Cursor::EraseCursor(false);
 
-	Graphics::Output::Dispaly d;
-
-	d.EventDraw += func1;
-	d.EventDraw += func2;
-
-	d.MainLoop();
-
-	Config();
-	GrahpicsTest();
 }

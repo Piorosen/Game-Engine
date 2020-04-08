@@ -15,7 +15,7 @@ namespace Graphics {
 		public:
 			static void EraseCursor(bool isShowCursor) {
 #if OS_MAC || OS_LINUX 
-				isShowCursor ? system("setterm -cursor on") : system("setterm -cursor off");
+                std::cout << (isShowCursor ? "\e[?25l" : "\e[?25h");
 #elif OS_WINDOWS
 				CONSOLE_CURSOR_INFO cursorinfo = { 0, };
 				cursorinfo.dwSize = 1;
@@ -35,7 +35,7 @@ namespace Graphics {
 
 			static void GotoXY(const Graphics::Library::Point pt) {
 #if OS_MAC || OS_LINUX
-				std::cout << "\033[" << ((pt.X + 1) & 0xffff) << ';' << ((pt.Y + 1) & 0xffff) << 'f';
+				std::cout << "\033[" << ((pt.Y + 1) & 0xffff) << ';' << ((pt.X + 1) & 0xffff) << 'f';
 #elif OS_WINDOWS
 				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { pt.X & 0xffff, pt.Y & 0xffff });
 #endif

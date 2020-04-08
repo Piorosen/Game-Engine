@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "627DF7DB243C51C6002B3BAD"
-               BuildableName = "Unit Test"
-               BlueprintName = "Unit Test"
-               ReferencedContainer = "container:Unit Test.xcodeproj">
+               BuildableName = "Unit_Test"
+               BlueprintName = "Unit_Test"
+               ReferencedContainer = "container:Unit_Test.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "627DF7DB243C51C6002B3BAD"
-            BuildableName = "Unit Test"
-            BlueprintName = "Unit Test"
-            ReferencedContainer = "container:Unit Test.xcodeproj">
+            BuildableName = "Unit_Test"
+            BlueprintName = "Unit_Test"
+            ReferencedContainer = "container:Unit_Test.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,9 +63,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "627DF7DB243C51C6002B3BAD"
-            BuildableName = "Unit Test"
-            BlueprintName = "Unit Test"
-            ReferencedContainer = "container:Unit Test.xcodeproj">
+            BuildableName = "Unit_Test"
+            BlueprintName = "Unit_Test"
+            ReferencedContainer = "container:Unit_Test.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -16,7 +16,7 @@
       location = "container:"
       name = "Unit Test">
       <FileRef
-         location = "group:Unit Test/Unit Test.xcodeproj">
+         location = "group:/Users/aoikazto/Desktop/git/Game-Engine/Unit Test/Unit_Test.xcodeproj">
       </FileRef>
    </Group>
 </Workspace>

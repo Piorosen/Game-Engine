@@ -22,6 +22,8 @@
 		6292A753243B23C20021D5AC /* EnviromentDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 6292A745243B23C20021D5AC /* EnviromentDefine.h */; };
 		6292A754243B23C20021D5AC /* Keyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 6292A746243B23C20021D5AC /* Keyboard.h */; };
 		6292A755243B23C20021D5AC /* Pixel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6292A747243B23C20021D5AC /* Pixel.h */; };
+		62AC0E81243EA98700CA1EC8 /* Action.h in Sources */ = {isa = PBXBuildFile; fileRef = 62AC0E80243EA98700CA1EC8 /* Action.h */; };
+		62AC0E83243EA9AB00CA1EC8 /* Predicate.h in Sources */ = {isa = PBXBuildFile; fileRef = 62AC0E82243EA9AB00CA1EC8 /* Predicate.h */; };
 		62CE843F243D8D2F00559BC3 /* Func.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CE843D243D8D2F00559BC3 /* Func.h */; };
 		62CE8442243D94A900559BC3 /* IDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CE8441243D94A900559BC3 /* IDevice.h */; };
 /* End PBXBuildFile section */
@@ -43,6 +45,8 @@
 		6292A745243B23C20021D5AC /* EnviromentDefine.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = EnviromentDefine.h; sourceTree = "<group>"; };
 		6292A746243B23C20021D5AC /* Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keyboard.h; sourceTree = "<group>"; };
 		6292A747243B23C20021D5AC /* Pixel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pixel.h; sourceTree = "<group>"; };
+		62AC0E80243EA98700CA1EC8 /* Action.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
+		62AC0E82243EA9AB00CA1EC8 /* Predicate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Predicate.h; sourceTree = "<group>"; };
 		62CE843D243D8D2F00559BC3 /* Func.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Func.h; sourceTree = "<group>"; };
 		62CE8441243D94A900559BC3 /* IDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDevice.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				62CE843D243D8D2F00559BC3 /* Func.h */,
+				62AC0E80243EA98700CA1EC8 /* Action.h */,
+				62AC0E82243EA9AB00CA1EC8 /* Predicate.h */,
 			);
 			name = Function;
 			sourceTree = "<group>";
@@ -227,9 +233,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6292A752243B23C20021D5AC /* Point.cpp in Sources */,
+				62AC0E83243EA9AB00CA1EC8 /* Predicate.h in Sources */,
 				6292A74E243B23C20021D5AC /* Pixel.cpp in Sources */,
 				6292A739243B23B00021D5AC /* Color.cpp in Sources */,
 				6292A749243B23C20021D5AC /* Cursor.cpp in Sources */,
+				62AC0E81243EA98700CA1EC8 /* Action.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,16 +5,25 @@ namespace Graphics {
         namespace Func {
             template<typename RETURN, typename... ARGS>
             class Func {
-            private:
+            protected:
                 RETURN(*func)(ARGS...) = nullptr;
                 
             public:
+                Func(){
+                    func = nullptr;
+                }
+                
+                Func(RETURN(*function)(ARGS...)){
+                    this->func = function;
+                }
+                
                 RETURN operator()(const ARGS... args) const {
                     func(args...);
                 }
                 
-                void operator=(RETURN(*function)(ARGS...)) {
+                Func<RETURN, ARGS...> operator=(RETURN(*function)(ARGS...)) {
                     func = function;
+                    return func;
                 }
                 
                 bool operator==(void* value) const {
@@ -32,10 +41,6 @@ namespace Graphics {
                         return false;
                     }
                 }
-                
-                
-            protected:
-                
                 
             };
         }

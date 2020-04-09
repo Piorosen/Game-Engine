@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Func.h"
+#include "Action.h"
 
 namespace Graphics {
 	namespace Library {
@@ -10,6 +11,8 @@ namespace Graphics {
             Func::Func<void, ARGS...> list[10];
 
 		public:
+            
+            
 			bool operator+=(void(*function)(ARGS...)) {
                 for (auto& i : list) {
                     if (i == nullptr) {
@@ -20,6 +23,15 @@ namespace Graphics {
                 return false;
             }
             bool operator+=(Func::Func<void, ARGS...> function) {
+                for (auto& i : list) {
+                    if (i == nullptr) {
+                        i = function;
+                        return true;
+                    }
+                }
+                return false;
+            }
+            bool operator+=(Func::Action<ARGS...> function) {
                 for (auto& i : list) {
                     if (i == nullptr) {
                         i = function;
@@ -48,6 +60,16 @@ namespace Graphics {
                 }
                 return false;
             }
+            bool operator-=(Func::Action<ARGS...> function) {
+                for (auto& i : list) {
+                    if (i == (void*)function) {
+                        i = nullptr;
+                        return true;
+                    }
+                }
+                return false;
+            }
+            
             
 
 			bool Clear() {

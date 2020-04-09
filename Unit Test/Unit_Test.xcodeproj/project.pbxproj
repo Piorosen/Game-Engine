@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		627DF7EA243C51DA002B3BAD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 627DF7E8243C51DA002B3BAD /* main.cpp */; };
+		62AC0E86243EC0AC00CA1EC8 /* Action.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 62AC0E84243EC0AC00CA1EC8 /* Action.h */; };
+		62AC0E87243EC0AC00CA1EC8 /* Predicate.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 62AC0E85243EC0AC00CA1EC8 /* Predicate.h */; };
 		62CE841D243D7DC600559BC3 /* libConsole Graphics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CE841C243D7DC600559BC3 /* libConsole Graphics.a */; };
 		62CE842D243D7E9000559BC3 /* Pixel.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 62CE8420243D7E9000559BC3 /* Pixel.h */; };
 		62CE842E243D7E9000559BC3 /* Enviroment.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 62CE8421243D7E9000559BC3 /* Enviroment.h */; };
@@ -31,6 +33,8 @@
 			dstPath = usr/share/man/man1;
 			dstSubfolderSpec = 0;
 			files = (
+				62AC0E86243EC0AC00CA1EC8 /* Action.h in Copy Files */,
+				62AC0E87243EC0AC00CA1EC8 /* Predicate.h in Copy Files */,
 				62CE842D243D7E9000559BC3 /* Pixel.h in Copy Files */,
 				62CE842E243D7E9000559BC3 /* Enviroment.h in Copy Files */,
 				62CE842F243D7E9000559BC3 /* IDevice.h in Copy Files */,
@@ -56,6 +60,8 @@
 		627DF7E7243C51D9002B3BAD /* EventHandlerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventHandlerTest.h; sourceTree = SOURCE_ROOT; };
 		627DF7E8243C51DA002B3BAD /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = SOURCE_ROOT; };
 		627DF7E9243C51DA002B3BAD /* TestModule.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestModule.hpp; sourceTree = SOURCE_ROOT; };
+		62AC0E84243EC0AC00CA1EC8 /* Action.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Action.h; path = "../Console Graphics/Action.h"; sourceTree = "<group>"; };
+		62AC0E85243EC0AC00CA1EC8 /* Predicate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Predicate.h; path = "../Console Graphics/Predicate.h"; sourceTree = "<group>"; };
 		62CE841C243D7DC600559BC3 /* libConsole Graphics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libConsole Graphics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CE8420243D7E9000559BC3 /* Pixel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Pixel.h; path = "../Console Graphics/Pixel.h"; sourceTree = "<group>"; };
 		62CE8421243D7E9000559BC3 /* Enviroment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Enviroment.h; path = "../Console Graphics/Enviroment.h"; sourceTree = "<group>"; };
@@ -124,6 +130,8 @@
 		62CE843A243D7EB400559BC3 /* Console Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				62AC0E84243EC0AC00CA1EC8 /* Action.h */,
+				62AC0E85243EC0AC00CA1EC8 /* Predicate.h */,
 				62CE8428243D7E9000559BC3 /* Color.h */,
 				62CE8424243D7E9000559BC3 /* Cursor.h */,
 				62CE842A243D7E9000559BC3 /* Display.h */,

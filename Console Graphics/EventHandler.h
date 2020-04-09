@@ -8,7 +8,7 @@ namespace Graphics {
 		template<typename... ARGS>
 		class EventHandler {
 		private:
-            Func::Func<void, ARGS...> list[10];
+            Function::Func<void, ARGS...> list[10];
 
 		public:
             
@@ -22,7 +22,7 @@ namespace Graphics {
                 }
                 return false;
             }
-            bool operator+=(Func::Func<void, ARGS...> function) {
+            bool operator+=(Function::Action<ARGS...> function) {
                 for (auto& i : list) {
                     if (i == nullptr) {
                         i = function;
@@ -31,16 +31,6 @@ namespace Graphics {
                 }
                 return false;
             }
-            bool operator+=(Func::Action<ARGS...> function) {
-                for (auto& i : list) {
-                    if (i == nullptr) {
-                        i = function;
-                        return true;
-                    }
-                }
-                return false;
-            }
-            
             
 			bool operator-=(void(*function)(ARGS...)) {
 				for (auto& i : list) {
@@ -51,16 +41,7 @@ namespace Graphics {
 				}
 				return false;
 			}
-            bool operator-=(Func::Func<void, ARGS...> function) {
-                for (auto& i : list) {
-                    if (i == (void*)function) {
-                        i = nullptr;
-                        return true;
-                    }
-                }
-                return false;
-            }
-            bool operator-=(Func::Action<ARGS...> function) {
+            bool operator-=(Function::Action<ARGS...> function) {
                 for (auto& i : list) {
                     if (i == (void*)function) {
                         i = nullptr;
@@ -70,8 +51,6 @@ namespace Graphics {
                 return false;
             }
             
-            
-
 			bool Clear() {
 				for (auto i : list) {
 					i = 0;

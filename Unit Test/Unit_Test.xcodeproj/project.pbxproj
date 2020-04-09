@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		626F1A74243EDD0B006F5CD5 /* FunctionTest.h in Sources */ = {isa = PBXBuildFile; fileRef = 626F1A73243EDD0B006F5CD5 /* FunctionTest.h */; };
+		626F1A76243EDD40006F5CD5 /* Func.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 626F1A75243EDD40006F5CD5 /* Func.h */; };
 		627DF7EA243C51DA002B3BAD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 627DF7E8243C51DA002B3BAD /* main.cpp */; };
 		62AC0E86243EC0AC00CA1EC8 /* Action.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 62AC0E84243EC0AC00CA1EC8 /* Action.h */; };
 		62AC0E87243EC0AC00CA1EC8 /* Predicate.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 62AC0E85243EC0AC00CA1EC8 /* Predicate.h */; };
@@ -33,6 +35,7 @@
 			dstPath = usr/share/man/man1;
 			dstSubfolderSpec = 0;
 			files = (
+				626F1A76243EDD40006F5CD5 /* Func.h in Copy Files */,
 				62AC0E86243EC0AC00CA1EC8 /* Action.h in Copy Files */,
 				62AC0E87243EC0AC00CA1EC8 /* Predicate.h in Copy Files */,
 				62CE842D243D7E9000559BC3 /* Pixel.h in Copy Files */,
@@ -55,6 +58,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		626F1A73243EDD0B006F5CD5 /* FunctionTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunctionTest.h; sourceTree = SOURCE_ROOT; };
+		626F1A75243EDD40006F5CD5 /* Func.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Func.h; path = "../Console Graphics/Func.h"; sourceTree = "<group>"; };
 		627DF7DC243C51C6002B3BAD /* Unit_Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Unit_Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		627DF7E6243C51D9002B3BAD /* GraphicsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicsTest.h; sourceTree = SOURCE_ROOT; };
 		627DF7E7243C51D9002B3BAD /* EventHandlerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventHandlerTest.h; sourceTree = SOURCE_ROOT; };
@@ -90,6 +95,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		626F1A72243EDCF9006F5CD5 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				627DF7E7243C51D9002B3BAD /* EventHandlerTest.h */,
+				627DF7E6243C51D9002B3BAD /* GraphicsTest.h */,
+				626F1A73243EDD0B006F5CD5 /* FunctionTest.h */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
 		627DF7D3243C51C6002B3BAD = {
 			isa = PBXGroup;
 			children = (
@@ -111,8 +126,7 @@
 		627DF7DE243C51C6002B3BAD /* Unit Test */ = {
 			isa = PBXGroup;
 			children = (
-				627DF7E7243C51D9002B3BAD /* EventHandlerTest.h */,
-				627DF7E6243C51D9002B3BAD /* GraphicsTest.h */,
+				626F1A72243EDCF9006F5CD5 /* Graphics */,
 				627DF7E8243C51DA002B3BAD /* main.cpp */,
 				627DF7E9243C51DA002B3BAD /* TestModule.hpp */,
 			);
@@ -131,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				62AC0E84243EC0AC00CA1EC8 /* Action.h */,
+				626F1A75243EDD40006F5CD5 /* Func.h */,
 				62AC0E85243EC0AC00CA1EC8 /* Predicate.h */,
 				62CE8428243D7E9000559BC3 /* Color.h */,
 				62CE8424243D7E9000559BC3 /* Cursor.h */,
@@ -207,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				627DF7EA243C51DA002B3BAD /* main.cpp in Sources */,
+				626F1A74243EDD0B006F5CD5 /* FunctionTest.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

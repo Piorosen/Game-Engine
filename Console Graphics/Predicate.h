@@ -5,11 +5,9 @@
 
 namespace Graphics {
     namespace Library {
-        namespace Func {
+        namespace Function {
             template<typename... ARGS>
-            class Predicate : public Func<bool, ARGS...> {
-                
-            };
+            using Predicate = Func<bool, ARGS...>;
         }
     }
 }

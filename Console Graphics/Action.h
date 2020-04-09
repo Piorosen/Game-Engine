@@ -3,11 +3,9 @@
 
 namespace Graphics {
     namespace Library {
-        namespace Func {
+        namespace Function {
             template<typename... ARGS>
-            class Action : public Func<void, ARGS...> {
-                
-            };
+            using Action = Func<void, ARGS...>;
         }
     }
 }

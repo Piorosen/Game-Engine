@@ -2,7 +2,7 @@
 
 namespace Graphics {
     namespace Library {
-        namespace Func {
+        namespace Function {
             template<typename RETURN, typename... ARGS>
             class Func {
             protected:
@@ -18,7 +18,7 @@ namespace Graphics {
                 }
                 
                 RETURN operator()(const ARGS... args) const {
-                    func(args...);
+                    return func(args...);
                 }
                 
                 Func<RETURN, ARGS...> operator=(RETURN(*function)(ARGS...)) {

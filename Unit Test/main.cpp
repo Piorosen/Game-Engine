@@ -8,9 +8,14 @@
 
 using namespace Graphics::Library;
 
+void asdf(int a){
+    std::cout << a;
+}
 
 int main()
 {
+    Config();
+    GrahpicsTest();
     
     return 0;
 }

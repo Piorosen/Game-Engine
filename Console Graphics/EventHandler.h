@@ -46,7 +46,7 @@ namespace Graphics {
                     if (i == (void*)function) {
                         i = nullptr;
                         return true;
-                    }
+                    }   
                 }
                 return false;
             }

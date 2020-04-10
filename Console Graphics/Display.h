@@ -23,20 +23,7 @@ namespace Graphics {
             
             
 			void MainLoop() {
-				bool Return = true;
-
-				while (Return) {
-					time_t start, end;
-					start = clock();
-					end = clock();
-					while ((double)(end - start) / (CLOCKS_PER_SEC / 1000) < (1000.0 / Hz)) {
-						end = clock();
-					}
-					EventDraw.Invoke(Pixel, Size);
-					
-					
-					end = clock();
-				}
+				
 			}
 
 

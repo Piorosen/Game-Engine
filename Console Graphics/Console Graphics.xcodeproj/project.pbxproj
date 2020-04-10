@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		626630E4243F181500F9958A /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 626630E2243F181500F9958A /* Renderer.cpp */; };
+		626630E5243F181500F9958A /* Renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 626630E3243F181500F9958A /* Renderer.h */; };
 		6292A739243B23B00021D5AC /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6292A738243B23B00021D5AC /* Color.cpp */; };
 		6292A748243B23C20021D5AC /* Cursor.h in Headers */ = {isa = PBXBuildFile; fileRef = 6292A73A243B23C20021D5AC /* Cursor.h */; };
-		6292A749243B23C20021D5AC /* Cursor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6292A73B243B23C20021D5AC /* Cursor.cpp */; };
 		6292A74A243B23C20021D5AC /* Mouse.h in Headers */ = {isa = PBXBuildFile; fileRef = 6292A73C243B23C20021D5AC /* Mouse.h */; };
 		6292A74B243B23C20021D5AC /* Graphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 6292A73D243B23C20021D5AC /* Graphics.h */; };
 		6292A74C243B23C20021D5AC /* EventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 6292A73E243B23C20021D5AC /* EventHandler.h */; };
@@ -29,10 +30,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		626630E2243F181500F9958A /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
+		626630E3243F181500F9958A /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 		6292A731243B23520021D5AC /* libConsole Graphics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libConsole Graphics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6292A738243B23B00021D5AC /* Color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Color.cpp; sourceTree = "<group>"; };
 		6292A73A243B23C20021D5AC /* Cursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cursor.h; sourceTree = "<group>"; usesTabs = 0; };
-		6292A73B243B23C20021D5AC /* Cursor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cursor.cpp; sourceTree = "<group>"; };
 		6292A73C243B23C20021D5AC /* Mouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mouse.h; sourceTree = "<group>"; };
 		6292A73D243B23C20021D5AC /* Graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graphics.h; sourceTree = "<group>"; };
 		6292A73E243B23C20021D5AC /* EventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventHandler.h; sourceTree = "<group>"; };
@@ -115,7 +117,8 @@
 				6292A740243B23C20021D5AC /* Pixel.cpp */,
 				6292A741243B23C20021D5AC /* Display.h */,
 				6292A73A243B23C20021D5AC /* Cursor.h */,
-				6292A73B243B23C20021D5AC /* Cursor.cpp */,
+				626630E2243F181500F9958A /* Renderer.cpp */,
+				626630E3243F181500F9958A /* Renderer.h */,
 			);
 			name = Output;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				6292A74A243B23C20021D5AC /* Mouse.h in Headers */,
 				6292A748243B23C20021D5AC /* Cursor.h in Headers */,
 				6292A74F243B23C20021D5AC /* Display.h in Headers */,
+				626630E5243F181500F9958A /* Renderer.h in Headers */,
 				6292A750243B23C20021D5AC /* Point.h in Headers */,
 				62CE8442243D94A900559BC3 /* IDevice.h in Headers */,
 				62CE843F243D8D2F00559BC3 /* Func.h in Headers */,
@@ -236,7 +240,7 @@
 				62AC0E83243EA9AB00CA1EC8 /* Predicate.h in Sources */,
 				6292A74E243B23C20021D5AC /* Pixel.cpp in Sources */,
 				6292A739243B23B00021D5AC /* Color.cpp in Sources */,
-				6292A749243B23C20021D5AC /* Cursor.cpp in Sources */,
+				626630E4243F181500F9958A /* Renderer.cpp in Sources */,
 				62AC0E81243EA98700CA1EC8 /* Action.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

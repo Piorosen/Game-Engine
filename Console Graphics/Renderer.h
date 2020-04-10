@@ -6,7 +6,7 @@ namespace Graphics {
     namespace Output {
         class Renderer {
         private:
-            Display Display;
+            
             
             
         };

@@ -1,5 +1,3 @@
-#pragma once
-
 #include "Pixel.h"
 
 void Graphics::Output::Pixel::SetPixel(Graphics::Library::Color color, char ch) {

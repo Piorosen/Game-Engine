@@ -7,6 +7,6 @@
 void GrahpicsTest() {
 	EventHanlderTest();
     FunctionTest();
-
+    DisplayResizeTest();
 
 }

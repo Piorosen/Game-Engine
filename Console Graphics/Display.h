@@ -1,6 +1,7 @@
 #pragma once
 
 #include <time.h>
+#include <cstring>
 
 #include "Point.h"
 #include "Pixel.h"
@@ -19,39 +20,49 @@ namespace Graphics {
 
 		public:
             Display(Graphics::Library::Size displaySize){
+                Pixel = nullptr;
                 Size = displaySize;
-                Pixel = new Graphics::Output::Pixel[Size.X * Size.Y];
-                for (int i = 0; i < Size.X * Size.Y; i++){
-                    Pixel[i] = Graphics::Output::Pixel();
-                }
+                this->Cursor = Graphics::Output::Cursor();
+                ResizeTerminal(displaySize);
             }
             
 			Graphics::Library::EventHandler<Graphics::Output::Pixel*, Graphics::Library::Size> EventDraw;
 
-#if OS_MACOS || OS_LINUX
+#if OS_MAC || OS_LINUX
             int ResizeTerminal(Graphics::Library::Size size, char* result = nullptr, int index = 0) {
 #elif OS_WINDOWS
             void ResizeTerminal(Graphics::Library::Size size) {
 #endif
-            
+                this->Size = size;
+                if (Pixel != nullptr) {
+                    delete[] Pixel;
+                    Pixel = nullptr;
+                }
                 
-#if OS_MACOS || OS_LINUX
+                Pixel = new Graphics::Output::Pixel[size.X * size.Y];
+                for (int i = 0; i < Size.X * Size.Y; i++){
+                    Pixel[i] = Graphics::Output::Pixel();
+                }
+                
+#if OS_MAC || OS_LINUX
                 if (result == nullptr) {
                     std::cout << "\e[8;" << size.Y << ";" << size.X << "t";
                 }else {
+                    char save[100] = { 0, };
                     
+                    sprintf(save, "\e[8;%d;%dt", size.Y, size.X);
+                    strcat(result, save);
+                    index = (int)strlen(save);
                 }
-                return 0;
-            }
+                return index;
 #elif OS_WINDOWS
-                
-                
-            }
+                std::cout << "???";
+
 #endif
-            
+            }
             
             void Clear() {
-#if OS_MACOS || OS_LINUX
+#if OS_MAC || OS_LINUX
                 system("clear");
 #elif OS_WINDOWS
                 system("cls");

@@ -20,22 +20,11 @@ void test(Graphics::Output::Pixel* p, Graphics::Library::Size s){
     }   
 }
 
-#define test1 true
-#define test2 true
-
 int main()
 {
-    system("clear");
     
-#if test1 && test2
-    std::cout << "test1";
-#else
-    std::cout << "else";
-#endif
+    Config();
+    GrahpicsTest();
     
-//    
-//    Config();
-//    GrahpicsTest();
-//    
     return 0;
 }

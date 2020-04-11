@@ -28,6 +28,13 @@ namespace Graphics {
             
 			Graphics::Library::EventHandler<Graphics::Output::Pixel*, Graphics::Library::Size> EventDraw;
             
+            void Clear() {
+#if OS_MACOS || OS_LINUX
+                system("clear");
+#elif OS_WINDOWS
+                system("cls");
+#endif
+            }
             void ReDraw(){
                 EventDraw.Invoke(Pixel, Size);
                 Draw();
@@ -44,6 +51,7 @@ namespace Graphics {
                 }
                 
 #if OS_MAC || OS_LINUX
+                
                 int index = 0;
                 for (int y = 0; y < Size.Y; y++){
                     index += Cursor.GotoXY(Graphics::Library::Point(0, y), buffer, index);

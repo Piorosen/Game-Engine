@@ -17,9 +17,7 @@ void test(Graphics::Output::Pixel* p, Graphics::Library::Size s){
             
             p[y * s.X + x].SetPixel(Color(f, b), ' ');
         }
-    }
-    
-    
+    }   
 }
 
 int main()
@@ -29,6 +27,7 @@ int main()
     
     Display d(Graphics::Library::Size(60, 30));
     d.EventDraw += test;
+    
     while (true){
         d.ReDraw();
     }

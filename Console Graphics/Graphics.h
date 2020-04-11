@@ -11,6 +11,8 @@
 #include "Action.h"
 #include "Predicate.h"
 
+#include "Renderer.h"
+
 namespace Graphics {
 
 }

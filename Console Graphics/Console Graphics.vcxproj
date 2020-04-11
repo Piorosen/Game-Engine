@@ -166,14 +166,14 @@
     <ClInclude Include="Point.h" />
     <ClInclude Include="Cursor.h" />
     <ClInclude Include="Predicate.h" />
-    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Terminal.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="EnviromentDefine.h" />
     <ClCompile Include="Pixel.cpp" />
     <ClCompile Include="Point.cpp" />
-    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="Terminal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />

@@ -9,7 +9,7 @@
 
 namespace Graphics {
     namespace Output {
-        class Renderer {
+        class Terminal {
         private:
             Graphics::Input::Keyboard keyboard;
             Graphics::Input::Mouse mouse;
@@ -17,7 +17,7 @@ namespace Graphics {
         public:
             Display Display;
             
-            Renderer(const Graphics::Library::Size size) : Display(size){
+			Terminal(const Graphics::Library::Size size) : Display(size){
                 
             }
             

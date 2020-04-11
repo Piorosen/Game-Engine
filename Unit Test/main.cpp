@@ -24,9 +24,13 @@ void test(Graphics::Output::Pixel* p, Graphics::Library::Size s){
 
 int main()
 {
-    
-    Config();
-    GrahpicsTest();
+	Terminal t = Terminal(Graphics::Library::Size(40, 30));
+	t.Display.EventDraw += test;
+
+	for (;;)
+		t.Display.ReDraw();
+
+
     
     return 0;
 }

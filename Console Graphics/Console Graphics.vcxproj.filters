@@ -87,7 +87,7 @@
     <ClInclude Include="Predicate.h">
       <Filter>Header\Library\Function</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.h">
+    <ClInclude Include="Terminal.h">
       <Filter>Header\Output</Filter>
     </ClInclude>
   </ItemGroup>
@@ -104,7 +104,7 @@
     <ClCompile Include="Pixel.cpp">
       <Filter>Source\Library</Filter>
     </ClCompile>
-    <ClCompile Include="Renderer.cpp">
+    <ClCompile Include="Terminal.cpp">
       <Filter>Source\Output</Filter>
     </ClCompile>
   </ItemGroup>

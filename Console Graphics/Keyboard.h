@@ -1,11 +1,12 @@
 #pragma once
+#include "IDevice.h"
 #include "EventHandler.h"
 
 using namespace Graphics::Library;
 
 namespace Graphics {
 	namespace Input {
-		class Keyboard {
+        class Keyboard : Library::Interface::IDevice {
 		private:
 			bool Key[256] = { 0, };
 

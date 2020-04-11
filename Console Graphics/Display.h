@@ -27,6 +27,28 @@ namespace Graphics {
             }
             
 			Graphics::Library::EventHandler<Graphics::Output::Pixel*, Graphics::Library::Size> EventDraw;
+
+#if OS_MACOS || OS_LINUX
+            int ResizeTerminal(Graphics::Library::Size size, char* result = nullptr, int index = 0) {
+#elif OS_WINDOWS
+            void ResizeTerminal(Graphics::Library::Size size) {
+#endif
+            
+                
+#if OS_MACOS || OS_LINUX
+                if (result == nullptr) {
+                    std::cout << "\e[8;" << size.Y << ";" << size.X << "t";
+                }else {
+                    
+                }
+                return 0;
+            }
+#elif OS_WINDOWS
+                
+                
+            }
+#endif
+            
             
             void Clear() {
 #if OS_MACOS || OS_LINUX
@@ -35,6 +57,7 @@ namespace Graphics {
                 system("cls");
 #endif
             }
+            
             void ReDraw(){
                 EventDraw.Invoke(Pixel, Size);
                 Draw();

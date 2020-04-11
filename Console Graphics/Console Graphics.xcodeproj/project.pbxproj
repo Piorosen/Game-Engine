@@ -92,6 +92,7 @@
 		6292A759243B23DD0021D5AC /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				62E42FDE2441935F00815FD2 /* Graphics */,
 				6292A73D243B23C20021D5AC /* Graphics.h */,
 				627DF740243C388D002B3BAD /* Enviroment */,
 				6292A75B243B24030021D5AC /* Input */,
@@ -153,6 +154,13 @@
 				62CE8441243D94A900559BC3 /* IDevice.h */,
 			);
 			name = Interface;
+			sourceTree = "<group>";
+		};
+		62E42FDE2441935F00815FD2 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Graphics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

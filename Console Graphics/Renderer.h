@@ -11,14 +11,15 @@ namespace Graphics {
     namespace Output {
         class Renderer {
         private:
-            Display display;
+            Graphics::Input::Keyboard keyboard;
+            Graphics::Input::Mouse mouse;
             
         public:
-            Renderer(const Graphics::Library::Size size) : display(size){
+            Display Display;
+            
+            Renderer(const Graphics::Library::Size size) : Display(size){
                 
             }
-            
-            
             
             
         };

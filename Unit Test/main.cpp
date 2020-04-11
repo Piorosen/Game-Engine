@@ -20,21 +20,22 @@ void test(Graphics::Output::Pixel* p, Graphics::Library::Size s){
     }   
 }
 
+#define test1 true
+#define test2 true
+
 int main()
 {
-    srand(time(0));
     system("clear");
     
-    Display d(Graphics::Library::Size(60, 30));
-    d.EventDraw += test;
+#if test1 && test2
+    std::cout << "test1";
+#else
+    std::cout << "else";
+#endif
     
-    while (true){
-        d.ReDraw();
-    }
-    
-    
-    Config();
-    GrahpicsTest();
-    
+//    
+//    Config();
+//    GrahpicsTest();
+//    
     return 0;
 }

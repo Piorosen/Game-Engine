@@ -1,6 +1,7 @@
 #pragma once
 #include "EventHandler.h"
 #include "Point.h"
+#include "IDevice.h"
 
 using namespace Graphics::Library;
 
@@ -12,7 +13,7 @@ namespace Graphics {
 			Middle,
 		};
 
-		class Mouse {
+        class Mouse : Library::Interface::IDevice {
 		private:
 			void SetClickMousePosition(Point pt) {
 				this->pt = pt;

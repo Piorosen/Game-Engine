@@ -170,6 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Cursor.cpp" />
     <ClCompile Include="EnviromentDefine.h" />
     <ClCompile Include="Pixel.cpp" />
     <ClCompile Include="Point.cpp" />

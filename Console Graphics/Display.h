@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #pragma once
 
 #include <time.h>
@@ -56,8 +58,9 @@ namespace Graphics {
                 }
                 return index;
 #elif OS_WINDOWS
-                std::cout << "???";
-
+				char text[256];
+				sprintf(text, "mode con:lines=%d cols=%d", Size.Y, Size.X);
+				system(text);
 #endif
             }
             
@@ -100,6 +103,8 @@ namespace Graphics {
                 std::cout << buffer;
 #elif OS_WINDOWS
                 
+
+
 #endif
             }
             

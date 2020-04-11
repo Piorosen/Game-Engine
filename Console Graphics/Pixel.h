@@ -12,7 +12,7 @@ namespace Graphics {
             Graphics::Library::Color Color;
             //Graphics::Library::Font Font;
             //Graphics::Library::Point Position;
-            char Ascii;
+            char Ascii = 0;
             
 			void SetPixel(Graphics::Library::Color color, char ch);
 

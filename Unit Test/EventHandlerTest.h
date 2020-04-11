@@ -29,15 +29,16 @@ void EventHanlderTest() {
 
 void DisplayResizeTest(){
     Graphics::Output::Display d(Graphics::Library::Size(20, 30));
-    system("sleep 0.5");
+
+
+	Sleep(500);
     
     d.ResizeTerminal(Graphics::Library::Size(100, 60));
-    system("sleep 0.5");
-    
+	Sleep(500);
     d.ResizeTerminal(Graphics::Library::Size(60, 10));
-    system("sleep 0.5");
+	Sleep(500);
     
     d.ResizeTerminal(Graphics::Library::Size(200, 40));
-    system("sleep 0.5");
+	Sleep(500);
     
 }

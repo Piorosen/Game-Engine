@@ -37,6 +37,12 @@
     <Filter Include="Header\Interface">
       <UniqueIdentifier>{5f9a714b-7f08-40d2-a492-335b31a281e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header\Library\Function">
+      <UniqueIdentifier>{215b72fc-8466-4ddc-8117-2e35b3b9642f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Output">
+      <UniqueIdentifier>{ebf68ba4-e823-4d5c-b9cf-2ce62a50dc85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graphics.h">
@@ -72,6 +78,18 @@
     <ClInclude Include="IDevice.h">
       <Filter>Header\Interface</Filter>
     </ClInclude>
+    <ClInclude Include="Action.h">
+      <Filter>Header\Library\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="Func.h">
+      <Filter>Header\Library\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="Predicate.h">
+      <Filter>Header\Library\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Header\Output</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EnviromentDefine.h">
@@ -85,6 +103,9 @@
     </ClCompile>
     <ClCompile Include="Pixel.cpp">
       <Filter>Source\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Source\Output</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

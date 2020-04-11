@@ -152,10 +152,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Action.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="Enviroment.h" />
     <ClInclude Include="EventHandler.h" />
+    <ClInclude Include="Func.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="IDevice.h" />
     <ClInclude Include="Keyboard.h" />
@@ -163,12 +165,15 @@
     <ClInclude Include="Pixel.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Cursor.h" />
+    <ClInclude Include="Predicate.h" />
+    <ClInclude Include="Renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="EnviromentDefine.h" />
     <ClCompile Include="Pixel.cpp" />
     <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />

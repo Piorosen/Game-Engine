@@ -1,7 +1,7 @@
 #include "Cursor.h"
 
 #if OS_MAC || OS_LINUX
-int Graphics::Output::Cursor::EraseCursor(bool isShowCursor, char* result = nullptr, int index = 0)
+int Graphics::Output::Cursor::EraseCursor(bool isShowCursor, char* result, int index)
 #elif OS_WINDOWS
 void Graphics::Output::Cursor::EraseCursor(bool isShowCursor)
 #endif
@@ -29,7 +29,7 @@ void Graphics::Output::Cursor::EraseCursor(bool isShowCursor)
 }
 
 #if OS_MAC || OS_LINUX
-int Graphics::Output::Cursor::FontColor(const Graphics::Library::Color color, char* result = nullptr, int index = 0)
+int Graphics::Output::Cursor::FontColor(const Graphics::Library::Color color, char* result, int index)
 #elif OS_WINDOWS
 void Graphics::Output::Cursor::FontColor(const Graphics::Library::Color color)
 #endif
@@ -73,7 +73,7 @@ void Graphics::Output::Cursor::FontColor(const Graphics::Library::Color color)
 
 
 #if OS_MAC || OS_LINUX
-int Graphics::Output::Cursor::GotoXY(Graphics::Library::Point pt, char* result = nullptr, int index = 0)
+int Graphics::Output::Cursor::GotoXY(Graphics::Library::Point pt, char* result, int index)
 #elif OS_WINDOWS
 void Graphics::Output::Cursor::GotoXY(Graphics::Library::Point pt)
 #endif
@@ -84,7 +84,7 @@ void Graphics::Output::Cursor::GotoXY(Graphics::Library::Point pt)
 	pt.Y += 1;
 
 	if (result == nullptr) {
-		std::cout << "\033[" << ((pt.Y + 1) & 0xffff) << ';' << ((pt.X + 1) & 0xffff) << 'f';
+		std::cout << "\033[" << ((pt.Y) & 0xffff) << ';' << ((pt.X) & 0xffff) << 'f';
 	}
 	else {
 		result[index++] = '\033';

@@ -27,18 +27,29 @@ void EventHanlderTest() {
 	d.Invoke(2, 3);
 }
 
+void delay(int miliSecond){
+#if OS_MAC || OS_LINUX
+    float f = miliSecond;
+    char data[100] = { 0, };
+    sprintf(data, "sleep %f", f / 1000.0);
+    system(data);
+#elif OS_WINDOWS
+    Sleep(miliSecond);
+#endif
+}
+
 void DisplayResizeTest(){
     Graphics::Output::Display d(Graphics::Library::Size(20, 30));
 
 
-	Sleep(500);
+	delay(500);
     
     d.ResizeTerminal(Graphics::Library::Size(100, 60));
-	Sleep(500);
+	delay(500);
     d.ResizeTerminal(Graphics::Library::Size(60, 10));
-	Sleep(500);
+	delay(500);
     
     d.ResizeTerminal(Graphics::Library::Size(200, 40));
-	Sleep(500);
+	delay(500);
     
 }

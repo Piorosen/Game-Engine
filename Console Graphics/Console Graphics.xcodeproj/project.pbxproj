@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		626630E4243F181500F9958A /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 626630E2243F181500F9958A /* Renderer.cpp */; };
-		626630E5243F181500F9958A /* Renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 626630E3243F181500F9958A /* Renderer.h */; };
+		620BAA962442C0FD00D6F425 /* Terminal.h in Headers */ = {isa = PBXBuildFile; fileRef = 620BAA942442C0FD00D6F425 /* Terminal.h */; };
+		620BAA972442C0FD00D6F425 /* Terminal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 620BAA952442C0FD00D6F425 /* Terminal.cpp */; };
+		620BAA992442C35200D6F425 /* Display.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 620BAA982442C35200D6F425 /* Display.cpp */; };
+		620BAA9B2442C50600D6F425 /* Cursor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 620BAA9A2442C50600D6F425 /* Cursor.cpp */; };
 		6292A739243B23B00021D5AC /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6292A738243B23B00021D5AC /* Color.cpp */; };
 		6292A748243B23C20021D5AC /* Cursor.h in Headers */ = {isa = PBXBuildFile; fileRef = 6292A73A243B23C20021D5AC /* Cursor.h */; };
 		6292A74A243B23C20021D5AC /* Mouse.h in Headers */ = {isa = PBXBuildFile; fileRef = 6292A73C243B23C20021D5AC /* Mouse.h */; };
@@ -30,8 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		626630E2243F181500F9958A /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
-		626630E3243F181500F9958A /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
+		620BAA942442C0FD00D6F425 /* Terminal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Terminal.h; sourceTree = "<group>"; };
+		620BAA952442C0FD00D6F425 /* Terminal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Terminal.cpp; sourceTree = "<group>"; };
+		620BAA982442C35200D6F425 /* Display.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Display.cpp; sourceTree = "<group>"; };
+		620BAA9A2442C50600D6F425 /* Cursor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cursor.cpp; sourceTree = "<group>"; };
 		6292A731243B23520021D5AC /* libConsole Graphics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libConsole Graphics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6292A738243B23B00021D5AC /* Color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Color.cpp; sourceTree = "<group>"; };
 		6292A73A243B23C20021D5AC /* Cursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cursor.h; sourceTree = "<group>"; usesTabs = 0; };
@@ -114,12 +118,14 @@
 		6292A75C243B240C0021D5AC /* Output */ = {
 			isa = PBXGroup;
 			children = (
+				620BAA952442C0FD00D6F425 /* Terminal.cpp */,
+				620BAA942442C0FD00D6F425 /* Terminal.h */,
 				6292A747243B23C20021D5AC /* Pixel.h */,
 				6292A740243B23C20021D5AC /* Pixel.cpp */,
 				6292A741243B23C20021D5AC /* Display.h */,
+				620BAA982442C35200D6F425 /* Display.cpp */,
 				6292A73A243B23C20021D5AC /* Cursor.h */,
-				626630E2243F181500F9958A /* Renderer.cpp */,
-				626630E3243F181500F9958A /* Renderer.h */,
+				620BAA9A2442C50600D6F425 /* Cursor.cpp */,
 			);
 			name = Output;
 			sourceTree = "<group>";
@@ -174,12 +180,12 @@
 				6292A753243B23C20021D5AC /* EnviromentDefine.h in Headers */,
 				6292A751243B23C20021D5AC /* Enviroment.h in Headers */,
 				6292A74B243B23C20021D5AC /* Graphics.h in Headers */,
+				620BAA962442C0FD00D6F425 /* Terminal.h in Headers */,
 				6292A755243B23C20021D5AC /* Pixel.h in Headers */,
 				6292A74D243B23C20021D5AC /* Color.h in Headers */,
 				6292A74A243B23C20021D5AC /* Mouse.h in Headers */,
 				6292A748243B23C20021D5AC /* Cursor.h in Headers */,
 				6292A74F243B23C20021D5AC /* Display.h in Headers */,
-				626630E5243F181500F9958A /* Renderer.h in Headers */,
 				6292A750243B23C20021D5AC /* Point.h in Headers */,
 				62CE8442243D94A900559BC3 /* IDevice.h in Headers */,
 				62CE843F243D8D2F00559BC3 /* Func.h in Headers */,
@@ -245,10 +251,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6292A752243B23C20021D5AC /* Point.cpp in Sources */,
+				620BAA9B2442C50600D6F425 /* Cursor.cpp in Sources */,
+				620BAA992442C35200D6F425 /* Display.cpp in Sources */,
 				62AC0E83243EA9AB00CA1EC8 /* Predicate.h in Sources */,
 				6292A74E243B23C20021D5AC /* Pixel.cpp in Sources */,
+				620BAA972442C0FD00D6F425 /* Terminal.cpp in Sources */,
 				6292A739243B23B00021D5AC /* Color.cpp in Sources */,
-				626630E4243F181500F9958A /* Renderer.cpp in Sources */,
 				62AC0E81243EA98700CA1EC8 /* Action.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

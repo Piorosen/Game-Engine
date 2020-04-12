@@ -1,11 +1,12 @@
 #pragma once
+#include "IDevice.h"
 #include "EventHandler.h"
 
 using namespace Graphics::Library;
 
 namespace Graphics {
 	namespace Input {
-		class Keyboard {
+        class Keyboard : Library::Interface::IDevice {
 		private:
 			bool Key[256] = { 0, };
 
@@ -34,6 +35,21 @@ namespace Graphics {
 
 			bool IsKeyDown(unsigned short ch) {
 				return Key[ch];
+			}
+
+			void Refresh(void* data) {
+#if OS_WINDOWS
+				INPUT_RECORD input = *(INPUT_RECORD*)data;
+
+				if (input.Event.KeyEvent.bKeyDown) {
+					KeyDown(input.Event.KeyEvent.wVirtualKeyCode);
+					//	printf("키보드 입력 : %d : Down\n", input.Event.KeyEvent.wVirtualKeyCode);
+				}
+				else {
+					KeyUp(input.Event.KeyEvent.wVirtualKeyCode);
+					//	printf("키보드 입력 : %d : Up\n", input.Event.KeyEvent.wVirtualKeyCode);
+				}
+#endif
 			}
 		};
 	}

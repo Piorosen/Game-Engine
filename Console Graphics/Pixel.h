@@ -6,12 +6,14 @@ namespace Graphics {
 	namespace Output {
 		class Pixel {
 		private:
-			Graphics::Library::Color Color;
-			//Graphics::Library::Font Font;
-			//Graphics::Library::Point Position;
-			char Ascii;
+			
 
 		public:
+            Graphics::Library::Color Color;
+            //Graphics::Library::Font Font;
+            //Graphics::Library::Point Position;
+            char Ascii = 0;
+            
 			void SetPixel(Graphics::Library::Color color, char ch);
 
 			bool operator==(const Pixel& g) const;

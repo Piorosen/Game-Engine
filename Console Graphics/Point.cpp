@@ -1,4 +1,3 @@
-#pragma once
 #include "Point.h"
 
 Graphics::Library::Point::Point() {

@@ -1,4 +1,3 @@
-#pragma once
 #include "Color.h"
 
 Graphics::Library::Color::Color() {

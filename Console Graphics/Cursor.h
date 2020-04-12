@@ -11,36 +11,26 @@ namespace Graphics {
 		class Cursor {
 		private:
 
-
 		public:
-			static void EraseCursor(bool isShowCursor) {
-#if OS_MAC || OS_LINUX 
-                std::cout << (isShowCursor ? "\e[?25l" : "\e[?25h");
-#elif OS_WINDOWS
-				CONSOLE_CURSOR_INFO cursorinfo = { 0, };
-				cursorinfo.dwSize = 1;
-				cursorinfo.bVisible = isShowCursor;
-				SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorinfo);
-#endif
-				
-			}
-
-			static void FontColor(const Graphics::Library::Color color) {
+            
 #if OS_MAC || OS_LINUX
-				std::cout << "\033[" << (int)color.GetForground() << ";" << (int)color.GetBackground() << 'm';
+			int EraseCursor(bool isShowCursor, char* result = nullptr, int index = 0);
 #elif OS_WINDOWS
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (((int)color.GetBackground() & 0xf) << 4) | ((int)color.GetForground() & 0xf));
+			void EraseCursor(bool isShowCursor);
 #endif
-			}
-
-			static void GotoXY(const Graphics::Library::Point pt) {
+                 
 #if OS_MAC || OS_LINUX
-				std::cout << "\033[" << ((pt.Y + 1) & 0xffff) << ';' << ((pt.X + 1) & 0xffff) << 'f';
+			int FontColor(const Graphics::Library::Color color, char* result = nullptr, int index = 0);
 #elif OS_WINDOWS
-				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { pt.X & 0xffff, pt.Y & 0xffff });
+			void FontColor(const Graphics::Library::Color color);
 #endif
-			}
+               
 
+#if OS_MAC || OS_LINUX
+			int GotoXY(Graphics::Library::Point pt, char* result = nullptr, int index = 0);
+#elif OS_WINDOWS
+			void GotoXY(Graphics::Library::Point pt);
+#endif
 		protected:
 
 

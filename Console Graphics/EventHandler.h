@@ -11,8 +11,6 @@ namespace Graphics {
             Function::Func<void, ARGS...> list[10];
 
 		public:
-            
-            
 			bool operator+=(void(*function)(ARGS...)) {
                 for (auto& i : list) {
                     if (i == nullptr) {
@@ -22,6 +20,7 @@ namespace Graphics {
                 }
                 return false;
             }
+
             bool operator+=(Function::Action<ARGS...> function) {
                 for (auto& i : list) {
                     if (i == nullptr) {

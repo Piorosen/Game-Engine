@@ -52,11 +52,6 @@ void Graphics::Output::Display::ResizeTerminal(Graphics::Library::Size size)
 #endif
 }
 
-bool Graphics::Output::Display::AddDrawEvent(Graphics::Library::Function::Action<Graphics::Output::Pixel*, Graphics::Library::Size> event)
-{
-	return (EventDraw += event);
-}
-
 void Graphics::Output::Display::Clear()
 {
 #if OS_MAC || OS_LINUX

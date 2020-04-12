@@ -15,6 +15,9 @@ namespace Graphics {
 
         class Mouse : Library::Interface::IDevice {
 		private:
+			int left = 0;
+			int right = 0;
+
 			void SetClickMousePosition(Point pt) {
 				this->pt = pt;
 			}
@@ -52,6 +55,7 @@ namespace Graphics {
 			Point MousePoint;
 
 		public:
+
 			EventHandler<MouseButton, Point> EventKeyDown;
 			EventHandler<MouseButton, Point> EventKeyUp;
 
@@ -75,7 +79,30 @@ namespace Graphics {
 			Point GetMousePosition() {
 				return MousePoint;
 			}
+			void Refresh(void* data) {
+				INPUT_RECORD input = *(INPUT_RECORD*)data;
 
+				COORD pos;
+				CONSOLE_SCREEN_BUFFER_INFO csbi;
+
+				GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+				pos = input.Event.MouseEvent.dwMousePosition;
+				pos.X -= csbi.srWindow.Left;
+				pos.Y -= csbi.srWindow.Top;
+
+				// Down
+				if (GetKeyState(VK_LBUTTON) < 0 && left == 0) {
+					SetClickMousePosition(Graphics::Library::Point(pos.X, pos.Y));
+					left = 1;
+					//		printf("마우스 입력 : Down\n");
+				} // UP
+				else if (GetKeyState(VK_LBUTTON) >= 0 && left == 1) {
+					SetClickMousePosition(Graphics::Library::Point(-1, -1));
+					left = 0;
+					//	printf("마우스 입력 : Up\n");
+				}
+				SetMousePostion(Graphics::Library::Point(pos.X, pos.Y));
+			}
 			
 
 			

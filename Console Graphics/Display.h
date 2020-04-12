@@ -19,15 +19,15 @@ namespace Graphics {
 			Graphics::Output::Pixel* NewPixel;
 			Graphics::Output::Cursor Cursor;
 
-			Graphics::Library::EventHandler<Graphics::Output::Pixel*, Graphics::Library::Size> EventDraw;
 
 			short Hz = 60;
 
 		public:
+			Graphics::Library::EventHandler<Graphics::Output::Pixel*, Graphics::Library::Size> EventDraw;
+
 			Display(Graphics::Library::Size displaySize);
 			void Clear();
 			void ReDraw();
-			bool AddDrawEvent(Graphics::Library::Function::Action<Graphics::Output::Pixel*, Graphics::Library::Size> event);
 
 #if OS_MAC || OS_LINUX
 			int ResizeTerminal(Graphics::Library::Size size, char* result = nullptr, int index = 0);

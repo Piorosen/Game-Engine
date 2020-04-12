@@ -21,7 +21,7 @@ namespace Graphics {
 				EventKeyDown.Invoke(ch);
 				EventKeyChanged.Invoke(ch, true);
 			}
-
+            
 		public:
 			EventHandler<unsigned short> EventKeyDown;
 			EventHandler<unsigned short> EventKeyUp;
@@ -43,11 +43,11 @@ namespace Graphics {
 
 				if (input.Event.KeyEvent.bKeyDown) {
 					KeyDown(input.Event.KeyEvent.wVirtualKeyCode);
-					//	printf("Å°º¸µå ÀÔ·Â : %d : Down\n", input.Event.KeyEvent.wVirtualKeyCode);
+					//	printf("Å°ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ : %d : Down\n", input.Event.KeyEvent.wVirtualKeyCode);
 				}
 				else {
 					KeyUp(input.Event.KeyEvent.wVirtualKeyCode);
-					//	printf("Å°º¸µå ÀÔ·Â : %d : Up\n", input.Event.KeyEvent.wVirtualKeyCode);
+					//	printf("Å°ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ : %d : Up\n", input.Event.KeyEvent.wVirtualKeyCode);
 				}
 #endif
 			}

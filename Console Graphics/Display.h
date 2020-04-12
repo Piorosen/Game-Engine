@@ -9,22 +9,25 @@
 #include "Pixel.h"
 #include "Cursor.h"
 #include "EventHandler.h"
+#include "IDevice.h"
 
 namespace Graphics {
 	namespace Output {
 		class Display {
 		private:
+            char* buffer;
 			Graphics::Library::Size Size;
 			Graphics::Output::Pixel* DisplayPixel;
 			Graphics::Output::Pixel* NewPixel;
-			Graphics::Output::Cursor Cursor;
-
-
-			short Hz = 60;
+			
+			
 
 		public:
+            short Hz = 60;
+            
 			Graphics::Library::EventHandler<Graphics::Output::Pixel*, Graphics::Library::Size> EventDraw;
-
+            Graphics::Output::Cursor Cursor;
+            
 			Display(Graphics::Library::Size displaySize);
 			void Clear();
 			void ReDraw();

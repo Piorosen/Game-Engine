@@ -80,6 +80,7 @@ namespace Graphics {
 				return MousePoint;
 			}
 			void Refresh(void* data) {
+#if OS_WINDOWS
 				INPUT_RECORD input = *(INPUT_RECORD*)data;
 
 				COORD pos;
@@ -102,6 +103,7 @@ namespace Graphics {
 					//	printf("마우스 입력 : Up\n");
 				}
 				SetMousePostion(Graphics::Library::Point(pos.X, pos.Y));
+#endif
 			}
 			
 

@@ -36,10 +36,12 @@ namespace Graphics {
             Display Display;
             
 			Terminal(const Graphics::Library::Size size) : Display(size){
+#if OS_WINDOWS
 				DWORD mode;
 				GetConsoleMode(CIN, &mode);
 				CIN = GetStdHandle(STD_INPUT_HANDLE);
 				SetConsoleMode(CIN, mode | ENABLE_MOUSE_INPUT);
+#endif
             }
 
 			void RefreshInputDevice() {

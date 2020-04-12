@@ -38,6 +38,7 @@ namespace Graphics {
 			}
 
 			void Refresh(void* data) {
+#if OS_WINDOWS
 				INPUT_RECORD input = *(INPUT_RECORD*)data;
 
 				if (input.Event.KeyEvent.bKeyDown) {
@@ -48,6 +49,7 @@ namespace Graphics {
 					KeyUp(input.Event.KeyEvent.wVirtualKeyCode);
 					//	printf("키보드 입력 : %d : Up\n", input.Event.KeyEvent.wVirtualKeyCode);
 				}
+#endif
 			}
 		};
 	}

@@ -3,9 +3,11 @@
 #include <iostream>
 
 #define OUTPUT_CONSOLE
+#include "Graphics.h"
+
 #include "TestModule.hpp"
 #include "GraphicsTest.h"
-#include "Graphics.h"
+
 
 using namespace Graphics::Library;
 using namespace Graphics::Output;

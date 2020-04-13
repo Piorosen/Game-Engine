@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Library/EventHandler.h"
-
 void test1(int a, float b) {
 	printf("a %d %f\n", a, b);
 }

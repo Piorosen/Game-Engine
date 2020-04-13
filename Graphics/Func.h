@@ -43,6 +43,12 @@ namespace Graphics {
                 }
                 
             };
+
+            template<typename... ARGS>
+            using Action = Func<void, ARGS...>;
+            
+            template<typename... ARGS>
+            using Predicate = Func<bool, ARGS...>;
         }
     }
 }

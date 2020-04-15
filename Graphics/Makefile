@@ -231,32 +231,32 @@ EventHandler.cpp.s:
 	$(MAKE) -f CMakeFiles/Graphics.dir/build.make CMakeFiles/Graphics.dir/EventHandler.cpp.s
 .PHONY : EventHandler.cpp.s
 
-Graphics.o: Graphics.cpp.o
+Func.o: Func.cpp.o
 
-.PHONY : Graphics.o
+.PHONY : Func.o
 
 # target to build an object file
-Graphics.cpp.o:
-	$(MAKE) -f CMakeFiles/Graphics.dir/build.make CMakeFiles/Graphics.dir/Graphics.cpp.o
-.PHONY : Graphics.cpp.o
+Func.cpp.o:
+	$(MAKE) -f CMakeFiles/Graphics.dir/build.make CMakeFiles/Graphics.dir/Func.cpp.o
+.PHONY : Func.cpp.o
 
-Graphics.i: Graphics.cpp.i
+Func.i: Func.cpp.i
 
-.PHONY : Graphics.i
+.PHONY : Func.i
 
 # target to preprocess a source file
-Graphics.cpp.i:
-	$(MAKE) -f CMakeFiles/Graphics.dir/build.make CMakeFiles/Graphics.dir/Graphics.cpp.i
-.PHONY : Graphics.cpp.i
+Func.cpp.i:
+	$(MAKE) -f CMakeFiles/Graphics.dir/build.make CMakeFiles/Graphics.dir/Func.cpp.i
+.PHONY : Func.cpp.i
 
-Graphics.s: Graphics.cpp.s
+Func.s: Func.cpp.s
 
-.PHONY : Graphics.s
+.PHONY : Func.s
 
 # target to generate assembly for a file
-Graphics.cpp.s:
-	$(MAKE) -f CMakeFiles/Graphics.dir/build.make CMakeFiles/Graphics.dir/Graphics.cpp.s
-.PHONY : Graphics.cpp.s
+Func.cpp.s:
+	$(MAKE) -f CMakeFiles/Graphics.dir/build.make CMakeFiles/Graphics.dir/Func.cpp.s
+.PHONY : Func.cpp.s
 
 Pixel.o: Pixel.cpp.o
 
@@ -360,9 +360,9 @@ help:
 	@echo "... EventHandler.o"
 	@echo "... EventHandler.i"
 	@echo "... EventHandler.s"
-	@echo "... Graphics.o"
-	@echo "... Graphics.i"
-	@echo "... Graphics.s"
+	@echo "... Func.o"
+	@echo "... Func.i"
+	@echo "... Func.s"
 	@echo "... Pixel.o"
 	@echo "... Pixel.i"
 	@echo "... Pixel.s"

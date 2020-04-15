@@ -14,15 +14,15 @@ void test4(int a, float b) {
 }
 
 void EventHanlderTest() {
-	Graphics::Library::EventHandler<int, float> d;
+	// Graphics::Library::EventHandler<int, float> d;
 
-	d += test1;
-	d += test2;
-	d += test4;
-	d += test3;
-	d -= test1;
+	// d += test1;
+	// d += test2;
+	// d += test4;
+	// d += test3;
+	// d -= test1;
 
-	d.Invoke(2, 3);
+	// d.Invoke(2, 3);
 }
 
 void delay(int miliSecond){

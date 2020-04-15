@@ -95,12 +95,12 @@ namespace Graphics {
 				if (GetKeyState(VK_LBUTTON) < 0 && left == 0) {
 					SetClickMousePosition(Graphics::Library::Point(pos.X, pos.Y));
 					left = 1;
-					//		printf("¸¶¿ì½º ÀÔ·Â : Down\n");
+					//		printf("ï¿½ï¿½ï¿½ì½º ï¿½Ô·ï¿½ : Down\n");
 				} // UP
 				else if (GetKeyState(VK_LBUTTON) >= 0 && left == 1) {
 					SetClickMousePosition(Graphics::Library::Point(-1, -1));
 					left = 0;
-					//	printf("¸¶¿ì½º ÀÔ·Â : Up\n");
+					//	printf("ï¿½ï¿½ï¿½ì½º ï¿½Ô·ï¿½ : Up\n");
 				}
 				SetMousePostion(Graphics::Library::Point(pos.X, pos.Y));
 #endif

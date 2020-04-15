@@ -1,8 +1,6 @@
 #pragma once
 
-#include "Action.h"
-#include "Predicate.h"
-#include "Func.h"
+#include "../Graphics/Func.h"
 
 using namespace Graphics::Library::Function;
 

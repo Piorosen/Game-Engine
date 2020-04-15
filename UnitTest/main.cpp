@@ -3,7 +3,7 @@
 #include <iostream>
 
 #define OUTPUT_CONSOLE
-#include "Graphics.h"
+#include "../Graphics/Graphics.h"
 
 #include "TestModule.hpp"
 #include "GraphicsTest.h"

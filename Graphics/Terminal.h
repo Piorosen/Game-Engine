@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Display.h"
 #include "Point.h"
-
 #include "IDevice.h"
-#include "Keyboard.h"
+
+#include "Display.h"
 #include "Mouse.h"
+#include "Keyboard.h"
 
 namespace Graphics {
     namespace Output {
@@ -30,36 +30,13 @@ namespace Graphics {
 #endif
 
         public:
+			Graphics::Output::Display display;
+
 			Graphics::Input::Keyboard keyboard;
 			Graphics::Input::Mouse mouse;
 
-            Display Display;
-            
-			Terminal(const Graphics::Library::Size size) : Display(size){
-#if OS_WINDOWS
-				DWORD mode;
-				GetConsoleMode(CIN, &mode);
-				CIN = GetStdHandle(STD_INPUT_HANDLE);
-				SetConsoleMode(CIN, mode | ENABLE_MOUSE_INPUT);
-#endif
-            }
-
-			void RefreshInputDevice() {
-#if OS_WINDOWS
-				if (beInput()) {
-					auto input = selectInput();
-
-					if (input.EventType == KEY_EVENT) {
-						keyboard.Refresh((void*)&input.Event);
-					}
-					else if (input.EventType == MOUSE_EVENT) {
-						mouse.Refresh((void*)&input.Event);
-
-					}
-				}
-#endif
-			}
-
+			Terminal(const Graphics::Library::Size size);
+			void RefreshInputDevice();
         };
     }
 }

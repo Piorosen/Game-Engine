@@ -20,8 +20,6 @@ namespace Graphics {
 			Graphics::Output::Pixel* DisplayPixel;
 			Graphics::Output::Pixel* NewPixel;
 			
-			
-
 		public:
             short Hz = 60;
             

@@ -47,6 +47,7 @@ namespace Graphics{
 #endif
 		};
 
+
 		class Color {
 		private:
 			ColorForground Forground;

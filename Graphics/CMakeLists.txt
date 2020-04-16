@@ -7,10 +7,10 @@ SET( SRC_FILES
 	Pixel.cpp
 	Color.cpp
 	Cursor.cpp
-	EventHandler.cpp
+	EventHandler.h
 	EnviromentDefine.h
 	Enviroment.h
-	Func.cpp
+	Func.h
 	Terminal.cpp
 	Display.cpp
 	IDevice.h

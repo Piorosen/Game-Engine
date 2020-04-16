@@ -30,3 +30,5 @@ namespace Graphics {
         }
     }
 }
+
+#include "Func.h"

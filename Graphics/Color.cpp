@@ -31,3 +31,4 @@ Graphics::Library::ColorForground Graphics::Library::Color::GetForground() const
 Graphics::Library::ColorBackground Graphics::Library::Color::GetBackground() const {
 	return this->Background;
 }
+

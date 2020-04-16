@@ -28,3 +28,4 @@ namespace Graphics {
 	}
 }
 
+#include "EventHandler.cpp"

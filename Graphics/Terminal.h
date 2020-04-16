@@ -30,10 +30,10 @@ namespace Graphics {
 #endif
 
         public:
-			Graphics::Output::Display display;
+			Graphics::Output::Display Display;
 
-			Graphics::Input::Keyboard keyboard;
-			Graphics::Input::Mouse mouse;
+			Graphics::Input::Keyboard Keyboard;
+			Graphics::Input::Mouse Mouse;
 
 			Terminal(const Graphics::Library::Size size);
 			void RefreshInputDevice();

@@ -2,7 +2,7 @@
 
 #include "Terminal.h"
 
-Graphics::Output::Terminal::Terminal(const Graphics::Library::Size size) : display(size)
+Graphics::Output::Terminal::Terminal(const Graphics::Library::Size size) : Display(size)
 {
 #if OS_WINDOWS
     DWORD mode;

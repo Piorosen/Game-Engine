@@ -2,19 +2,20 @@ PROJECT(UnitTest)
 CMAKE_MINIMUM_REQUIRED(VERSION 3.6)
 
 SET( GRAPHICS_FILES
-	./Graphics/Graphics.cpp
-	./Graphics/Color.cpp
-	./Graphics/Cursor.cpp
-	./Graphics/Display.cpp
-	./Graphics/Enviroment.h
-	./Graphics/EventHandler.cpp
-	./Graphics/Func.h
-	./Graphics/IDevice.h
-	./Graphics/Keyboard.h
-	./Graphics/Mouse.h
-	./Graphics/Pixel.cpp
-	./Graphics/Point.cpp
-	./Graphics/Terminal.cpp )
+        ./Graphics/Point.cpp
+        ./Graphics/Pixel.cpp
+        ./Graphics/Color.cpp
+        ./Graphics/Cursor.cpp
+        ./Graphics/EventHandler.h
+        ./Graphics/EnviromentDefine.h
+        ./Graphics/Enviroment.h
+        ./Graphics/Func.h
+        ./Graphics/Terminal.cpp
+        ./Graphics/Display.cpp
+        ./Graphics/IDevice.h
+        ./Graphics/keyboard.h
+        ./Graphics/Mouse.h
+)
 
 SET(CMAKE_CXX_STANDARD 11)
 

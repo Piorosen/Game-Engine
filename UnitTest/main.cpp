@@ -3,7 +3,7 @@
 #include <iostream>
 
 #define OUTPUT_CONSOLE
-#include "../Graphics/Graphics.h"
+#include "Graphics/Terminal.h"
 
 #include "TestModule.hpp"
 #include "GraphicsTest.h"
@@ -41,7 +41,6 @@ int main()
     GrahpicsTest();
     srand((unsigned int)time(0));
 
-    
 
 	Terminal t = Terminal(Graphics::Library::Size(80, 30));
     t.Display.EventDraw += test;

@@ -17,6 +17,18 @@ Graphics/cmake_install.cmake
 Graphics/CMakeFiles/*
 Graphics/Makefile/
 
+UnitTest/CMakeCache.txt
+UnitTest/cmake_install.cmake
+UnitTest/CMakeFiles/*
+UnitTest/Makefile/
+
+CMakeCache.txt
+cmake_install.cmake
+CMakeFiles/*
+Makefile/
+
+
+
 # Build results
 .vscode/
 
@@ -338,3 +350,5 @@ ASALocalRun/
 .DS_Store
 *.swp
 *.a
+*.a
+Makefile

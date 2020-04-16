@@ -33,6 +33,7 @@ void Graphics::Output::Display::ResizeTerminal(Graphics::Library::Size size)
 #if OS_MAC || OS_LINUX
     if (result == nullptr) {
         std::cout << "\e[8;" << size.Y + 1 << ";" << size.X << "t";
+        fflush(stdout);
     }
     else {
         char save[100] = { 0, };

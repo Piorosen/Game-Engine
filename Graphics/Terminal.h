@@ -1,5 +1,8 @@
 #pragma once
 
+#include "Func.h"
+#include "EventHandler.h"
+
 #include "Point.h"
 #include "IDevice.h"
 

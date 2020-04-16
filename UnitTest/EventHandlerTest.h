@@ -1,4 +1,6 @@
 #pragma once
+#include <stdio.h>
+#include "Graphics/Display.h"
 
 void test1(int a, float b) {
 	printf("a %d %f\n", a, b);

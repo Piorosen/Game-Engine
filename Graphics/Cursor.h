@@ -14,20 +14,20 @@ namespace Graphics {
 		public:
             
 #if OS_MAC || OS_LINUX
-			int EraseCursor(bool isShowCursor, char* result = nullptr, int index = 0);
+			int EraseCursor(bool isShowCursor, char* result = nullptr);
 #elif OS_WINDOWS
 			void EraseCursor(bool isShowCursor);
 #endif
                  
 #if OS_MAC || OS_LINUX
-			int FontColor(const Graphics::Library::Color color, char* result = nullptr, int index = 0);
+			int FontColor(const Graphics::Library::Color color, char* result = nullptr);
 #elif OS_WINDOWS
 			void FontColor(const Graphics::Library::Color color);
 #endif
                
 
 #if OS_MAC || OS_LINUX
-			int GotoXY(Graphics::Library::Point pt, char* result = nullptr, int index = 0);
+			int GotoXY(Graphics::Library::Point pt, char* result = nullptr);
 #elif OS_WINDOWS
 			void GotoXY(Graphics::Library::Point pt);
 #endif

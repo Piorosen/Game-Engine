@@ -40,16 +40,22 @@ void delay(int miliSecond){
 
 void DisplayResizeTest(){
     Graphics::Output::Display d(Graphics::Library::Size(20, 30));
-
-
 	delay(500);
-    
     d.ResizeTerminal(Graphics::Library::Size(100, 60));
 	delay(500);
     d.ResizeTerminal(Graphics::Library::Size(60, 10));
 	delay(500);
-    
     d.ResizeTerminal(Graphics::Library::Size(200, 40));
 	delay(500);
-    
+}
+
+void DisplayResizeTest(){
+    Graphics::Output::Display d(Graphics::Library::Size(20, 30));
+	delay(500);
+    d.ResizeTerminal(Graphics::Library::Size(100, 60));
+	delay(500);
+    d.ResizeTerminal(Graphics::Library::Size(60, 10));
+	delay(500);
+    d.ResizeTerminal(Graphics::Library::Size(200, 40));
+	delay(500);
 }

@@ -15,6 +15,7 @@ SET( GRAPHICS_FILES
         ./Graphics/IDevice.h
         ./Graphics/keyboard.h
         ./Graphics/Mouse.h
+	
 )
 
 SET(CMAKE_CXX_STANDARD 11)

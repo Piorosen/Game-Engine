@@ -1,7 +1,30 @@
 #include "Display.h"
 
 #if OS_MAC || OS_LINUX
-int Graphics::Output::Display::ResizeTerminal(Graphics::Library::Size size, char* result, int index)
+int Graphics::Output::Display::ChangeTitle(const char* name, char* result)
+#elif OS_WINDOWS
+void Graphics::Output::Display::ChangeTitle(const char* name)
+#endif
+{
+#if OS_MAC || OS_LINUX 
+    int index = 0;
+    if (result == nullptr){
+        std::cout << "\033]0;" << name << "\007";
+    }else {
+        char save[256] = { 0, };
+
+        sprintf(save, "\033]0;%s\007", name);
+        strcat(result, save);
+        index = (int)strlen(save);
+    }
+    return index;
+#elif OS_WINDOWS
+    SetConsoleTitle(result);
+#endif
+}
+
+#if OS_MAC || OS_LINUX
+int Graphics::Output::Display::ResizeTerminal(Graphics::Library::Size size, char* result)
 #elif OS_WINDOWS
 void Graphics::Output::Display::ResizeTerminal(Graphics::Library::Size size)
 #endif
@@ -31,6 +54,7 @@ void Graphics::Output::Display::ResizeTerminal(Graphics::Library::Size size)
         NewPixel[i] = Graphics::Output::Pixel();
     }
 #if OS_MAC || OS_LINUX
+    int index = 0;
     if (result == nullptr) {
         std::cout << "\e[8;" << size.Y + 1 << ";" << size.X << "t";
         fflush(stdout);
@@ -63,6 +87,24 @@ Graphics::Output::Display::Display(Graphics::Library::Size displaySize) {
     ResizeTerminal(displaySize);
 }
 
+Graphics::Output::Display::~Display() {
+    
+    if (DisplayPixel == nullptr){
+        delete[] DisplayPixel;
+        DisplayPixel = nullptr;
+    }
+
+    if (NewPixel == nullptr){
+        delete[] NewPixel;
+        NewPixel = nullptr;
+    }
+    
+    if (buffer == nullptr){
+        delete[] buffer;
+        buffer = nullptr;
+    }
+}
+
 
 void Graphics::Output::Display::Clear()
 {
@@ -84,10 +126,10 @@ void Graphics::Output::Display::Draw() {
 
     int index = 0;
     for (int y = 0; y < Size.Y; y++) {
-        index += Cursor.GotoXY(Graphics::Library::Point(0, y), buffer, index);
+        index += Cursor.GotoXY(Graphics::Library::Point(0, y), buffer);
         index--;
         for (int x = 0; x < Size.X; x++) {
-            index += Cursor.FontColor(NewPixel[y * Size.X + x].Color, buffer, index);
+            index += Cursor.FontColor(NewPixel[y * Size.X + x].Color, buffer);
             index--;
             buffer[index++] = NewPixel[y * Size.X + x].Ascii;
         }

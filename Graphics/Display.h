@@ -27,11 +27,19 @@ namespace Graphics {
             Graphics::Output::Cursor Cursor;
             
 			Display(Graphics::Library::Size displaySize);
+			~Display();
+			
 			void Clear();
 			void ReDraw();
 
 #if OS_MAC || OS_LINUX
-			int ResizeTerminal(Graphics::Library::Size size, char* result = nullptr, int index = 0);
+			int ChangeTitle(const char* name, char* result = nullptr);
+#elif OS_WINDOWS
+			void ChangeTitle(const char* name);
+#endif
+
+#if OS_MAC || OS_LINUX
+			int ResizeTerminal(Graphics::Library::Size size, char* result = nullptr);
 #elif OS_WINDOWS
 			void ResizeTerminal(Graphics::Library::Size size);
 #endif

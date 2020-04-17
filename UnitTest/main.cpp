@@ -41,6 +41,9 @@ int main()
     srand((unsigned int)time(0));
 
 
+    Display d = Display(Size(40 , 10));
+    
+
 	// Terminal t = Terminal(Graphics::Library::Size(80, 30));
     // t.Display.EventDraw += test;
     // t.Display.Cursor.EraseCursor(true);

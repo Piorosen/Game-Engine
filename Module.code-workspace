@@ -1,12 +1,5 @@
 {
-	"folders": [
-		{
-			"path": "Graphics"
-		},
-		{
-			"path": "UnitTest"
-		}
-	],
+	"folders": [],
 	"settings": {
 		"files.associations": {
 			"istream": "cpp",

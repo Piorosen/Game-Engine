@@ -40,25 +40,8 @@ int main()
     GrahpicsTest();
     srand((unsigned int)time(0));
 
-
-    Display d = Display(Size(40 , 10));
     
 
-	// Terminal t = Terminal(Graphics::Library::Size(80, 30));
-    // t.Display.EventDraw += test;
-    // t.Display.Cursor.EraseCursor(true);
-    // t.Display.Hz = 10;
-    // long long s = clock() / (CLOCKS_PER_SEC / 1000);
-    // long long e = clock() / (CLOCKS_PER_SEC / 1000);
-    
-    // while (true) {
-    //     while (e - s < 1000 / t.Display.Hz) {
-    //         e = clock() / (CLOCKS_PER_SEC / 1000);
-    //     }
-    //     t.Display.ReDraw();
-    //     s = e;
-    // }
-    
     return 0;
 
 

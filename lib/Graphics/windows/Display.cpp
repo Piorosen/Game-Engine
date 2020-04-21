@@ -1,21 +1,11 @@
 #include "Display.h"
 
-int Graphics::Output::Display::ChangeTitle(const char* name, char* result)
+void Graphics::Output::Display::ChangeTitle(const char* name)
 {
-    int index = 0;
-    if (result == nullptr){
-        std::cout << "\033]0;" << name << "\007";
-    }else {
-        char save[256] = { 0, };
-
-        sprintf(save, "\033]0;%s\007", name);
-        strcat(result, save);
-        index = (int)strlen(save);
-    }
-    return index;
+    SetConsoleTitle(name);
 }
 
-int Graphics::Output::Display::ResizeTerminal(Graphics::Library::Size size, char* result)
+void Graphics::Output::Display::ResizeTerminal(Graphics::Library::Size size)
 {
     this->Size = size;
     if (DisplayPixel != nullptr) {
@@ -41,19 +31,9 @@ int Graphics::Output::Display::ResizeTerminal(Graphics::Library::Size size, char
         DisplayPixel[i] = Graphics::Output::Pixel();
         NewPixel[i] = Graphics::Output::Pixel();
     }
-    int index = 0;
-    if (result == nullptr) {
-        std::cout << "\e[8;" << size.Y + 1 << ";" << size.X << "t";
-        fflush(stdout);
-    }
-    else {
-        char save[100] = { 0, };
-
-        sprintf(save, "\e[8;%d;%dt", size.Y, size.X);
-        strcat(result, save);
-        index = (int)strlen(save);
-    }
-    return index;
+    char text[256];
+    sprintf(text, "mode con:lines=%d cols=%d", Size.Y, Size.X);
+    system(text);
 }
 
 
@@ -90,31 +70,25 @@ Graphics::Output::Display::~Display() {
 
 void Graphics::Output::Display::Clear()
 {
-    system("clear");
+    system("cls");
 }
 
 void Graphics::Output::Display::Draw() {
-    int size = Size.X * Size.Y * 30;
-    
+    Graphics::Library::Point prev(0, 0);
 
-    for (int i = 0; i < size; i++) {
-        buffer[i] = '\0';
-    }
-
-    int index = 0;
     for (int y = 0; y < Size.Y; y++) {
-        index += Cursor.GotoXY(Graphics::Library::Point(0, y), buffer);
-        index--;
         for (int x = 0; x < Size.X; x++) {
-            index += Cursor.FontColor(NewPixel[y * Size.X + x].Color, buffer);
-            index--;
-            buffer[index++] = NewPixel[y * Size.X + x].Ascii;
+            if (DisplayPixel[y * Size.X + x] != NewPixel[y * Size.X + x]) {
+                if (Graphics::Library::Point(x - 1, y) != prev) {
+                    Cursor.GotoXY(Graphics::Library::Point(x, y));
+                }
+
+                Cursor.FontColor(NewPixel[y * Size.X + x].Color);
+                putchar(NewPixel[y * Size.X + x].Ascii);
+                prev = Graphics::Library::Point(x, y);
+            }
         }
     }
-    buffer[index++] = '\0';
-    puts(buffer);
-    fflush(stdout);
-    fflush(stderr);
 }
 
 void Graphics::Output::Display::ReDraw()

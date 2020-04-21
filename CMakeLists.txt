@@ -20,9 +20,9 @@ MESSAGE(STATUS "Graphics Path : " ${DIR_GRAPHICS})
 
 include_directories(include/Graphics)
 
-file(GLOB_RECURSE LIB_GRAPHICS ${DIR_GRAPHICS}/*.cpp)
+file(GLOB_RECURSE LIB_GRAPHICS ${DIR_GRAPHICS}/*.cpp )
 
-ADD_LIBRARY(Graphics STATIC ${LIB_GRAPHICS})
+ADD_LIBRARY(Graphics STATIC ${LIB_GRAPHICS} lib/Graphics/default)
 
 
 ADD_EXECUTABLE( UNIT_TEST

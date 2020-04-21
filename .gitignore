@@ -12,6 +12,7 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+[Bb]uild/
 Graphics/CMakeCache.txt
 Graphics/cmake_install.cmake
 Graphics/CMakeFiles/*

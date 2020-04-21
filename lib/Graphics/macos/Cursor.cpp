@@ -1,12 +1,7 @@
 #include "Cursor.h"
 
-#if OS_MAC || OS_LINUX
 int Graphics::Output::Cursor::EraseCursor(bool isShowCursor, char* result)
-#elif OS_WINDOWS
-void Graphics::Output::Cursor::EraseCursor(bool isShowCursor)
-#endif
 {
-#if OS_MAC || OS_LINUX
 	int index = 0;
 	if (result == nullptr) {
 		std::cout << (isShowCursor ? "\e[?25l" : "\e[?25h");
@@ -20,21 +15,10 @@ void Graphics::Output::Cursor::EraseCursor(bool isShowCursor)
 		result[index++] = isShowCursor ? 'l' : 'h';
 	}
 	return index;
-#elif OS_WINDOWS
-	CONSOLE_CURSOR_INFO cursorinfo = { 0, };
-	cursorinfo.dwSize = 1;
-	cursorinfo.bVisible = isShowCursor;
-	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorinfo);
-#endif	
 }
 
-#if OS_MAC || OS_LINUX
 int Graphics::Output::Cursor::FontColor(const Graphics::Library::Color color, char* result)
-#elif OS_WINDOWS
-void Graphics::Output::Cursor::FontColor(const Graphics::Library::Color color)
-#endif
 {
-#if OS_MAC || OS_LINUX
 	int index = 0;
 	if (result == nullptr) {
 		std::cout << "\033[" << (int)color.GetForground() << ";" << (int)color.GetBackground() << 'm';
@@ -66,19 +50,11 @@ void Graphics::Output::Cursor::FontColor(const Graphics::Library::Color color)
 		result[index++] = '\0';
 	}
 	return index;
-#elif OS_WINDOWS
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (((int)color.GetBackground() & 0xf) << 4) | ((int)color.GetForground() & 0xf));
-#endif
 }
 
 
-#if OS_MAC || OS_LINUX
 int Graphics::Output::Cursor::GotoXY(Graphics::Library::Point pt, char* result)
-#elif OS_WINDOWS
-void Graphics::Output::Cursor::GotoXY(Graphics::Library::Point pt)
-#endif
 {
-#if OS_MAC || OS_LINUX
 	int index = 0;
 	pt.X += 1;
 	pt.Y += 1;
@@ -113,7 +89,4 @@ void Graphics::Output::Cursor::GotoXY(Graphics::Library::Point pt)
 	}
 
 	return index;
-#elif OS_WINDOWS
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { pt.X & 0xffff, pt.Y & 0xffff });
-#endif
 }

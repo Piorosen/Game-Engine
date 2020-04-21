@@ -364,3 +364,6 @@ ASALocalRun/
 *.a
 *.a
 Makefile
+*.filters
+*.vcxproj
+*.sln

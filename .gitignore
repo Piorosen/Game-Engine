@@ -12,7 +12,37 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+Graphics/CMakeCache.txt
+Graphics/cmake_install.cmake
+Graphics/CMakeFiles/*
+Graphics/Makefile/
+
+UnitTest/CMakeCache.txt
+UnitTest/cmake_install.cmake
+UnitTest/CMakeFiles/*
+UnitTest/Makefile/
+
+CMakeCache.txt
+cmake_install.cmake
+CMakeFiles/*
+Makefile/
+
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+
 # Build results
+.vscode/
+
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -329,3 +359,7 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 .DS_Store
+*.swp
+*.a
+*.a
+Makefile

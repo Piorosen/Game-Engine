@@ -33,21 +33,15 @@ namespace Graphics {
 				}
 			}
 
-			bool IsKeyDown(unsigned short ch) {
-				return Key[ch];
-			}
-
 			void Refresh(void* data) {
 #if OS_WINDOWS
-				INPUT_RECORD input = *(INPUT_RECORD*)data;
+				KEY_EVENT_RECORD input = *(KEY_EVENT_RECORD*)data;
 
-				if (input.Event.KeyEvent.bKeyDown) {
-					KeyDown(input.Event.KeyEvent.wVirtualKeyCode);
-					//	printf("Ű���� �Է� : %d : Down\n", input.Event.KeyEvent.wVirtualKeyCode);
+				if (input.bKeyDown) {
+					KeyDown(input.wVirtualKeyCode);
 				}
 				else {
-					KeyUp(input.Event.KeyEvent.wVirtualKeyCode);
-					//	printf("Ű���� �Է� : %d : Up\n", input.Event.KeyEvent.wVirtualKeyCode);
+					KeyUp(input.wVirtualKeyCode);
 				}
 #endif
 			}

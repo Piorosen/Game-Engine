@@ -17,7 +17,7 @@ void Graphics::Output::Terminal::RefreshInputDevice()
 
 		if (input.EventType == KEY_EVENT)
 		{
-			Keyboard.Refresh((void *)&input.Event);
+			Keyboard.Refresh((void *)&input.Event.KeyEvent);
 		}
 		else if (input.EventType == MOUSE_EVENT)
 		{

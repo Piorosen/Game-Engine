@@ -2,7 +2,7 @@
 #include <iostream>
 #define OUTPUT_CONSOLE
 
-#include "Graphics/Terminal.h"
+#include "Terminal.h"
 
 #include "TestModule.hpp"
 #include "GraphicsTest.h"

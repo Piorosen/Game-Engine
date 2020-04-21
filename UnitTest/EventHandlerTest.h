@@ -1,6 +1,6 @@
 #pragma once
 #include <stdio.h>
-#include "Graphics/Display.h"
+#include "Display.h"
 
 void test1(int a, float b) {
 	printf("a %d %f\n", a, b);
@@ -49,7 +49,7 @@ void DisplayResizeTest(){
 	delay(500);
 }
 
-void DisplayResizeTest(){
+void DisplayResissszeTest(){
     Graphics::Output::Display d(Graphics::Library::Size(20, 30));
 	delay(500);
     d.ResizeTerminal(Graphics::Library::Size(100, 60));

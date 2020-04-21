@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-#include "Graphics/Func.h"
+#include "Func.h"
 
 using namespace Graphics::Library::Function;
 

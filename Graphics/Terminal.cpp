@@ -18,10 +18,10 @@ void Graphics::Output::Terminal::RefreshInputDevice() {
 					auto input = selectInput();
 
 					if (input.EventType == KEY_EVENT) {
-						keyboard.Refresh((void*)&input.Event);
+						Keyboard.Refresh((void*)&input.Event);
 					}
 					else if (input.EventType == MOUSE_EVENT) {
-						mouse.Refresh((void*)&input.Event);
+						Mouse.Refresh((void*)&input.Event);
 
 					}
 				}

@@ -18,10 +18,13 @@ file(GLOB_RECURSE LIB_GRAPHICS ${DIR_GRAPHICS}/*.cpp)
 ADD_LIBRARY(Graphics STATIC ${LIB_GRAPHICS})
 
 
+ADD_LIBRARY( GRAPHICS STATIC ${GRAPHICS_FILES} )
+
 ADD_EXECUTABLE( UNIT_TEST
 	./UnitTest/main.cpp
 	./UnitTest/FunctionTest.h
 	./UnitTest/GraphicsTest.h
 	./UnitTest/EventHandlerTest.h )
+target_include_directories(UNIT_TEST PRIVATE .)
 
 TARGET_LINK_LIBRARIES( UNIT_TEST PUBLIC Graphics )

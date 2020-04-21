@@ -19,7 +19,7 @@ void Graphics::Output::Display::ChangeTitle(const char* name)
     }
     return index;
 #elif OS_WINDOWS
-    SetConsoleTitle(result);
+    SetConsoleTitle(name);
 #endif
 }
 

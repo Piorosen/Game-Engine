@@ -4,12 +4,15 @@
 
 #include "Terminal.h"
 
+
 #include "TestModule.hpp"
 #include "GraphicsTest.h"
 
 
 using namespace Graphics::Library;
 using namespace Graphics::Output;
+using namespace Graphics::Input;
+
 
 int color = 0;
 
@@ -34,17 +37,37 @@ void test(Graphics::Output::Pixel* p, Graphics::Library::Size s){
     }
 }
 
+void mouse(MouseEvent* event, unsigned char size){
+    for (int i = 0; i < size; i++){
+        std::cout << (int)event[i].GetMouseButton() << " {" << event[i].Position.X << ", " << event[i].Position.Y << "} " << event[i].Pressed << std::endl;
+    }
+    std::cout << std::endl;
+}
+
 int main()
 {
-    Config();
-    GrahpicsTest();
-    srand((unsigned int)time(0));
+    // Config();
+    // GrahpicsTest();
+    // srand((unsigned int)time(0));
 
+    Terminal t = Terminal(Graphics::Library::Size(80, 30));
+    t.Display.EventDraw += test;
+    t.Display.Cursor.EraseCursor(true);
+    t.Display.Hz = 10;
+    t.Mouse.EventKeyChanged += mouse;
+    long long s = clock() / (CLOCKS_PER_SEC / 1000);
+    long long e = clock() / (CLOCKS_PER_SEC / 1000);
     
+    while (true) {
+        while (e - s < 1000 / t.Display.Hz) {
+            t.RefreshInputDevice();
+            e = clock() / (CLOCKS_PER_SEC / 1000);
+        }
+        
+        s = e;
+    }    
 
     return 0;
-
-
 }
 //
 

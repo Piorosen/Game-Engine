@@ -62,7 +62,6 @@ namespace Graphics{
 
 			ColorForground GetForground() const;
 			ColorBackground GetBackground() const;
-
 		};
 		enum class Font {
 #if OS_MAC || OS_LINUX

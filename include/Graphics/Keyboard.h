@@ -27,7 +27,7 @@ namespace Graphics {
 			EventHandler<unsigned short> EventKeyUp;
 			EventHandler<unsigned short, bool> EventKeyChanged;
 
-			void Initialize() {
+			Keyboard() {
 				for (int i = 0; i < sizeof(Key) / sizeof(bool); i++) {
 					Key[i] = false;
 				}

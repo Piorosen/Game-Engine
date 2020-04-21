@@ -4,7 +4,7 @@ void Graphics::Output::Cursor::EraseCursor(bool isShowCursor)
 {
 	CONSOLE_CURSOR_INFO cursorinfo = { 0, };
 	cursorinfo.dwSize = 1;
-	cursorinfo.bVisible = isShowCursor;
+	cursorinfo.bVisible = !isShowCursor;
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorinfo);
 }
 

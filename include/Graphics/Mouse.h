@@ -1,4 +1,6 @@
 #pragma once
+#include <array>
+
 #include "EventHandler.h"
 #include "Point.h"
 #include "IDevice.h"
@@ -7,102 +9,87 @@ using namespace Graphics::Library;
 
 namespace Graphics {
 	namespace Input {
-		enum class MouseButton {
+		enum class MouseButton : unsigned char {
 			Left,
 			Right,
 			Middle,
 		};
 
-        class Mouse : Library::Interface::IDevice {
+		class MouseEvent {
 		private:
-			int left = 0;
-			int right = 0;
-
-			void SetClickMousePosition(Point pt) {
-				this->pt = pt;
-			}
-			
-			void SetMousePostion(Point pt) {
-				MousePoint = pt;
-			}
-			/*
-
-			void MouseClick(int *x, int *y)
-			{
-				HANDLE       hIn, hOut;
-				DWORD        dwNOER;
-				INPUT_RECORD rec;
-
-				hIn = GetStdHandle(STD_INPUT_HANDLE);
-				hOut = GetStdHandle(STD_OUTPUT_HANDLE);
-				SetConsoleMode(hIn, ENABLE_PROCESSED_INPUT | ENABLE_MOUSE_INPUT);
-
-				while (TRUE) {
-					ReadConsoleInput(hIn, &rec, 1, &dwNOER);
-
-					if (rec.EventType == MOUSE_EVENT) {
-						if (rec.Event.MouseEvent.dwButtonState & FROM_LEFT_1ST_BUTTON_PRESSED) {
-							*x = rec.Event.MouseEvent.dwMousePosition.X;
-							*y = rec.Event.MouseEvent.dwMousePosition.Y;
-							return;
-						}
-					}
-				}
-			}
-			*/
-
-			Point pt;
-			Point MousePoint;
+			MouseButton ButtonId;
 
 		public:
+			MouseEvent(MouseButton id) {
+				ButtonId = id;
+				Pressed = false;
+				Position = Point(-1, -1);
+			}
 
+			MouseButton GetMouseButton() const {
+				return ButtonId;
+			}
+
+			bool Pressed;
+			Point Position;
+		};
+
+        class Mouse : Library::Interface::IDevice {
+		private:
+			const static int BUTTON_SIZE = 3;
+			MouseEvent event[BUTTON_SIZE] = { MouseEvent(MouseButton::Left), MouseEvent(MouseButton::Right), MouseEvent(MouseButton::Middle) };
+
+			void KeyDown(MouseButton id, Point pos) {
+				if (event[(int)id].Position == pos && event[(int)id].GetMouseButton() == id) {
+					return;
+				}
+
+				event[(int)id].Position = pos;
+				event[(int)id].Pressed = true;
+
+				EventKeyDown.Invoke(id, pos);
+				EventKeyChanged.Invoke(event, BUTTON_SIZE);
+			}
+
+			void KeyUp(MouseButton id, Point pos) {
+				event[(int)id].Position = pos;
+				event[(int)id].Pressed = false;
+
+				EventKeyUp.Invoke(id, pos);
+				EventKeyChanged.Invoke(event, BUTTON_SIZE);
+			}
+
+		public:
+			EventHandler<MouseEvent*, unsigned char> EventKeyChanged;
 			EventHandler<MouseButton, Point> EventKeyDown;
 			EventHandler<MouseButton, Point> EventKeyUp;
 
-			EventHandler<MouseButton, Point, bool> EventKeyChanged;
-
-
-			void Initialize() {
-				pt = Point(-10, -10);
-			}
-
-			bool IsClicked() const {
-				if (pt.X == -10 && pt.Y == -10)
-					return false;
-				return true;
-			}
-
-			Point GetClickMousePosition() {
-				return pt;
-			}
-
-			Point GetMousePosition() {
-				return MousePoint;
-			}
 			void Refresh(void* data) {
 #if OS_WINDOWS
-				INPUT_RECORD input = *(INPUT_RECORD*)data;
+				MOUSE_EVENT_RECORD input = *(MOUSE_EVENT_RECORD*)data;
 
 				COORD pos;
 				CONSOLE_SCREEN_BUFFER_INFO csbi;
 
 				GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
-				pos = input.Event.MouseEvent.dwMousePosition;
+				pos = input.dwMousePosition;
 				pos.X -= csbi.srWindow.Left;
 				pos.Y -= csbi.srWindow.Top;
 
-				// Down
-				if (GetKeyState(VK_LBUTTON) < 0 && left == 0) {
-					SetClickMousePosition(Graphics::Library::Point(pos.X, pos.Y));
-					left = 1;
-					//		printf("���콺 �Է� : Down\n");
-				} // UP
-				else if (GetKeyState(VK_LBUTTON) >= 0 && left == 1) {
-					SetClickMousePosition(Graphics::Library::Point(-1, -1));
-					left = 0;
-					//	printf("���콺 �Է� : Up\n");
+				for (int i = 0; i < BUTTON_SIZE; i++){
+					// Down
+					MouseButton key = event[i].GetMouseButton();
+					int vk_Key = 1 << ((int)key);
+
+					if (GetKeyState(vk_Key) < 0) {
+						KeyDown(key, Point(pos.X, pos.Y));
+						event[i].Pressed = true;
+					} // UP
+					else if (GetKeyState(vk_Key) >= 0 && event[i].Pressed == true) {
+						KeyUp(key, Point(-1, -1));
+						event[i].Pressed = false;
+					}
 				}
-				SetMousePostion(Graphics::Library::Point(pos.X, pos.Y));
 #endif
 			}
 			

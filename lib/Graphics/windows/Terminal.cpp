@@ -1,12 +1,11 @@
-
-
 #include "Terminal.h"
 
 Graphics::Output::Terminal::Terminal(const Graphics::Library::Size size) : Display(size)
 {
 	DWORD mode;
-	GetConsoleMode(CIN, &mode);
 	CIN = GetStdHandle(STD_INPUT_HANDLE);
+
+	GetConsoleMode(CIN, &mode);
 	SetConsoleMode(CIN, mode | ENABLE_MOUSE_INPUT);
 }
 
@@ -22,7 +21,7 @@ void Graphics::Output::Terminal::RefreshInputDevice()
 		}
 		else if (input.EventType == MOUSE_EVENT)
 		{
-			Mouse.Refresh((void *)&input.Event);
+			Mouse.Refresh((void *)&input.Event.MouseEvent);
 		}
 	}
 }

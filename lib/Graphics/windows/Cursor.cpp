@@ -16,5 +16,5 @@ void Graphics::Output::Cursor::FontColor(const Graphics::Library::Color color)
 
 void Graphics::Output::Cursor::GotoXY(Graphics::Library::Point pt)
 {
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { pt.X & 0xffff, pt.Y & 0xffff });
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { (short)pt.X, (short)pt.Y });
 }

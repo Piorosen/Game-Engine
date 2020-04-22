@@ -9,11 +9,21 @@ Graphics::Output::Terminal::Terminal(const Graphics::Library::Size size) : Displ
 	SetConsoleMode(CIN, mode | ENABLE_MOUSE_INPUT);
 }
 
+bool Graphics::Output::Terminal::hasInput()
+{
+	INPUT_RECORD input_record;
+	DWORD input_count;
+	PeekConsoleInput(CIN, &input_record, 1, &input_count);
+	return !(!input_count);
+}
+
 void Graphics::Output::Terminal::RefreshInputDevice()
 {
 	if (beInput())
 	{
-		auto input = selectInput();
+		INPUT_RECORD input;
+		DWORD input_count;
+		ReadConsoleInput(CIN, &input, 1, &input_count);
 
 		if (input.EventType == KEY_EVENT)
 		{

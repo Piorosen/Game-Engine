@@ -14,22 +14,9 @@ namespace Graphics {
     namespace Output {
         class Terminal {
         private:
+			bool hasInput();
 #if OS_WINDOWS
 			HANDLE CIN;
-			bool beInput() {
-				INPUT_RECORD input_record;
-				DWORD input_count;
-				PeekConsoleInput(CIN, &input_record, 1, &input_count);
-				return !(!input_count);
-			}
-
-			INPUT_RECORD selectInput()
-			{
-				INPUT_RECORD input_record;
-				DWORD input_count;
-				ReadConsoleInput(CIN, &input_record, 1, &input_count);
-				return input_record;
-			}
 #endif
 
         public:

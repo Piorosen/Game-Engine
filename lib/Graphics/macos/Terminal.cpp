@@ -12,4 +12,5 @@ bool Graphics::Output::Terminal::hasInput()
 
 void Graphics::Output::Terminal::RefreshInputDevice()
 {
+    Keyboard.Refresh(nullptr);
 }

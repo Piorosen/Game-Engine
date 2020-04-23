@@ -33,13 +33,13 @@ namespace Graphics {
 			void ReDraw();
 
 #if OS_MAC || OS_LINUX
-			int ChangeTitle(const char* name, char* result = nullptr);
+			int ChangeTitle(const char* name, char* result = nullptr, int index = 0);
 #elif OS_WINDOWS
 			void ChangeTitle(const char* name);
 #endif
 
 #if OS_MAC || OS_LINUX
-			int ResizeTerminal(Graphics::Library::Size size, char* result = nullptr);
+			int ResizeTerminal(Graphics::Library::Size size, char* result = nullptr, int index = 0);
 #elif OS_WINDOWS
 			void ResizeTerminal(Graphics::Library::Size size);
 #endif

@@ -22,15 +22,15 @@ void test(Graphics::Output::Pixel* p, Graphics::Library::Size s){
         for (int x = 0; x < s.X; x++){
             if (y == 0 || x == 0 || y == s.Y - 1 || x == s.X - 1){
                 if (color % 2 == 0){
-                     p[y * s.X + x].SetPixel(Color(ColorForground::White, ColorBackground::White), ' ');
+                     p[y * s.X + x].SetPixel(Color(ColorForground::White, ColorBackground::White), 'A');
                 }else {
-                    p[y * s.X + x].SetPixel(Color(ColorForground::Green, ColorBackground::Green), ' ');
+                    p[y * s.X + x].SetPixel(Color(ColorForground::Green, ColorBackground::Green), 'B');
                 }
             }else {
                 if (color % 2 == 0){
-                     p[y * s.X + x].SetPixel(Color(ColorForground::Red, ColorBackground::Red), ' ');
+                     p[y * s.X + x].SetPixel(Color(ColorForground::Red, ColorBackground::Red), 'C');
                 }else {
-                    p[y * s.X + x].SetPixel(Color(ColorForground::Blue, ColorBackground::Blue), ' ');
+                    p[y * s.X + x].SetPixel(Color(ColorForground::Blue, ColorBackground::Blue), 'D');
                 }
             }
         }
@@ -68,9 +68,11 @@ int main()
     
     while (true) {
         while (e - s < 1000 / t.Display.Hz) {
-            t.RefreshInputDevice();
+            
+            // t.RefreshInputDevice();
             e = clock() / (CLOCKS_PER_SEC / 1000);
         }
+        t.Display.ReDraw();
         s = e;
     }
 

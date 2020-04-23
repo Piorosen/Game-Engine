@@ -1,8 +1,8 @@
 #include "Cursor.h"
 
-int Graphics::Output::Cursor::EraseCursor(bool isShowCursor, char* result)
+int Graphics::Output::Cursor::EraseCursor(bool isShowCursor, char* result, int index)
 {
-	int index = 0;
+	int base = index;
 	if (result == nullptr) {
 		std::cout << (isShowCursor ? "\e[?25l" : "\e[?25h");
 	}
@@ -14,12 +14,12 @@ int Graphics::Output::Cursor::EraseCursor(bool isShowCursor, char* result)
 		result[index++] = '5';
 		result[index++] = isShowCursor ? 'l' : 'h';
 	}
-	return index;
+	return index - base;
 }
 
-int Graphics::Output::Cursor::FontColor(const Graphics::Library::Color color, char* result)
+int Graphics::Output::Cursor::FontColor(const Graphics::Library::Color color, char* result, int index)
 {
-	int index = 0;
+	int base = index;
 	if (result == nullptr) {
 		std::cout << "\033[" << (int)color.GetForground() << ";" << (int)color.GetBackground() << 'm';
 	}
@@ -49,13 +49,14 @@ int Graphics::Output::Cursor::FontColor(const Graphics::Library::Color color, ch
 		result[index++] = 'm';
 		result[index++] = '\0';
 	}
-	return index;
+	return index - base;
 }
 
 
-int Graphics::Output::Cursor::GotoXY(Graphics::Library::Point pt, char* result)
+int Graphics::Output::Cursor::GotoXY(Graphics::Library::Point pt, char* result, int index)
 {
-	int index = 0;
+	int base = index;
+
 	pt.X += 1;
 	pt.Y += 1;
 
@@ -88,5 +89,5 @@ int Graphics::Output::Cursor::GotoXY(Graphics::Library::Point pt, char* result)
 		result[index++] = '\0';
 	}
 
-	return index;
+	return index - base;
 }

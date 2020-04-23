@@ -80,7 +80,9 @@ Graphics::Input::Keyboard::Keyboard()
 
 void Graphics::Input::Keyboard::Refresh(void *data)
 {
+	while(_kbhit()){
 		char p = _getch();
 		KeyDown(p);
 		KeyUp(p);
+	}
 }

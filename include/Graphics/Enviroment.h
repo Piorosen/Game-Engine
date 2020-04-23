@@ -28,5 +28,8 @@ namespace Graphics{
 		constexpr OperatingSystem OS = Enviroment_OS;
 		constexpr KindCompiler Compiler = Enviroment_Compiler;
 		constexpr KindArchitecture Architecture = Enviroment_Architecture;
+
+		Graphics::Library::Size TerminalSize = Graphics::Library::Size();
+		
 	}
 }

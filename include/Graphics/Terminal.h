@@ -10,6 +10,8 @@
 #include "Mouse.h"
 #include "Keyboard.h"
 
+#include "Enviroment.h"
+
 namespace Graphics {
     namespace Output {
         class Terminal {

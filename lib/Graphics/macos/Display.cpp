@@ -22,6 +22,8 @@ int Graphics::Output::Display::ChangeTitle(const char *name, char *result, int i
 
 int Graphics::Output::Display::ResizeTerminal(Graphics::Library::Size size, char *result, int index)
 {
+    Enviroment::TerminalSize = size;
+    
     this->Size = size;
     if (DisplayPixel != nullptr)
     {

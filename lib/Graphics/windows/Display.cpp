@@ -7,6 +7,8 @@ void Graphics::Output::Display::ChangeTitle(const char* name)
 
 void Graphics::Output::Display::ResizeTerminal(Graphics::Library::Size size)
 {
+    Enviroment::TerminalSize = size;
+    
     this->Size = size;
     if (DisplayPixel != nullptr) {
         delete[] DisplayPixel;

@@ -4,50 +4,51 @@
 
 #include <time.h>
 #include <cstring>
+#include <windows.h>
+#include <iostream>
 
 #include "Point.h"
 #include "Pixel.h"
-#include "Cursor.h"
 #include "EventHandler.h"
-#include "IDevice.h"
 
-namespace Graphics {
-	namespace Output {
-		class Display {
-		private:
-            char* buffer;
-			Graphics::Library::Size Size;
-			Graphics::Output::Pixel* DisplayPixel;
-			Graphics::Output::Pixel* NewPixel;
-			
-		public:
-            short Hz = 60;
-            
-			Graphics::Library::EventHandler<Graphics::Output::Pixel*, Graphics::Library::Size> EventDraw;
-            Graphics::Output::Cursor Cursor;
-            
-			Display(Graphics::Library::Size displaySize);
-			~Display();
-			
-			void Clear();
-			void ReDraw();
+namespace Graphics
+{
+	class Display
+	{
+	private:
 
-#if OS_MAC || OS_LINUX
-			int ChangeTitle(const char* name, char* result = nullptr, int index = 0);
-#elif OS_WINDOWS
-			void ChangeTitle(const char* name);
+#if OS_WINDOWS
+		Graphics::Point curPosition;
+		Graphics::Color curColor;	
 #endif
+		Graphics::Size Size;
 
-#if OS_MAC || OS_LINUX
-			int ResizeTerminal(Graphics::Library::Size size, char* result = nullptr, int index = 0);
-#elif OS_WINDOWS
-			void ResizeTerminal(Graphics::Library::Size size);
-#endif
-		protected:
-			void Draw();
+		Graphics::Pixel *DisplayPixel;
+		Graphics::Pixel *NewPixel;
+		
+	public:
+		short Hz = 60;
 
-		protected:
+		Graphics::EventHandler<Graphics::Pixel *, Graphics::Size> EventDraw;
 
-		};
-	}
-}
+		Display(Graphics::Size displaySize);
+		~Display();
+
+		void Clear();
+		void ReDraw();
+
+		void EraseCursor(bool isShowCursor);
+		void FontColor(const Graphics::Color color);
+		void GotoXY(Graphics::Point pt);
+		void ChangeTitle(const char *name);
+		void ResizeTerminal(Graphics::Size size);
+		void Write(const char* text);
+
+		bool SetPixel(const Graphics::Point pt, const Graphics::Pixel value);
+		Graphics::Pixel GetPixel(const Graphics::Point pt) const;
+	protected:
+		void Draw();
+
+	protected:
+	};
+} // namespace Graphics

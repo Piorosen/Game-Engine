@@ -2,26 +2,24 @@
 
 #include "Color.h"
 
-namespace Graphics {
-	namespace Output {
-		class Pixel {
-		private:
-			
+namespace Graphics
+{
+	class Pixel
+	{
+	private:
+	public:
+		Graphics::Color Color;
+		//Graphics::Library::Font Font;
+		//Graphics::Library::Point Position;
+		char Ascii = 0;
 
-		public:
-            Graphics::Library::Color Color;
-            //Graphics::Library::Font Font;
-            //Graphics::Library::Point Position;
-            char Ascii = 0;
-            
-			void SetPixel(Graphics::Library::Color color, char ch);
+		void SetPixel(Graphics::Color color, char ch);
+		void SetPixel(char ch);
+		void SetPixel(Graphics::Color color);
 
-			bool operator==(const Pixel& g) const;
-			bool operator!=(const Pixel& g) const;
+		bool operator==(const Pixel &g) const;
+		bool operator!=(const Pixel &g) const;
 
-		protected:
-
-
-		};
-	}
-}
+	protected:
+	};
+} // namespace Graphics

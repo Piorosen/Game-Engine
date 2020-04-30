@@ -18,19 +18,17 @@ elseif(UNIX)
 else()
 	MESSAGE(FATAL_ERROR "your system is not supported")
 endif()
-set(DIR_GRAPHICS lib/Graphics)
 
-MESSAGE(STATUS "Graphics Path : " ${DIR_GRAPHICS}/${OS})
+set(DIR_GRAPHICS lib/${OS}/Graphics)
+
+MESSAGE(STATUS "Graphics Path : " ${DIR_GRAPHICS})
 
 include_directories(include/Graphics)
-file(GLOB_RECURSE LIB_GRAPHICS ${DIR_GRAPHICS}/${OS}/*.cpp ${DIR_GRAPHICS}/default/*.cpp)
+file(GLOB_RECURSE LIB_GRAPHICS ${DIR_GRAPHICS}/*.cpp)
 ADD_LIBRARY(Graphics STATIC  ${LIB_GRAPHICS} )
 
 
 ADD_EXECUTABLE(${PROGRAM_NAME}
-	./UnitTest/main.cpp
-	./UnitTest/FunctionTest.h
-	./UnitTest/GraphicsTest.h
-	./UnitTest/EventHandlerTest.h )
+	./Example/main.cpp)
 
 TARGET_LINK_LIBRARIES(${PROGRAM_NAME} PUBLIC Graphics )

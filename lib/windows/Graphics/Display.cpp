@@ -10,15 +10,15 @@ void Graphics::Display::EraseCursor(bool isShowCursor)
 
 void Graphics::Display::FontColor(const Graphics::Color color)
 {
+    curColor = color;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (((int)color.GetBackground() & 0xf) << 4) | ((int)color.GetForground() & 0xf));
 }
 
-
 void Graphics::Display::GotoXY(Graphics::Point pt)
 {
+    curPosition = pt;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { (short)pt.X, (short)pt.Y });
 }
-
 
 void Graphics::Display::ChangeTitle(const char* name)
 {
@@ -39,15 +39,9 @@ void Graphics::Display::ResizeTerminal(Graphics::Size size)
         delete[] NewPixel;
         NewPixel = nullptr;
     }
-    
-    if (buffer != nullptr) {
-        delete[] buffer;
-        buffer = nullptr;
-    }
 
     DisplayPixel = new Graphics::Pixel[size.X * size.Y];
     NewPixel = new Graphics::Pixel[size.X * size.Y];
-    buffer = new char[size.X * size.Y * 30];
     
     for (int i = 0; i < Size.X * Size.Y; i++) {
         DisplayPixel[i] = Graphics::Pixel();
@@ -58,13 +52,40 @@ void Graphics::Display::ResizeTerminal(Graphics::Size size)
     system(text);
 }
 
+void Graphics::Display::Write(const char* text){
+    int len = (int)strlen(text);
+    for (int i = 0; i < len; i++){
+         NewPixel[curPosition.Y * Size.X + curPosition.X].SetPixel(curColor, text[i]);
+         curPosition.X++;
+         if (curPosition.X >= Size.X){
+             curPosition.X -= Size.X;
+             curPosition.Y += 1;
+         }
+    }
+}
+
+bool Graphics::Display::SetPixel(const Graphics::Point pt, const Graphics::Pixel value){
+    int range = pt.Y * Size.X + pt.X;
+    if (0 <= range && range < Size.X * Size.Y) {
+        DisplayPixel[pt.Y * Size.X + pt.X] = value;
+        return true;
+    }
+    return false;
+}
+
+Graphics::Pixel Graphics::Display::GetPixel(const Graphics::Point pt) const{
+    int range = pt.Y * Size.X + pt.X;
+    if (0 <= range && range < Size.X * Size.Y) {
+        return DisplayPixel[pt.Y * Size.X + pt.X];
+    }
+    return Graphics::Pixel();
+}
 
 Graphics::Display::Display(Graphics::Size displaySize) {
     EraseCursor(true);
     
     DisplayPixel = nullptr;
     NewPixel = nullptr;
-    buffer = nullptr;
     
     Size = displaySize;
     ResizeTerminal(displaySize);
@@ -82,10 +103,6 @@ Graphics::Display::~Display() {
         NewPixel = nullptr;
     }
     
-    if (buffer == nullptr){
-        delete[] buffer;
-        buffer = nullptr;
-    }
 }
 
 

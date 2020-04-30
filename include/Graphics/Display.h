@@ -11,15 +11,21 @@
 #include "Pixel.h"
 #include "EventHandler.h"
 
-namespace Graphics {
+namespace Graphics
+{
 	class Display
 	{
 	private:
-		char *buffer;
+
+#if OS_WINDOWS
+		Graphics::Point curPosition;
+		Graphics::Color curColor;	
+#endif
 		Graphics::Size Size;
+
 		Graphics::Pixel *DisplayPixel;
 		Graphics::Pixel *NewPixel;
-
+		
 	public:
 		short Hz = 60;
 
@@ -31,22 +37,18 @@ namespace Graphics {
 		void Clear();
 		void ReDraw();
 
-#if OS_MAC || OS_LINUX
-			int EraseCursor(bool isShowCursor, char* result = nullptr, int index = 0);
-			int FontColor(const Graphics::Color color, char* result = nullptr, int index = 0);
-			int GotoXY(Graphics::Point pt, char* result = nullptr, int index = 0);
-			int ChangeTitle(const char* name, char* result = nullptr, int index = 0);
-			int ResizeTerminal(Graphics::Size size, char* result = nullptr, int index = 0);
-#elif OS_WINDOWS
-			void EraseCursor(bool isShowCursor);
-			void FontColor(const Graphics::Color color);
-			void GotoXY(Graphics::Point pt);
-			void ChangeTitle(const char* name);
-			void ResizeTerminal(Graphics::Size size);
-#endif
-		protected:
-			void Draw();
+		void EraseCursor(bool isShowCursor);
+		void FontColor(const Graphics::Color color);
+		void GotoXY(Graphics::Point pt);
+		void ChangeTitle(const char *name);
+		void ResizeTerminal(Graphics::Size size);
+		void Write(const char* text);
 
-		protected:
+		bool SetPixel(const Graphics::Point pt, const Graphics::Pixel value);
+		Graphics::Pixel GetPixel(const Graphics::Point pt) const;
+	protected:
+		void Draw();
+
+	protected:
 	};
-}
+} // namespace Graphics

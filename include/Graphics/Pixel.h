@@ -14,6 +14,8 @@ namespace Graphics
 		char Ascii = 0;
 
 		void SetPixel(Graphics::Color color, char ch);
+		void SetPixel(char ch);
+		void SetPixel(Graphics::Color color);
 
 		bool operator==(const Pixel &g) const;
 		bool operator!=(const Pixel &g) const;

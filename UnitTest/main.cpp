@@ -4,7 +4,6 @@
 
 #include "Terminal.h"
 
-
 #include "TestModule.hpp"
 #include "GraphicsTest.h"
 
@@ -50,10 +49,6 @@ void keyboard(unsigned short key, bool state) {
 
 int main()
 {
-    // Config();
-    // GrahpicsTest();
-    // srand((unsigned int)time(0));
-
     Terminal t = Terminal(Graphics::Library::Size(80, 30));
     t.Display.Cursor.EraseCursor(true);
 
@@ -68,15 +63,12 @@ int main()
     
     while (true) {
         while (e - s < 1000 / t.Display.Hz) {
-            
-            // t.RefreshInputDevice();
+            t.RefreshInputDevice();
             e = clock() / (CLOCKS_PER_SEC / 1000);
         }
-        t.Display.ReDraw();
+        // t.Display.ReDraw();
         s = e;
     }
 
     return 0;
 }
-//
-

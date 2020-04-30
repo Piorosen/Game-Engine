@@ -3,12 +3,12 @@
 namespace Graphics {
     namespace Library {
         namespace Function {
+
         template <typename RETURN, typename... ARGS>
         class Func
         {
         protected:
-            RETURN (*func)
-            (ARGS...) = nullptr;
+            RETURN (*func)(ARGS...) = nullptr;
 
         public:
             Func()

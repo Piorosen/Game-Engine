@@ -84,7 +84,9 @@
 			"condition_variable": "cpp",
 			"iomanip": "cpp",
 			"thread": "cpp",
-			"cinttypes": "cpp"
+			"cinttypes": "cpp",
+			"xstring": "cpp",
+			"xutility": "cpp"
 		}
 	}
 }

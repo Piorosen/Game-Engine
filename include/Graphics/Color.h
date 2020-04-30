@@ -2,17 +2,25 @@
 #include "Enviroment.h"
 
 namespace Graphics{
-	namespace Library {
-		enum class ColorBackground {
+	enum class ColorBackground
+	{
 #if OS_WINDOWS
-			Black = 0, Gray = 8,
-			Blue = 1, LightBlue = 9,
-			Green = 2, LightGreen = 0xA,
-			Aqua = 3, LightAqua = 0xB,
-			Red = 4, LightRed = 0xC,
-			Purple = 5, LightPurple = 0xD,
-			Yellow = 6, LightYellow = 0xE,
-			White = 7, BrightWhite = 0xF,
+		Black = 0,
+		Gray = 8,
+		Blue = 1,
+		LightBlue = 9,
+		Green = 2,
+		LightGreen = 0xA,
+		Aqua = 3,
+		LightAqua = 0xB,
+		Red = 4,
+		LightRed = 0xC,
+		Purple = 5,
+		LightPurple = 0xD,
+		Yellow = 6,
+		LightYellow = 0xE,
+		White = 7,
+		BrightWhite = 0xF,
 #elif OS_MAC || OS_LINUX
 			Black = 40,
 			Red = 41,
@@ -24,7 +32,7 @@ namespace Graphics{
 			White = 47,
 			
 #endif
-		};
+	};
 		enum class ColorForground {
 #if OS_WINDOWS
 			Black = 0, Gray = 8,
@@ -74,5 +82,4 @@ namespace Graphics{
 			InverseOff = 27
 #endif
 		};
-	}
 }

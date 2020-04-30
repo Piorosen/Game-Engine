@@ -1,21 +1,21 @@
 #include "Keyboard.h"
 #include "Enviroment.h"
 
-void Graphics::Input::Keyboard::KeyUp(unsigned short ch)
+void Graphics::Keyboard::KeyUp(unsigned short ch)
 {
 	Key[ch] = false;
 	EventKeyUp.Invoke(ch);
 	EventKeyChanged.Invoke(ch, false);
 }
 
-void Graphics::Input::Keyboard::KeyDown(unsigned short ch)
+void Graphics::Keyboard::KeyDown(unsigned short ch)
 {
 	Key[ch] = true;
 	EventKeyDown.Invoke(ch);
 	EventKeyChanged.Invoke(ch, true);
 }
 
-Graphics::Input::Keyboard::Keyboard()
+Graphics::Keyboard::Keyboard()
 {
 	for (int i = 0; i < sizeof(Key) / sizeof(bool); i++)
 	{
@@ -23,7 +23,7 @@ Graphics::Input::Keyboard::Keyboard()
 	}
 }
 
-void Graphics::Input::Keyboard::Refresh(void *data)
+void Graphics::Keyboard::Refresh(void *data)
 {
 	KEY_EVENT_RECORD input = *(KEY_EVENT_RECORD *)data;
 	

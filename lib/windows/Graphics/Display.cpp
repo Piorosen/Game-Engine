@@ -1,11 +1,31 @@
 #include "Display.h"
 
-void Graphics::Output::Display::ChangeTitle(const char* name)
+void Graphics::Display::EraseCursor(bool isShowCursor)
+{
+	CONSOLE_CURSOR_INFO cursorinfo = { 0, };
+	cursorinfo.dwSize = 1;
+	cursorinfo.bVisible = !isShowCursor;
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorinfo);
+}
+
+void Graphics::Display::FontColor(const Graphics::Color color)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (((int)color.GetBackground() & 0xf) << 4) | ((int)color.GetForground() & 0xf));
+}
+
+
+void Graphics::Display::GotoXY(Graphics::Point pt)
+{
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { (short)pt.X, (short)pt.Y });
+}
+
+
+void Graphics::Display::ChangeTitle(const char* name)
 {
     SetConsoleTitle(name);
 }
 
-void Graphics::Output::Display::ResizeTerminal(Graphics::Library::Size size)
+void Graphics::Display::ResizeTerminal(Graphics::Size size)
 {
     // Enviroment::TerminalSize = size;
     
@@ -25,13 +45,13 @@ void Graphics::Output::Display::ResizeTerminal(Graphics::Library::Size size)
         buffer = nullptr;
     }
 
-    DisplayPixel = new Graphics::Output::Pixel[size.X * size.Y];
-    NewPixel = new Graphics::Output::Pixel[size.X * size.Y];
+    DisplayPixel = new Graphics::Pixel[size.X * size.Y];
+    NewPixel = new Graphics::Pixel[size.X * size.Y];
     buffer = new char[size.X * size.Y * 30];
     
     for (int i = 0; i < Size.X * Size.Y; i++) {
-        DisplayPixel[i] = Graphics::Output::Pixel();
-        NewPixel[i] = Graphics::Output::Pixel();
+        DisplayPixel[i] = Graphics::Pixel();
+        NewPixel[i] = Graphics::Pixel();
     }
     char text[256];
     sprintf(text, "mode con:lines=%d cols=%d", Size.Y, Size.X);
@@ -39,19 +59,18 @@ void Graphics::Output::Display::ResizeTerminal(Graphics::Library::Size size)
 }
 
 
-Graphics::Output::Display::Display(Graphics::Library::Size displaySize) {
-    Cursor.EraseCursor(true);
+Graphics::Display::Display(Graphics::Size displaySize) {
+    EraseCursor(true);
     
     DisplayPixel = nullptr;
     NewPixel = nullptr;
     buffer = nullptr;
     
     Size = displaySize;
-    this->Cursor = Graphics::Output::Cursor();
     ResizeTerminal(displaySize);
 }
 
-Graphics::Output::Display::~Display() {
+Graphics::Display::~Display() {
     
     if (DisplayPixel == nullptr){
         delete[] DisplayPixel;
@@ -70,30 +89,30 @@ Graphics::Output::Display::~Display() {
 }
 
 
-void Graphics::Output::Display::Clear()
+void Graphics::Display::Clear()
 {
     system("cls");
 }
 
-void Graphics::Output::Display::Draw() {
-    Graphics::Library::Point prev(0, 0);
+void Graphics::Display::Draw() {
+    Graphics::Point prev(0, 0);
 
     for (int y = 0; y < Size.Y; y++) {
         for (int x = 0; x < Size.X; x++) {
             if (DisplayPixel[y * Size.X + x] != NewPixel[y * Size.X + x]) {
-                if (Graphics::Library::Point(x - 1, y) != prev) {
-                    Cursor.GotoXY(Graphics::Library::Point(x, y));
+                if (Graphics::Point(x - 1, y) != prev) {
+                    GotoXY(Graphics::Point(x, y));
                 }
 
-                Cursor.FontColor(NewPixel[y * Size.X + x].Color);
+                FontColor(NewPixel[y * Size.X + x].Color);
                 putchar(NewPixel[y * Size.X + x].Ascii);
-                prev = Graphics::Library::Point(x, y);
+                prev = Graphics::Point(x, y);
             }
         }
     }
 }
 
-void Graphics::Output::Display::ReDraw()
+void Graphics::Display::ReDraw()
 {
     EventDraw.Invoke(NewPixel, Size);
     Draw();

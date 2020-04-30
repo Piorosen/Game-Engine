@@ -18,7 +18,8 @@ namespace Graphics
 	private:
 
 #if OS_WINDOWS
-		
+		Graphics::Point curPosition;
+		Graphics::Color curColor;	
 #endif
 		Graphics::Size Size;
 

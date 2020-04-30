@@ -10,11 +10,13 @@ void Graphics::Display::EraseCursor(bool isShowCursor)
 
 void Graphics::Display::FontColor(const Graphics::Color color)
 {
+    curColor = color;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (((int)color.GetBackground() & 0xf) << 4) | ((int)color.GetForground() & 0xf));
 }
 
 void Graphics::Display::GotoXY(Graphics::Point pt)
 {
+    curPosition = pt;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { (short)pt.X, (short)pt.Y });
 }
 
@@ -51,7 +53,15 @@ void Graphics::Display::ResizeTerminal(Graphics::Size size)
 }
 
 void Graphics::Display::Write(const char* text){
-    puts(text);
+    int len = (int)strlen(text);
+    for (int i = 0; i < len; i++){
+         NewPixel[curPosition.Y * Size.X + curPosition.X].SetPixel(curColor, text[i]);
+         curPosition.X++;
+         if (curPosition.X >= Size.X){
+             curPosition.X -= Size.X;
+             curPosition.Y += 1;
+         }
+    }
 }
 
 bool Graphics::Display::SetPixel(const Graphics::Point pt, const Graphics::Pixel value){

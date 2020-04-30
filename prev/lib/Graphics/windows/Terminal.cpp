@@ -19,7 +19,7 @@ bool Graphics::Output::Terminal::hasInput()
 
 void Graphics::Output::Terminal::RefreshInputDevice()
 {
-	if (beInput())
+	if (hasInput())
 	{
 		INPUT_RECORD input;
 		DWORD input_count;

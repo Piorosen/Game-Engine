@@ -1,4 +1,5 @@
 #include "Keyboard.h"
+#include "Enviroment.h"
 
 void Graphics::Input::Keyboard::KeyUp(unsigned short ch)
 {
@@ -25,7 +26,7 @@ Graphics::Input::Keyboard::Keyboard()
 void Graphics::Input::Keyboard::Refresh(void *data)
 {
 	KEY_EVENT_RECORD input = *(KEY_EVENT_RECORD *)data;
-
+	
 	if (input.bKeyDown)
 	{
 		KeyDown(input.wVirtualKeyCode);

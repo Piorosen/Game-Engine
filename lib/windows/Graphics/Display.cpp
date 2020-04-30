@@ -81,14 +81,9 @@ Graphics::Pixel Graphics::Display::GetPixel(const Graphics::Point pt) const{
     return Graphics::Pixel();
 }
 
-Graphics::Display::Display(Graphics::Size displaySize) {
-    EraseCursor(true);
-    
+Graphics::Display::Display() {
     DisplayPixel = nullptr;
     NewPixel = nullptr;
-    
-    Size = displaySize;
-    ResizeTerminal(displaySize);
 }
 
 Graphics::Display::~Display() {

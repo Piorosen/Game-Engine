@@ -17,6 +17,8 @@ namespace Graphics
 	{
 	private:
 
+	Display();
+
 #if OS_WINDOWS
 		Graphics::Point curPosition;
 		Graphics::Color curColor;	
@@ -27,11 +29,14 @@ namespace Graphics
 		Graphics::Pixel *NewPixel;
 		
 	public:
+		static Display* Instance() {
+			static Display* display = new Display();
+			return display;
+		}
+		
+
 		short Hz = 60;
 
-		Graphics::EventHandler<Graphics::Pixel *, Graphics::Size> EventDraw;
-
-		Display(Graphics::Size displaySize);
 		~Display();
 
 		void Clear();

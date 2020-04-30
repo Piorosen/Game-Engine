@@ -65,18 +65,20 @@
 		#define ARCHITECTURE_X64 false
 		#define ARCHITECTURE_X86 true
 	#endif
-#elif OS_LINUX
-	#define Enviroment_Architecture KindArchitecture::X86
-	#define ARCHITECTURE_X64 false
-	#define ARCHITECTURE_X86 true
-#elif OS_MAC
-	#define Enviroment_Architecture KindArchitecture::X86
-	#define ARCHITECTURE_X64 false
-	#define ARCHITECTURE_X86 true
+#elif COMPILER_GNUC
+	#if __x86_64__ || __ppc64__
+		#define Enviroment_Architecture KindArchitecture::X64
+		#define ARCHITECTURE_X64 true
+		#define ARCHITECTURE_X86 false
+	#else
+		#define Enviroment_Architecture KindArchitecture::X86
+		#define ARCHITECTURE_X64 false
+		#define ARCHITECTURE_X86 true
+	#endif	
 #else
-	#define Enviroment_Architecture KindArchitecture::X86
+	#define Enviroment_Architecture KindArchitecture::Others
 	#define ARCHITECTURE_X64 false
-	#define ARCHITECTURE_X86 true
+	#define ARCHITECTURE_X86 false
 #endif
 
 #if OS_WINDOWS
@@ -100,7 +102,8 @@ namespace Graphics{
 
 		enum class KindArchitecture {
 			X86,
-			X64
+			X64,
+			Others
 		};
 
 		constexpr OperatingSystem OS = Enviroment_OS;

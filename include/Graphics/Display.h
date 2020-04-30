@@ -5,7 +5,7 @@
 #include <time.h>
 #include <cstring>
 #include <windows.h>
-#include <cstdio>
+#include <iostream>
 
 #include "Point.h"
 #include "Pixel.h"

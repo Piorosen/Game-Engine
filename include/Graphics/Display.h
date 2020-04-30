@@ -24,18 +24,7 @@ namespace Graphics
 
 		Graphics::Pixel *DisplayPixel;
 		Graphics::Pixel *NewPixel;
-
-#if OS_MAC || OS_LINUX 
-		char *buffer;
-		int index;
-		int EraseCursor(bool isShowCursor, int index);
-		int FontColor(const Graphics::Color color, int index);
-		int GotoXY(Graphics::Point pt, int index);
-		int ChangeTitle(const char *name, int index);
-		int ResizeTerminal(Graphics::Size size, int index);
-		int Write(const char *text, int index);
-#endif
-
+		
 	public:
 		short Hz = 60;
 

@@ -1,34 +1,34 @@
 #include "Color.h"
 
-Graphics::Library::Color::Color() {
-	this->Background = ColorBackground::Black;
-	this->Forground = ColorForground::White;
+Graphics::Color::Color() {
+	this->Background = Graphics::ColorBackground::Black;
+	this->Forground = Graphics::ColorForground::White;
 }
 
-Graphics::Library::Color::Color(ColorForground forground, ColorBackground background) {
+Graphics::Color::Color(Graphics::ColorForground forground, Graphics::ColorBackground background) {
 	this->Background = background;
 	this->Forground = forground;
 }
 
-bool Graphics::Library::Color::operator==(const Color& c) const {
+bool Graphics::Color::operator==(const Graphics::Color& c) const {
 	if (Background == c.Background && Forground == c.Forground) {
 		return true;
 	}
 	return false;
 }
 
-bool Graphics::Library::Color::operator!=(const Color& c) const {
+bool Graphics::Color::operator!=(const Graphics::Color& c) const {
 	if (Background == c.Background && Forground == c.Forground) {
 		return false;
 	}
 	return true;
 }
 
-Graphics::Library::ColorForground Graphics::Library::Color::GetForground() const {
+Graphics::ColorForground Graphics::Color::GetForground() const {
 	return this->Forground;
 }
 
-Graphics::Library::ColorBackground Graphics::Library::Color::GetBackground() const {
+Graphics::ColorBackground Graphics::Color::GetBackground() const {
 	return this->Background;
 }
 

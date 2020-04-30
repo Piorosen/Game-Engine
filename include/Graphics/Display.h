@@ -43,6 +43,8 @@ namespace Graphics
 		void ResizeTerminal(Graphics::Size size);
 		void Write(const char* text);
 
+		bool SetPixel(const Graphics::Point pt, const Graphics::Pixel value);
+		Graphics::Pixel GetPixel(const Graphics::Point pt) const;
 	protected:
 		void Draw();
 

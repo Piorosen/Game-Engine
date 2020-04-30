@@ -5,7 +5,7 @@ Graphics::Color::Color() {
 	this->Forground = ColorForground::White;
 }
 
-Graphics:::Color::Color(ColorForground forground, ColorBackground background) {
+Graphics::Color::Color(ColorForground forground, ColorBackground background) {
 	this->Background = background;
 	this->Forground = forground;
 }

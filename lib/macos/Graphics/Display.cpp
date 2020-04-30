@@ -137,6 +137,23 @@ void Write(const char *text)
     index += (int)strlen(text);
 }
 
+bool Graphics::Display::SetPixel(const Graphics::Point pt, const Graphics::Pixel value){
+    int range = pt.Y * Size.X + pt.X;
+    if (0 <= range && range < Size.X * Size.Y) {
+        DisplayPixel[pt.Y * Size.X + pt.X] = value;
+        return true;
+    }
+    return false;
+}
+
+Graphics::Pixel Graphics::Display::GetPixel(const Graphics::Point pt) const{
+    int range = pt.Y * Size.X + pt.X;
+    if (0 <= range && range < Size.X * Size.Y) {
+        return DisplayPixel[pt.Y * Size.X + pt.X];
+    }
+    return Graphics::Pixel();
+}
+
 Graphics::Display::Display(Graphics::Size displaySize)
 {
     EraseCursor(true);

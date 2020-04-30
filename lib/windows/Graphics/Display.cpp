@@ -39,15 +39,9 @@ void Graphics::Display::ResizeTerminal(Graphics::Size size)
         delete[] NewPixel;
         NewPixel = nullptr;
     }
-    
-    if (buffer != nullptr) {
-        delete[] buffer;
-        buffer = nullptr;
-    }
 
     DisplayPixel = new Graphics::Pixel[size.X * size.Y];
     NewPixel = new Graphics::Pixel[size.X * size.Y];
-    buffer = new char[size.X * size.Y * 30];
     
     for (int i = 0; i < Size.X * Size.Y; i++) {
         DisplayPixel[i] = Graphics::Pixel();
@@ -64,7 +58,6 @@ Graphics::Display::Display(Graphics::Size displaySize) {
     
     DisplayPixel = nullptr;
     NewPixel = nullptr;
-    buffer = nullptr;
     
     Size = displaySize;
     ResizeTerminal(displaySize);
@@ -82,10 +75,6 @@ Graphics::Display::~Display() {
         NewPixel = nullptr;
     }
     
-    if (buffer == nullptr){
-        delete[] buffer;
-        buffer = nullptr;
-    }
 }
 
 

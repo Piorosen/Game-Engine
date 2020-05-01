@@ -131,7 +131,7 @@ void Graphics::Display::ResizeTerminal(Graphics::Size size)
     index = (int)strlen(save);
 }
 
-void Write(const char *text)
+void Graphics::Display::Write(const char *text)
 {
     strcat(buffer, text);
     index += (int)strlen(text);
@@ -154,18 +154,13 @@ Graphics::Pixel Graphics::Display::GetPixel(const Graphics::Point pt) const{
     return Graphics::Pixel();
 }
 
-Graphics::Display::Display(Graphics::Size displaySize)
+Graphics::Display::Display()
 {
-    EraseCursor(true);
-
     DisplayPixel = nullptr;
     NewPixel = nullptr;
 
     buffer = nullptr;
     index = 0;
-
-    Size = displaySize;
-    ResizeTerminal(displaySize);
 }
 
 Graphics::Display::~Display()
@@ -199,14 +194,13 @@ void Graphics::Display::Draw()
 {
     int size = Size.X * Size.Y * 30;
 
-    int index = 0;
     for (int y = 0; y < Size.Y; y++)
     {
-        GotoXY(Graphics::Point(0, y), index);
+        GotoXY(Graphics::Point(0, y));
 
         for (int x = 0; x < Size.X; x++)
         {
-            FontColor(NewPixel[y * Size.X + x].Color, index);
+            FontColor(NewPixel[y * Size.X + x].Color);
             buffer[index++] = NewPixel[y * Size.X + x].Ascii;
         }
     }
@@ -224,6 +218,5 @@ void Graphics::Display::Draw()
 
 void Graphics::Display::ReDraw()
 {
-    EventDraw.Invoke(NewPixel, Size);
     Draw();
 }

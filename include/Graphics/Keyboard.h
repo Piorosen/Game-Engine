@@ -11,8 +11,9 @@ namespace Graphics
 		};
 
 		void KeyUp(unsigned short ch);
-
 		void KeyDown(unsigned short ch);
+
+		Keyboard();
 
 	public:
 		EventHandler<unsigned short> EventKeyDown;
@@ -21,6 +22,5 @@ namespace Graphics
 
 		void Refresh(void *data);
 
-		Keyboard();
 	};
 } // namespace Graphics

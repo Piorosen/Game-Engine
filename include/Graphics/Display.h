@@ -1,5 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #pragma once
 
 #include <time.h>
@@ -35,10 +33,9 @@ namespace Graphics
 		
 	public:
 		static Display* Instance() {
-			static Display* display = new Display();
-			return display;
-		}
-		
+            static Display* inst = new Display();
+            return inst;
+        }
 
 		short Hz = 60;
 

@@ -1,4 +1,9 @@
+#include <iostream>
 #include "Enviroment.h"
+
+using namespace std;
+using namespace Graphics;
+
 
 void EnviromentTest() {
     switch (Enviroment::OS) {

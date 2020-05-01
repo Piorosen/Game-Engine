@@ -24,7 +24,7 @@ namespace Graphics
 			return false;
 		}
 
-		bool operator+=(Action<ARGS...> function)
+		bool operator+=(Graphics::Action<ARGS...> function)
 		{
 			for (auto &i : list)
 			{
@@ -69,6 +69,7 @@ namespace Graphics
 			{
 				i = 0;
 			}
+			return true;
 		}
 
 		void BeginInvoke(void (*function)(), const ARGS... arguments) const

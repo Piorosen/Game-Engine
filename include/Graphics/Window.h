@@ -122,7 +122,8 @@ public:
 
     static Window* Instance() {
         static Window* inst = new Window();
-        Display::Instance()->ResizeTerminal(Size(80, 50));
+        Display::Instance()->ResizeTerminal(Size(60, 60));
+        Display::Instance()->EraseCursor(true);
         Display::Instance()->ReDraw();
         return inst;
     }

@@ -13,9 +13,10 @@ namespace Graphics
 		void KeyUp(unsigned short ch);
 		void KeyDown(unsigned short ch);
 
-		Keyboard();
 
 	public:
+		Keyboard();
+
 		EventHandler<unsigned short> EventKeyDown;
 		EventHandler<unsigned short> EventKeyUp;
 		EventHandler<unsigned short, bool> EventKeyChanged;

@@ -19,8 +19,8 @@ namespace Graphics {
             vertex[1] = Vector(location.X + size.X, location.Y, 0);
             vertex[2] = Vector(location.X + size.X, location.Y + size.Y, 0);
 
-            vertex[3] = Vector(location.X, location.Y, 0);
-            vertex[4] = Vector(location.X + size.X, location.Y + size.Y, 0);
+            vertex[3] = Vector(location.X + size.X, location.Y + size.Y, 0);
+            vertex[4] = Vector(location.X, location.Y, 0);
             vertex[5] = Vector(location.X, location.Y + size.Y, 0);
         }
 

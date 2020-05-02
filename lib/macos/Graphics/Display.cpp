@@ -12,7 +12,6 @@ void Graphics::Display::EraseCursor(bool isShowCursor)
 
 void Graphics::Display::FontColor(const Graphics::Color color)
 {
-
     int forg = (int)color.GetForground();
     int back = (int)color.GetBackground();
 
@@ -45,7 +44,6 @@ void Graphics::Display::FontColor(const Graphics::Color color)
 
 void Graphics::Display::GotoXY(Graphics::Point pt)
 {
-
     pt.X += 1;
     pt.Y += 1;
 
@@ -80,7 +78,6 @@ void Graphics::Display::GotoXY(Graphics::Point pt)
 
 void Graphics::Display::ChangeTitle(const char *name)
 {
-    int base = 0;
     char save[256] = {
         0,
     };
@@ -93,11 +90,6 @@ void Graphics::Display::ChangeTitle(const char *name)
 void Graphics::Display::ResizeTerminal(Graphics::Size size)
 {
     this->Size = size;
-    if (DisplayPixel != nullptr)
-    {
-        delete[] DisplayPixel;
-        DisplayPixel = nullptr;
-    }
 
     if (NewPixel != nullptr)
     {
@@ -105,7 +97,6 @@ void Graphics::Display::ResizeTerminal(Graphics::Size size)
         NewPixel = nullptr;
     }
 
-    DisplayPixel = new Graphics::Pixel[size.X * size.Y];
     NewPixel = new Graphics::Pixel[size.X * size.Y];
 
     if (buffer != nullptr)
@@ -115,20 +106,15 @@ void Graphics::Display::ResizeTerminal(Graphics::Size size)
     }
     buffer = new char[size.X * size.Y * 30];
 
-    for (int i = 0; i < Size.X * Size.Y; i++)
-    {
-        DisplayPixel[i] = Graphics::Pixel();
-        NewPixel[i] = Graphics::Pixel();
-    }
     int base = 0;
 
     char save[100] = {
         0,
     };
 
-    sprintf(save, "\e[8;%d;%dt", size.Y, size.X);
+    sprintf(save, "\e[8;%d;%dt", size.Y + 5, size.X + 10);
     strcat(buffer, save);
-    index = (int)strlen(save);
+    index += (int)strlen(save);
 }
 
 void Graphics::Display::Write(const char *text)
@@ -140,7 +126,7 @@ void Graphics::Display::Write(const char *text)
 bool Graphics::Display::SetPixel(const Graphics::Point pt, const Graphics::Pixel value){
     int range = pt.Y * Size.X + pt.X;
     if (0 <= range && range < Size.X * Size.Y) {
-        DisplayPixel[pt.Y * Size.X + pt.X] = value;
+        NewPixel[pt.Y * Size.X + pt.X] = value;
         return true;
     }
     return false;
@@ -149,7 +135,7 @@ bool Graphics::Display::SetPixel(const Graphics::Point pt, const Graphics::Pixel
 Graphics::Pixel Graphics::Display::GetPixel(const Graphics::Point pt) const{
     int range = pt.Y * Size.X + pt.X;
     if (0 <= range && range < Size.X * Size.Y) {
-        return DisplayPixel[pt.Y * Size.X + pt.X];
+        return NewPixel[pt.Y * Size.X + pt.X];
     }
     return Graphics::Pixel();
 }
@@ -197,23 +183,23 @@ void Graphics::Display::Draw()
     for (int y = 0; y < Size.Y; y++)
     {
         GotoXY(Graphics::Point(0, y));
-
+        index -= 1;
         for (int x = 0; x < Size.X; x++)
         {
             FontColor(NewPixel[y * Size.X + x].Color);
-            buffer[index++] = NewPixel[y * Size.X + x].Ascii;
+            index -= 1;
+            
+            buffer[index++] = NewPixel[y * Size.X + x].Ascii ? NewPixel[y * Size.X + x].Ascii : ' ';
+            NewPixel[y * Size.X + x].SetPixel(' ');
         }
     }
+
     buffer[index++] = '\0';
     puts(buffer);
+    index = 0;
+
     fflush(stdout);
     fflush(stderr);
-
-    index = 0;
-    for (int i = 0; i < size; i++)
-    {
-        buffer[i] = '\0';
-    }
 }
 
 void Graphics::Display::ReDraw()

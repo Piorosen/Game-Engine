@@ -1,7 +1,26 @@
 #include "Pixel.h"
 
+
+Graphics::Pixel::Pixel() {
+	this->Ascii = 0;
+	this->Color = Graphics::Color();
+}
+Graphics::Pixel::Pixel(char ch) {
+	this->Ascii = ch;
+	this->Color = Graphics::Color();
+}
+Graphics::Pixel::Pixel(Graphics::Color color) {
+	this->Ascii = 0;
+	this->Color = color;
+}
+Graphics::Pixel::Pixel(Graphics::Color color, char ch) {
+	this->Ascii = ch;
+	this->Color = color;
+}
+
 void Graphics::Pixel::SetPixel(Graphics::Color color, char ch) {
 	this->Ascii = ch;
+	this->Color = color;
 }
 
 void Graphics::Pixel::SetPixel(char ch) {

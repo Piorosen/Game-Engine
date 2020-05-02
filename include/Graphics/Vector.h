@@ -4,9 +4,10 @@
 namespace Graphics {
     class Vector {
     private:
-        double X, Y, Z;
 
     public:
+        double X, Y, Z;
+        
         static double epsilon;
 
         Vector();

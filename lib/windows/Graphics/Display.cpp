@@ -97,7 +97,10 @@ Graphics::Display::~Display() {
 
 void Graphics::Display::Clear()
 {
-    system("cls");
+    int max = Size.X * Size.Y;
+    for (int item = 0; item < max; item++){
+        NewPixel[item] = Pixel();
+    }
 }
 
 void Graphics::Display::Draw() {
@@ -109,17 +112,18 @@ void Graphics::Display::Draw() {
                 if (Graphics::Point(x - 1, y) != prev) {
                     GotoXY(Graphics::Point(x, y));
                 }
-
-                FontColor(NewPixel[y * Size.X + x].Color);
-                putchar(NewPixel[y * Size.X + x].Ascii);
+                if (DisplayPixel[y * Size.X + x].Color != NewPixel[y * Size.X + x].Color) {
+                    FontColor(NewPixel[y * Size.X + x].Color);
+                }
+                if (DisplayPixel[y * Size.X + x].Ascii != NewPixel[y * Size.X + x].Ascii) {
+                    putchar(NewPixel[y * Size.X + x].Ascii);
+                }
 				DisplayPixel[y * Size.X + x] = NewPixel[y * Size.X + x];
 				
                 prev = Graphics::Point(x, y);
             }
-			NewPixel[y * Size.X + x] = Pixel();
         }
     }
-
 }
 
 void Graphics::Display::ReDraw()

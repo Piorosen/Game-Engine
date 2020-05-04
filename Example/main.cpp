@@ -29,10 +29,8 @@ void test(unsigned short a){
 int main() {
     std::cout << "TEST";
     runTest();
-    Keyboard a;
-    a.EventKeyDown += test;
-
-    for (int i = 0; ; i++){
-        a.Refresh(nullptr);
-    }
+    window->keyboard.EventKeyDown += test;
+    window->SessionStart();
+    
+    system("sleep 10000");
 }

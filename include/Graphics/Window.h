@@ -1,5 +1,8 @@
 #pragma once
 
+#include <thread>
+
+
 #include "Enviroment.h"
 #include "Vector.h"
 #include "Color.h"
@@ -118,7 +121,25 @@ protected:
         drawLine(c, a);
     }
 
+
+    std::thread input;
+
+    
+    bool suspend = true;
+
+    void Refresh() {
+        while (!suspend) {
+#if OS_MAC || OS_LINUX
+            keyboard.Refresh(nullptr);
+            mouse.Refresh(nullptr);
+#endif
+        }
+    }
+
 public: 
+
+    Keyboard keyboard;
+    Mouse mouse;
 
     static Window* Instance() {
         static Window* inst = new Window();
@@ -127,12 +148,24 @@ public:
         Display::Instance()->ReDraw();
         return inst;
     }
-		
+	
+    ~Window() {
+        input.detach();
+    }
+
     void SessionStart()
     {
+        if (suspend == true) {
+            input = std::thread(&Window::Refresh, this);
+            suspend = false;
+            input.join();
+        }
     }
+
     void SessionClose()
     {
+        suspend = true;
+        input.detach();
     }
 
     void Draw(const Shape object)

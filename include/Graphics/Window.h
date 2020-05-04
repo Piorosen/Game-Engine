@@ -2,7 +2,6 @@
 
 #include <thread>
 
-
 #include "Enviroment.h"
 #include "Vector.h"
 #include "Color.h"
@@ -23,6 +22,7 @@ class Window
 protected:
     Window() {}
 
+    // Raster 쉐이더로 옮길 예정.
     void drawLine(Graphics::Point x, Graphics::Point y)
     {
         int dx, dy;
@@ -121,23 +121,12 @@ protected:
         drawLine(c, a);
     }
 
-
     std::thread input;
 
-    
     bool suspend = true;
-
-    void Refresh() {
-        while (!suspend) {
-#if OS_MAC || OS_LINUX
-            keyboard.Refresh(nullptr);
-            mouse.Refresh(nullptr);
-#endif
-        }
-    }
+    void Refresh();
 
 public: 
-
     Keyboard keyboard;
     Mouse mouse;
 
@@ -148,36 +137,11 @@ public:
         Display::Instance()->ReDraw();
         return inst;
     }
-	
-    ~Window() {
-        input.detach();
-    }
 
-    void SessionStart()
-    {
-        if (suspend == true) {
-            input = std::thread(&Window::Refresh, this);
-            suspend = false;
-            input.join();
-        }
-    }
+    void SessionStart();
+    void SessionClose();
 
-    void SessionClose()
-    {
-        suspend = true;
-        input.detach();
-    }
-
-    void Draw(const Shape object)
-    {
-        int size = object.GetIndics() / 3;
-        Vector* vertex = object.GetVertex();
-        
-        for (int i = 0; i < size; i++) {
-            drawTriangle(Point(vertex[i * 3].X, vertex[i * 3].Y), Point(vertex[i * 3+1].X, vertex[i * 3+1].Y), Point(vertex[i * 3+2].X, vertex[i * 3 + 2].Y));
-        }
-        Display::Instance()->ReDraw();
-    }
+    void Draw(const Shape object);
 };
 
 } // namespace Graphics

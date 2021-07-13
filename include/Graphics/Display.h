@@ -1,12 +1,10 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #pragma once
 
 #include <time.h>
 #include <cstring>
-#include <windows.h>
 #include <iostream>
 
+#include "Enviroment.h"
 #include "Point.h"
 #include "Pixel.h"
 #include "EventHandler.h"
@@ -17,21 +15,30 @@ namespace Graphics
 	{
 	private:
 
+	Display();
+
 #if OS_WINDOWS
 		Graphics::Point curPosition;
 		Graphics::Color curColor;	
+#elif OS_MAC || OS_LINUX
+		char* buffer;
+		int index;
 #endif
+
+
 		Graphics::Size Size;
 
 		Graphics::Pixel *DisplayPixel;
 		Graphics::Pixel *NewPixel;
 		
 	public:
+		static Display* Instance() {
+            static Display* inst = new Display();
+            return inst;
+        }
+
 		short Hz = 60;
 
-		Graphics::EventHandler<Graphics::Pixel *, Graphics::Size> EventDraw;
-
-		Display(Graphics::Size displaySize);
 		~Display();
 
 		void Clear();

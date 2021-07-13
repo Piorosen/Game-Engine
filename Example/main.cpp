@@ -1,49 +1,36 @@
 #include <iostream>
 
-#include "Enviroment.h"
+#include "Window.h"
+
+#include "UnitTest/TestModule.h"
 
 using namespace std;
 using namespace Graphics;
 
-int main() {
-    switch (Enviroment::OS) {
-        case Enviroment::OperatingSystem::Linux:
-            cout << "Linux" << endl;
-        break;
-        case Enviroment::OperatingSystem::MacOS:
-            cout << "MacOS" << endl;
-        break;
-        case Enviroment::OperatingSystem::Windows:
-            cout << "Windows" << endl;
-        break;
-        case Enviroment::OperatingSystem::Others:
-            cout << "Others" << endl;
-        break;
-    }
+Window* window = Window::Instance();
+Rectangle r(Point(15, 15), Size(20, 20));
+double degree = 0;
 
-    switch (Enviroment::Compiler) {
-        case Enviroment::KindCompiler::GNUC:
-            cout << "GNUC" << endl;
-        break;
-        case Enviroment::KindCompiler::MingW:
-            cout << "MingW" << endl;
-        break;
-        case Enviroment::KindCompiler::MSVC:
-            cout << "MSVC" << endl;
-        break;
-        case Enviroment::KindCompiler::Others:
-            cout << "Others" << endl;
-        break;
-    }
 
-    switch (Enviroment::Architecture){
-        case Enviroment::KindArchitecture::X64:
-            cout << "X64" << endl;
-        break;
-        case Enviroment::KindArchitecture::X86:
-            cout << "X86" << endl;
-        break;
-    }
-
+void test(unsigned short a){
     
+    if (a == 'a'){ 
+        degree = -5;
+    }else if (a == 'd') {
+        degree = 5;
+    }else {
+        degree = 0;
+    }
+    Display::Instance()->Clear();
+    r.Rotate(Point(r.Location.X + r.Scale.X / 2, r.Location.Y + r.Scale.Y / 2), degree);
+    window->Draw(r);
+}
+
+int main() {
+    std::cout << "TEST";
+    runTest();
+    window->keyboard.EventKeyDown += test;
+    window->SessionStart();
+    
+    system("sleep 10000");
 }

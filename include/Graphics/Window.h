@@ -17,13 +17,13 @@
 
 namespace Graphics
 {
-class Window
-{
-protected:
-    Window() {}
-
-    // Raster 쉐이더로 옮길 예정.
-    void drawLine(Graphics::Point x, Graphics::Point y)
+    class Window
+    {
+    protected:
+        Window() {}
+    
+        // Raster 쉐이더로 옮길 예정.
+        void drawLine(Graphics::Point x, Graphics::Point y)
     {
         int dx, dy;
         int p_value;
@@ -114,34 +114,41 @@ protected:
             }
         }
     }
-    void drawTriangle(Point a, Point b, Point c)
-    {
-        drawLine(a, b);
-        drawLine(b, c);
-        drawLine(c, a);
-    }
-
-    std::thread input;
-
-    bool suspend = true;
-    void Refresh();
-
-public: 
-    Keyboard keyboard;
-    Mouse mouse;
-
-    static Window* Instance() {
-        static Window* inst = new Window();
-        Display::Instance()->ResizeTerminal(Size(40, 40));
-        Display::Instance()->EraseCursor(true);
-        Display::Instance()->ReDraw();
-        return inst;
-    }
-
-    void SessionStart();
-    void SessionClose();
-
-    void Draw(const Shape object);
-};
-
+        void drawTriangle(Point a, Point b, Point c)
+        {
+            drawLine(a, b);
+            drawLine(b, c);
+            drawLine(c, a);
+        }
+    
+        std::thread input;
+        bool suspend = true;
+    
+        // 입력을 갱신 함.
+        void Refresh();
+    
+    public: 
+        Keyboard keyboard;
+        Mouse mouse;
+    
+        static Window* Instance() {
+            static Window* inst = new Window();
+            Display::Instance()->ResizeTerminal(Size(40, 40));
+            Display::Instance()->EraseCursor(true);
+            Display::Instance()->ReDraw();
+            return inst;
+        }
+    
+        // 입력 세션 시작.
+        void SessionStart();
+    
+        // 입력 세션 종료
+        void SessionClose();
+    
+        // 모니터 버퍼 삭제
+        void Clear();
+    
+        // 렌더링
+        void Draw(const Shape object);
+    };
 } // namespace Graphics

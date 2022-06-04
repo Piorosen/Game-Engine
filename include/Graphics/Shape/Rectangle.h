@@ -12,7 +12,7 @@ namespace Graphics {
             Location = location;
             Scale = size;
 
-            vertex = new Vector[6];
+            vertex = new Vector[4];
             indics = 6;
 
             vertex[0] = Vector(location.X, location.Y, 0);

@@ -8,29 +8,14 @@ using namespace std;
 using namespace Graphics;
 
 Window* window = Window::Instance();
-Rectangle r(Point(15, 15), Size(20, 20));
-double degree = 0;
-
-
-void test(unsigned short a){
-    
-    if (a == 'a'){ 
-        degree = -5;
-    }else if (a == 'd') {
-        degree = 5;
-    }else {
-        degree = 0;
-    }
-    Display::Instance()->Clear();
-    r.Rotate(Point(r.Location.X + r.Scale.X / 2, r.Location.Y + r.Scale.Y / 2), degree);
-    window->Draw(r);
-}
 
 int main() {
-    std::cout << "TEST";
-    runTest();
-    window->keyboard.EventKeyDown += test;
-    window->SessionStart();
-    
-    system("sleep 10000");
+    Graphics::Rectangle r(Point(20, 20), Size(10, 10));
+
+    while (true) {
+        window->Clear();
+        r.Rotate(Point(15, 15), 5);
+        window->Draw(r);
+        Sleep(100);
+    }
 }
